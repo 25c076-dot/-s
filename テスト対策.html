@@ -1,0 +1,4065 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>理社一問一答・実践テスト＆定期試験予想問題集（深掘り解説付き）</title>
+<style>
+/* ===== デザイントークン（ライト／ダーク自動対応） ===== */
+:root{
+  --bg:#f4f6f9;--card:#ffffff;--card2:#f8fafc;--ink:#1b2028;--sub:#5b6472;--line:#dbe2ea;
+  --acc:#2563eb;--accbg:#eff6ff;--sci:#15803d;--scibg:#f0fdf4;--soc:#6d28d9;--socbg:#f5f3ff;
+  --ok:#166534;--okbg:#dcfce7;--ng:#b91c1c;--ngbg:#fee2e2;
+  --tip:#92400e;--tipbg:#fef3c7;--tipbd:#f59e0b;
+  --exam:#b45309;--exambg:#fffbeb;--exambd:#f59e0b;
+  --deep:#0f766e;--deepbg:#f0fdfa;--deepbd:#14b8a6;
+  --barbg:#e2e8f0;--redsheet:#e11d48;--numbg:#e0e7ff;--numink:#1e3a8a;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#11141b;--card:#1a1f2b;--card2:#222836;--ink:#f1f5f9;--sub:#94a3b8;--line:#2d3545;
+    --acc:#60a5fa;--accbg:#1e293b;--sci:#4ade80;--scibg:#14291e;--soc:#a78bfa;--socbg:#231b38;
+    --ok:#4ade80;--okbg:#142e20;--ng:#f87171;--ngbg:#361b1e;
+    --tip:#fbbf24;--tipbg:#2d2312;--tipbd:#d97706;
+    --exam:#fbbf24;--exambg:#2a1f0d;--exambd:#d97706;
+    --deep:#2dd4bf;--deepbg:#112a27;--deepbd:#0d9488;
+    --barbg:#2a3140;--redsheet:#be123c;--numbg:#1e3a8a;--numink:#93c5fd;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11141b;--card:#1a1f2b;--card2:#222836;--ink:#f1f5f9;--sub:#94a3b8;--line:#2d3545;
+  --acc:#60a5fa;--accbg:#1e293b;--sci:#4ade80;--scibg:#14291e;--soc:#a78bfa;--socbg:#231b38;
+  --ok:#4ade80;--okbg:#142e20;--ng:#f87171;--ngbg:#361b1e;
+  --tip:#fbbf24;--tipbg:#2d2312;--tipbd:#d97706;
+  --exam:#fbbf24;--exambg:#2a1f0d;--exambd:#d97706;
+  --deep:#2dd4bf;--deepbg:#112a27;--deepbd:#0d9488;
+  --barbg:#2a3140;--redsheet:#be123c;--numbg:#1e3a8a;--numink:#93c5fd;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;overflow-x:hidden;line-height:1.6}
+body{min-height:100vh;display:flex;justify-content:center}
+#app{width:100%;max-width:650px;padding:12px 14px 54px}
+button,input,textarea{font:inherit;color:inherit}
+.num{font-variant-numeric:tabular-nums}
+
+/* ===== ヘッダー ===== */
+.header{
+  display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;
+  background:var(--card);border:1.5px solid var(--line);border-radius:16px;
+  padding:10px 14px;margin-bottom:10px;box-shadow:0 3px 10px rgba(0,0,0,0.04);
+}
+.brand{display:flex;align-items:center;gap:9px;font-weight:900;font-size:15.5px;letter-spacing:0.02em}
+.brand-badge{
+  width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,var(--acc),#4f46e5);color:#fff;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(37,99,235,0.28);
+}
+.header-tools{display:flex;align-items:center;gap:6px}
+.pill-btn{
+  background:var(--bg);border:1.5px solid var(--line);color:var(--ink);
+  border-radius:11px;padding:7px 11px;font-size:12px;font-weight:800;
+  display:inline-flex;align-items:center;gap:5px;cursor:pointer;transition:all .15s;
+}
+.pill-btn:hover{border-color:var(--acc);background:var(--card2)}
+.pill-btn:active{transform:scale(0.97)}
+.pill-btn.on{border-color:var(--acc);color:var(--acc);background:var(--accbg)}
+
+/* ===== メインナビゲーション（4タブ） ===== */
+.main-nav{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:12px;
+}
+.mnav-btn{
+  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+  padding:10px 4px;font-size:11.5px;font-weight:800;color:var(--sub);cursor:pointer;
+  transition:all .16s cubic-bezier(.2,.8,.2,1);
+}
+.mnav-btn:hover:not(.active){border-color:var(--acc);color:var(--ink)}
+.mnav-btn:active{transform:scale(0.97)}
+.mnav-btn.active{
+  background:var(--acc);color:#fff;border-color:var(--acc);
+  box-shadow:0 4px 12px rgba(37,99,235,0.25);transform:translateY(-1px);
+}
+.mnav-badge{
+  position:absolute;top:-6px;right:-4px;background:var(--ng);color:#fff;
+  font-size:10px;font-weight:900;padding:1px 6px;border-radius:99px;
+  border:2px solid var(--bg);line-height:1.25;
+}
+.mnav-dot{
+  position:absolute;top:7px;right:9px;width:7px;height:7px;border-radius:50%;background:var(--tipbd);
+}
+
+/* ===== カード＆共通パーツ ===== */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:16px;margin-bottom:12px;box-shadow:0 4px 14px rgba(0,0,0,0.04);
+}
+.card.exam-mode-card{
+  border:2px solid var(--exambd);
+  box-shadow:0 6px 18px rgba(245,158,11,0.12);
+}
+.sub-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+.stab-btn{
+  padding:10px 4px;border-radius:12px;border:1.5px solid var(--line);
+  background:var(--card);color:var(--sub);font-size:12px;font-weight:800;
+  cursor:pointer;transition:all .15s;text-align:center;
+}
+.stab-btn:hover:not(.active){border-color:var(--acc);color:var(--ink)}
+.stab-btn.active{background:var(--acc);color:#fff;border-color:var(--acc);box-shadow:0 2px 8px rgba(37,99,235,0.2)}
+.stab-btn.active.sci{background:var(--sci);border-color:var(--sci);box-shadow:0 2px 8px rgba(21,128,61,0.2)}
+.stab-btn.active.soc{background:var(--soc);border-color:var(--soc);box-shadow:0 2px 8px rgba(109,40,217,0.2)}
+.stab-btn.active.weak{background:var(--ng);border-color:var(--ng);box-shadow:0 2px 8px rgba(185,28,28,0.2)}
+
+.sub-filters{
+  display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;padding-bottom:10px;
+  border-bottom:1px dashed var(--line);
+}
+.chip-btn{
+  padding:6px 12px;border-radius:999px;border:1.5px solid var(--line);
+  background:var(--bg);color:var(--sub);font-size:11.5px;font-weight:800;cursor:pointer;transition:all .12s;
+}
+.chip-btn:hover:not(.active){border-color:var(--acc);color:var(--ink)}
+.chip-btn.active{background:var(--ink);color:var(--card);border-color:var(--ink)}
+
+.mode-row{
+  display:flex;justify-content:space-between;align-items:center;gap:8px;
+  margin-bottom:12px;flex-wrap:wrap;
+}
+.mode-switch{
+  display:inline-flex;background:var(--bg);padding:3px;border-radius:11px;border:1px solid var(--line);flex-wrap:wrap;
+}
+.mode-switch button{
+  border:0;background:transparent;color:var(--sub);font-size:11.5px;font-weight:800;
+  padding:6px 10px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .15s;
+}
+.mode-switch button.active{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,0.12)}
+.mode-switch button.active.exam-tab{background:linear-gradient(135deg,#d97706,#b45309);color:#fff}
+
+/* ===== 実践テスト・定期試験予想バナー ===== */
+.test-notice-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;
+  background:var(--exambg);border:1.5px solid var(--exambd);border-radius:12px;
+  padding:8px 12px;margin-bottom:12px;font-size:12px;font-weight:800;color:var(--exam);
+}
+.test-notice-bar.practice{
+  background:var(--accbg);border-color:var(--acc);color:var(--acc);
+}
+
+/* ===== 進捗バー（テスト用） ===== */
+.prog-wrap{margin-bottom:12px}
+.prog-top{display:flex;justify-content:space-between;font-size:11.5px;font-weight:800;color:var(--sub);margin-bottom:4px;flex-wrap:wrap;gap:4px}
+.prog-bar{height:8px;background:var(--barbg);border-radius:99px;overflow:hidden}
+.prog-fill{height:100%;background:var(--acc);transition:width .25s ease;border-radius:99px}
+.prog-fill.exam{background:linear-gradient(90deg,#f59e0b,#d97706)}
+
+/* ===== タイマー表示バー ===== */
+.timer-wrap{
+  background:var(--card2);border:1px solid var(--line);border-radius:11px;
+  padding:8px 11px;margin-bottom:12px;
+}
+.timer-top{
+  display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap;
+  font-size:12px;font-weight:900;margin-bottom:5px;
+}
+.timer-sec{font-size:14px;color:var(--acc)}
+.timer-sec.warn{color:var(--ng);animation:pulse .6s infinite alternate}
+.timer-bar{height:6px;background:var(--barbg);border-radius:99px;overflow:hidden}
+.timer-fill{height:100%;background:var(--acc);transition:width .1s linear,background-color .2s}
+.timer-fill.warn{background:var(--ng)}
+
+/* ===== 問題表示＆選択肢 ===== */
+.tags{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+.tag{
+  display:inline-block;font-size:11px;font-weight:800;border:1px solid var(--line);
+  border-radius:6px;padding:2px 8px;color:var(--sub);background:var(--bg);
+}
+.tag.sub-sci{background:var(--sci);color:#fff;border-color:var(--sci)}
+.tag.sub-soc{background:var(--soc);color:#fff;border-color:var(--soc)}
+.tag.mastery{background:var(--tipbg);color:var(--tip);border-color:var(--tipbd)}
+.tag.exam-freq{background:var(--exambg);color:var(--exam);border-color:var(--exambd);font-weight:900}
+.tag.pts-badge{background:var(--accbg);color:var(--acc);border-color:var(--acc);font-weight:900}
+
+.q-text{font-size:18px;font-weight:800;line-height:1.72;margin:8px 0 16px;letter-spacing:0.01em}
+.hl-num{
+  display:inline-block;background:var(--numbg);color:var(--numink);
+  padding:0 5px;border-radius:5px;font-weight:900;margin:0 1px;
+}
+
+.opt{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+  padding:15px 16px;margin-bottom:10px;font-size:15.5px;font-weight:700;color:var(--ink);
+  cursor:pointer;transition:border-color .15s,background .15s,transform .1s,box-shadow .15s;
+}
+.opt:hover:not(:disabled){border-color:var(--acc);background:var(--card2);box-shadow:0 2px 8px rgba(37,99,235,0.08)}
+.opt:active:not(:disabled){transform:scale(0.985)}
+.opt:disabled{cursor:default}
+.opt-num{
+  width:28px;height:28px;border-radius:9px;background:var(--bg);border:1.5px solid var(--line);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:900;color:var(--sub);flex-shrink:0;transition:all .15s;
+}
+.opt.ok{background:var(--okbg);border-color:var(--ok);font-weight:800;animation:bounceOk .32s ease}
+.opt.ok .opt-num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.ng{background:var(--ngbg);border-color:var(--ng);animation:shakeNg .3s ease}
+.opt.ng .opt-num{background:var(--ng);color:#fff;border-color:var(--ng)}
+
+/* ===== ヒント＆補助ツールバー ===== */
+.assist-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;
+  margin-bottom:12px;
+}
+.hint-box{
+  background:var(--tipbg);border:1.5px solid var(--tipbd);border-radius:12px;
+  padding:10px 12px;margin-bottom:12px;font-size:13px;line-height:1.55;animation:pop .2s ease;
+}
+.hint-title{font-size:11.5px;font-weight:900;color:var(--tip);margin-bottom:2px;display:flex;align-items:center;gap:4px}
+
+/* ===== 解説・深掘り・マイメモ・関連ジャンプボックス ===== */
+.fb{
+  border-radius:14px;padding:14px 15px;margin-top:12px;
+  font-size:14px;line-height:1.7;border:1.5px solid transparent;
+  animation:pop .2s ease;
+}
+.fb.ok{background:var(--okbg);border-color:var(--ok)}
+.fb.ng{background:var(--ngbg);border-color:var(--ng)}
+.fb-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.res-title{font-size:18px;font-weight:900}
+.fb.ok .res-title{color:var(--ok)}
+.fb.ng .res-title{color:var(--ng)}
+
+.pin-btn{
+  background:var(--card);border:1.5px solid var(--line);color:var(--ink);
+  border-radius:999px;padding:4px 11px;font-size:11.5px;font-weight:800;cursor:pointer;
+}
+.pin-btn.pinned{background:var(--tipbg);border-color:var(--tipbd);color:var(--tip)}
+
+.tip-box{
+  margin-top:10px;padding:10px 12px;border-radius:10px;
+  background:var(--tipbg);border-left:4px solid var(--tipbd);
+  color:var(--ink);font-size:13px;line-height:1.6;
+}
+.tip-label{font-size:11px;font-weight:900;color:var(--tip);margin-bottom:2px}
+
+/* 年号・語呂合わせカード */
+.mnemonic-box{
+  margin-top:10px;padding:10px 12px;border-radius:12px;
+  background:var(--socbg);border:1.5px solid var(--soc);
+  color:var(--ink);font-size:13px;
+}
+.mnemonic-head{
+  font-size:11.5px;font-weight:900;color:var(--soc);margin-bottom:6px;
+  display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;
+}
+.mnemonic-list{display:flex;flex-direction:column;gap:6px}
+.mnemonic-item{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  background:var(--card);border:1px solid var(--line);border-radius:9px;
+  padding:7px 10px;font-size:12.5px;font-weight:800;
+}
+.mnemonic-save-btn{
+  background:var(--socbg);border:1px solid var(--soc);color:var(--soc);
+  border-radius:999px;padding:3px 9px;font-size:11px;font-weight:900;cursor:pointer;flex-shrink:0;
+}
+.mnemonic-save-btn:hover{background:var(--soc);color:#fff}
+
+/* 深掘り解説（なぜ？・因果関係）パネル */
+.deep-box{
+  margin-top:10px;padding:11px 13px;border-radius:12px;
+  background:var(--deepbg);border:1.5px solid var(--deepbd);
+  color:var(--ink);font-size:13px;line-height:1.65;
+}
+.deep-head{
+  display:flex;justify-content:space-between;align-items:center;gap:6px;
+  font-size:12px;font-weight:900;color:var(--deep);margin-bottom:4px;
+}
+
+/* ファインマン・理解度セルフチェック＆マイメモ */
+.feynman-box{
+  margin-top:10px;padding:11px 13px;border-radius:12px;
+  background:var(--card);border:1.5px solid var(--line);
+}
+.feynman-title{font-size:12px;font-weight:900;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px}
+.mastery-pills{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px}
+.m-pill{
+  padding:7px 4px;border-radius:9px;border:1.5px solid var(--line);background:var(--bg);
+  font-size:11.5px;font-weight:800;cursor:pointer;text-align:center;transition:all .14s;
+}
+.m-pill.active-high{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+.m-pill.active-mid{background:var(--tipbg);border-color:var(--tipbd);color:var(--tip)}
+.m-pill.active-low{background:var(--ngbg);border-color:var(--ng);color:var(--ng)}
+.mymemo-row{display:flex;gap:6px;align-items:center}
+.mymemo-input{
+  flex:1;padding:7px 10px;border-radius:9px;border:1.5px solid var(--line);
+  background:var(--bg);color:var(--ink);font-size:12.5px;
+}
+.mymemo-input:focus{outline:none;border-color:var(--acc);background:var(--card)}
+
+/* 関連知識・深掘りジャンプチップ */
+.related-box{
+  margin-top:10px;padding:9px 11px;border-radius:11px;
+  background:var(--card2);border:1px dashed var(--line);
+}
+.related-lbl{font-size:11px;font-weight:900;color:var(--sub);margin-bottom:5px}
+.related-chips{display:flex;gap:6px;flex-wrap:wrap}
+.rel-chip{
+  background:var(--card);border:1.5px solid var(--acc);color:var(--acc);
+  border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:800;cursor:pointer;
+}
+.rel-chip:hover{background:var(--accbg)}
+
+.btn{
+  background:var(--acc);color:#fff;border:0;border-radius:12px;
+  padding:13px 16px;font-weight:900;width:100%;font-size:15px;
+  cursor:pointer;margin-top:12px;transition:opacity .15s;
+}
+.btn:hover{opacity:0.92}
+.btn.exam-btn{background:linear-gradient(135deg,#d97706,#b45309)}
+.btn.ghost{
+  background:transparent;color:var(--sub);border:1.5px solid var(--line);
+  padding:10px 12px;font-size:12.5px;font-weight:800;margin-top:8px;
+}
+.btn.danger{background:var(--ng);color:#fff}
+
+/* ===== テスト結果＆定期試験予想模試レポート ===== */
+.result-score{font-size:42px;font-weight:900;color:var(--acc);margin:6px 0;line-height:1.1}
+.exam-rank-box{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 18px;border-radius:14px;margin:6px 0 10px;
+  font-weight:900;font-size:16px;
+}
+.exam-rank-S{background:#fef3c7;color:#b45309;border:2px solid #f59e0b}
+.exam-rank-A{background:var(--okbg);color:var(--ok);border:2px solid var(--ok)}
+.exam-rank-B{background:var(--accbg);color:var(--acc);border:2px solid var(--acc)}
+.exam-rank-C{background:var(--ngbg);color:var(--ng);border:2px solid var(--ng)}
+
+.exam-summary-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;
+}
+.exam-stat-box{
+  background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:9px 6px;
+}
+.exam-stat-lbl{font-size:10.5px;font-weight:800;color:var(--sub)}
+.exam-stat-val{font-size:17px;font-weight:900;margin-top:2px}
+
+.review-item{
+  background:var(--card2);border:1px solid var(--line);border-radius:13px;
+  padding:12px 13px;margin-bottom:9px;text-align:left;font-size:13.5px;line-height:1.62;
+}
+.review-q{font-weight:800;margin-bottom:5px}
+.review-a{color:var(--ok);font-weight:800;font-size:13px}
+.review-exp{color:var(--sub);font-size:12.5px;margin-top:4px}
+
+/* ===== 解説・公式集（比較まとめ表・図解・赤シート機能） ===== */
+.search-input{
+  width:100%;padding:10px 12px;border-radius:11px;border:1.5px solid var(--line);
+  background:var(--bg);color:var(--ink);font-size:14px;margin-bottom:10px;
+}
+.search-input:focus{outline:none;border-color:var(--acc)}
+.formula-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:14px}
+.formula-card{
+  background:var(--scibg);border:1.5px solid var(--sci);border-radius:12px;padding:11px 13px;
+}
+.formula-title{font-size:12px;font-weight:900;color:var(--sci);margin-bottom:2px}
+.formula-eq{font-size:15px;font-weight:900;margin-bottom:3px}
+.formula-note{font-size:12px;color:var(--sub)}
+
+.comp-card{
+  background:var(--card2);border:1.5px solid var(--line);border-radius:14px;
+  padding:12px;margin-bottom:12px;overflow-x:auto;
+}
+.comp-title{font-size:13px;font-weight:900;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.comp-table{width:100%;border-collapse:collapse;font-size:12px;min-width:340px}
+.comp-table th,.comp-table td{
+  border:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top;
+}
+.comp-table th{background:var(--accbg);color:var(--acc);font-weight:900}
+.comp-table td:first-child{font-weight:900;background:var(--card)}
+
+.red-mask{
+  display:inline-block;background:var(--redsheet);color:transparent;
+  border-radius:5px;padding:1px 8px;cursor:pointer;user-select:none;
+  transition:all .15s;font-weight:900;
+}
+.red-mask.revealed{background:var(--okbg);color:var(--ok)}
+
+/* ===== 成績分析バー ===== */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.stat-tile{
+  background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:10px 8px;text-align:center;
+}
+.stat-tile-lbl{font-size:11px;font-weight:800;color:var(--sub)}
+.stat-tile-val{font-size:20px;font-weight:900;margin-top:2px}
+.unit-row{
+  padding:10px 0;border-bottom:1px solid var(--line);
+}
+.unit-row:last-child{border-bottom:none}
+.unit-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:5px;font-size:13px;font-weight:800}
+.unit-bar{height:8px;background:var(--barbg);border-radius:99px;overflow:hidden}
+.unit-fill{height:100%;border-radius:99px;transition:width .3s ease}
+
+/* ===== 学習モチベーション・ランク・記述問題・手書きパレット用スタイル ===== */
+.rank-strip{
+  display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:8px 13px;margin-bottom:10px;font-size:12px;
+}
+.rank-badge{
+  display:inline-flex;align-items:center;gap:5px;font-weight:900;
+  background:var(--accbg);color:var(--acc);padding:3px 10px;border-radius:999px;
+}
+.goal-bar-wrap{display:flex;align-items:center;gap:8px;flex:1;min-width:170px}
+.goal-bar{flex:1;height:7px;background:var(--barbg);border-radius:99px;overflow:hidden}
+.goal-fill{height:100%;background:var(--sci);border-radius:99px;transition:width .3s ease}
+
+.write-box{margin-top:6px}
+.write-input-row{display:flex;gap:8px;margin-bottom:8px}
+.write-input{
+  flex:1;padding:12px 14px;border-radius:12px;border:2px solid var(--line);
+  background:var(--bg);color:var(--ink);font-size:16px;font-weight:800;
+}
+.write-input:focus{outline:none;border-color:var(--acc);background:var(--card)}
+.memo-pad-wrap{
+  margin-top:10px;background:var(--card2);border:1.5px solid var(--line);
+  border-radius:14px;padding:10px;box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+.memo-pad-head{
+  display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap;
+  font-size:11.5px;font-weight:800;color:var(--sub);margin-bottom:7px;
+}
+.palette-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;
+  background:var(--card);border:1px solid var(--line);border-radius:10px;
+  padding:5px 8px;margin-bottom:7px;
+}
+.palette-group{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.color-dot{
+  width:22px;height:22px;border-radius:50%;border:2px solid var(--line);
+  cursor:pointer;padding:0;transition:transform .1s;
+}
+.color-dot.active{transform:scale(1.16);border-color:var(--acc);box-shadow:0 0 0 2px var(--accbg)}
+.memo-canvas{
+  width:100%;height:190px;background:var(--card);border:1.5px solid var(--line);
+  border-radius:10px;touch-action:none;cursor:crosshair;display:block;
+}
+.offline-badge{
+  display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:800;
+  padding:2px 8px;border-radius:999px;border:1px solid var(--line);
+}
+.offline-badge.online{background:var(--scibg);color:var(--sci);border-color:var(--sci)}
+.offline-badge.offline{background:var(--tipbg);color:var(--tip);border-color:var(--tipbd)}
+.trivia-banner{
+  background:var(--card2);border:1px solid var(--line);border-radius:12px;
+  padding:9px 12px;margin-bottom:10px;font-size:12px;line-height:1.55;
+  display:flex;align-items:flex-start;gap:8px;
+}
+
+.confirm-box{
+  background:var(--ngbg);border:1.5px solid var(--ng);border-radius:12px;
+  padding:12px;margin-top:10px;text-align:center;font-size:13px;font-weight:800;
+}
+.kbd-hint{font-size:11px;color:var(--sub);text-align:center;margin-top:8px}
+
+/* ===== モーダル＆紙吹雪演出 ===== */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(15,23,42,0.58);backdrop-filter:blur(3px);
+  display:flex;align-items:center;justify-content:center;padding:16px;z-index:100;
+  animation:fadeIn .18s ease;
+}
+.modal-card{
+  width:100%;max-width:480px;max-height:88vh;overflow-y:auto;
+  background:var(--card);border:1.5px solid var(--line);border-radius:20px;
+  padding:18px;box-shadow:0 16px 40px rgba(0,0,0,0.22);animation:pop .2s ease;
+}
+.modal-head{
+  display:flex;justify-content:space-between;align-items:center;gap:8px;
+  padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid var(--line);
+}
+.modal-title{font-size:16px;font-weight:900;display:flex;align-items:center;gap:6px}
+.setting-row{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:11px 0;border-bottom:1px solid var(--line);
+}
+.setting-row:last-child{border-bottom:none}
+.setting-lbl{font-size:13.5px;font-weight:800}
+.setting-sub{font-size:11.5px;color:var(--sub)}
+
+.step-card{
+  display:flex;gap:11px;align-items:flex-start;background:var(--card2);
+  border:1px solid var(--line);border-radius:13px;padding:11px 12px;margin-bottom:9px;
+}
+.step-num{
+  width:26px;height:26px;border-radius:50%;background:var(--acc);color:#fff;
+  font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+
+.welcome-banner{
+  background:linear-gradient(135deg,var(--accbg),var(--card));border:1.5px solid var(--acc);
+  border-radius:15px;padding:12px 14px;margin-bottom:12px;
+  display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
+}
+
+.confetti-layer{
+  position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:200;
+}
+.confetti-piece{
+  position:absolute;top:-14px;width:9px;height:14px;border-radius:2px;
+  animation:confettiFall 1.15s cubic-bezier(.25,.46,.45,.94) forwards;
+}
+
+@keyframes pop{0%{opacity:0;transform:translateY(5px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{0%{opacity:0}100%{opacity:1}}
+@keyframes pulse{0%{opacity:1}100%{opacity:0.45}}
+@keyframes bounceOk{0%{transform:scale(1)}35%{transform:scale(1.02)}100%{transform:scale(1)}}
+@keyframes shakeNg{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@keyframes confettiFall{
+  0%{transform:translateY(0) rotate(0deg);opacity:1}
+  100%{transform:translateY(85vh) rotate(540deg);opacity:0}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/* =========================================================
+   1. 中学理科 問題データベース（中2「電流とその利用」教科書準拠）
+========================================================= */
+const SCI_STATIC = [
+  {
+    category: "回路と電流", type: "知識", examFreq: true, freqRate: "★★★★★", pts: 6,
+    question: "直列回路において、回路の各点を流れる電流の大きさはどうなっていますか。",
+    correct: "どこも同じ大きさ",
+    wrongs: ["電源装置に近いほど大きい", "抵抗器が大きいほど小さい", "各部分の和が全体になる", "＋極に近いほど大きい", "－極に近いほど大きい", "枝分かれの数で割った大きさ", "時間とともに小さくなる"],
+    explanation: "直列回路では、電流の通り道が1本道なので、どこを測っても電流の大きさは等しくなります（I ＝ I₁ ＝ I₂）。",
+    deepDive: "【なぜそうなる？】電流を「水路を流れる水の量」に例えるとわかりやすいです。途中に枝分かれ（分岐）がない1本道の水路では、途中で水が消えたり増えたりしないため、上流でも下流でも1秒間に通る水の量（＝電流）は必ず同じになります。",
+    tip: "直列回路の電流：I ＝ I₁ ＝ I₂（どこでも同じ）",
+    related: [{ label: "並列回路の電圧と比べる", tab: "guide", search: "並列" }, { label: "回路と電流の演習へ", tab: "quiz", sub: "理科", unit: "回路と電流" }]
+  },
+  {
+    category: "回路と電流", type: "知識", examFreq: true, freqRate: "★★★★★", pts: 6,
+    question: "並列回路において、枝分かれした各部分に加わる電圧の大きさはどうなっていますか。",
+    correct: "すべて電源の電圧と同じ大きさ",
+    wrongs: ["各部分の和が電源の電圧になる", "抵抗が大きいほど大きくなる", "枝分かれの数で割った大きさ", "抵抗が小さいほど大きくなる", "直列回路より小さくなる", "電流に反比例して小さくなる"],
+    explanation: "並列回路では、枝分かれした各部分に加わる電圧はすべて等しく、電源装置の電圧と同じになります（V ＝ V₁ ＝ V₂）。",
+    deepDive: "【なぜそうなる？】電圧は「電流を流そうとするはたらきの大きさ（水圧・落差）」です。並列回路では、どの枝分かれルートも電源の＋極と－極に直接つながっているため、電圧がすべて同じになります。家庭のコンセントがすべて100Vで使えるのも並列つなぎだからです。",
+    tip: "並列回路の電圧：V ＝ V₁ ＝ V₂（どこでも電源と同じ）",
+    related: [{ label: "直列vs並列 比較表を見る", tab: "guide", search: "直列" }, { label: "オームの法則へ進む", tab: "quiz", sub: "理科", unit: "オームの法則" }]
+  },
+  {
+    category: "回路と電流", type: "知識", examFreq: true, freqRate: "★★★★☆", pts: 6,
+    question: "電流計の正しいつなぎ方はどれですか。",
+    correct: "測りたい部分に直列につなぐ",
+    wrongs: ["測りたい部分に並列につなぐ", "必ず電源装置のすぐ隣につなぐ", "抵抗器の代わりとしてつなぐ", "＋端子を電源の－極側につなぐ", "回路全体を囲むようにつなぐ", "スイッチと並列につなぐ"],
+    explanation: "電流計は、測りたい部分を流れる電流がすべて電流計を通るように「直列」につなぎます。並列につなぐと大電流が流れて壊れます。",
+    deepDive: "【実験の原理】電流計は内部の抵抗が極めて小さく作られています（電流の流れを邪魔しないため）。もし間違えて並列につなぐと、抵抗の小さい電流計に一気に大電流が流れ込み、針が振り切れて故障してしまいます。",
+    tip: "電流計は「直列」、電圧計は「並列」につなぐ！",
+    related: [{ label: "電圧計のつなぎ方を確認", tab: "guide", search: "電圧計" }]
+  },
+  {
+    category: "回路と電流", type: "知識", examFreq: true, freqRate: "★★★★☆", pts: 6,
+    question: "電流の大きさが予想できないとき、電流計の－端子は最初どれにつなぎますか。",
+    correct: "5Aの端子",
+    wrongs: ["50mAの端子", "500mAの端子", "15Vの端子", "＋端子", "どれでもよい", "一番小さな端子"],
+    explanation: "針が振り切れて電流計が壊れるのを防ぐため、最初は最も大きな電流が測れる5Aの端子（5A・500mA・50mAの中で最大）につなぎます。",
+    deepDive: "【実験のコツ】5A端子につないで針の振れが小さすぎたら、より精密に読み取れる500mA端子、さらに小さければ50mA端子へと順につなぎ替えます。電圧計（300V・15V・3V）でも同様に、最初は最大の300V端子からつなぎます。",
+    tip: "最初は最大レンジ（電流計は5A、電圧計は300V）からつなぐ。",
+    related: [{ label: "1A＝1000mAの計算問題", tab: "quiz", sub: "理科", unit: "calc" }]
+  },
+  {
+    category: "回路と電流", type: "知識", examFreq: false, freqRate: "★★★☆☆", pts: 6,
+    question: "電圧計の正しいつなぎ方はどれですか。",
+    correct: "測りたい部分に並列につなぐ",
+    wrongs: ["測りたい部分に直列につなぐ", "回路に電流が流れていないときにつなぐ", "＋端子を電源の－極側につなぐ", "電流計と直列につなぐ", "必ず電源に直接つなぐ", "抵抗器を外して代わりにつなぐ"],
+    explanation: "電圧計は、測りたい2点間の電圧を測るため、その部分をまたぐように「並列」につなぎます。",
+    deepDive: "【実験の原理】電圧計は電流計とは逆に、内部の抵抗が非常に大きく作られています。そのため並列につないでも電圧計側にはほとんど電流が流れず、元の回路の状態を変えずに2点間の電圧だけを正確に測ることができます。",
+    tip: "電圧計は測りたい区間をまたぐように「並列」に接続する。",
+    related: [{ label: "電流計のつなぎ方を確認", tab: "guide", search: "電流計" }]
+  },
+  {
+    category: "回路と電流", type: "思考", examFreq: true, freqRate: "★★★★★", pts: 7,
+    question: "【定期試験頻出・比較】同じ豆電球2個を直列につないだ回路（A）と、並列につないだ回路（B）を同じ電源装置につなぎました。豆電球1個あたりの明るさが明るいのはどちらですか。",
+    correct: "並列回路（B）の豆電球",
+    wrongs: ["直列回路（A）の豆電球", "どちらも全く同じ明るさ", "電源に近い側の豆電球だけ明るい", "直列回路の方が2倍明るい", "時間が経つと直列が明るくなる", "電源の電圧に関係なく同じ"],
+    explanation: "並列回路（B）では各豆電球に電源と同じ電圧がそのまま加わるため、電圧が半分ずつ分けられる直列回路（A）よりもずっと明るく光ります。",
+    deepDive: "【定期試験の鉄板問題】たとえば6Vの電源を使うと、直列回路（A）では豆電球1個に3Vずつしか加わりませんが、並列回路（B）ではどちらの豆電球にも6Vがそのまま加わります。電圧が2倍になると流れる電流も2倍になるため、電力（W＝V×I）は4倍になり圧倒的に明るくなります。",
+    tip: "並列つなぎは各豆電球に電源と同じ電圧が加わるため明るく光る（家庭の配線も並列）。",
+    related: [{ label: "電力と明るさの問題へ", tab: "quiz", sub: "理科", unit: "電力と発熱" }]
+  },
+  {
+    category: "回路と電流", type: "思考", examFreq: true, freqRate: "★★★★★", pts: 7,
+    question: "【定期試験頻出・引っ掛け】並列回路で、枝分かれした2つの部分に流れる電流がそれぞれ 0.2A と 0.3A でした。枝分かれする前の全体の電流は何Aですか。",
+    correct: "0.5A",
+    wrongs: ["0.2A", "0.3A", "0.1A", "0.06A", "0.25A", "0.6A"],
+    explanation: "並列回路では、枝分かれした各部分に流れる電流の和が全体の電流になります（I ＝ I₁ ＋ I₂）。よって 0.2A ＋ 0.3A ＝ 0.5A です。",
+    deepDive: "【ひっかけ注意！】「並列はどれも同じ」と丸暗記していると、電流まで0.2Aや0.3Aと答えてしまいます。「電圧はどこも同じ」「電流は枝分かれの合計」と、水の流れをイメージして区別しましょう。",
+    tip: "並列の電流：I ＝ I₁ ＋ I₂（枝分かれの合計が全体）",
+    related: [{ label: "オームの法則の計算へ", tab: "quiz", sub: "理科", unit: "オームの法則" }]
+  },
+  {
+    category: "オームの法則", type: "知識", examFreq: true, freqRate: "★★★★★", pts: 6,
+    question: "電熱線や抵抗器に流れる電流は、それに加わる電圧に比例します。この関係を何といいますか。",
+    correct: "オームの法則",
+    wrongs: ["フックの法則", "ジュールの法則", "フレミングの左手の法則", "右ねじの法則", "質量保存の法則", "反射の法則"],
+    explanation: "電流が電圧に比例するという関係を発見者の名をとって「オームの法則」といいます。",
+    deepDive: "【公式の覚え方】「電圧(V) ＝ 抵抗(Ω) × 電流(A)」は、アルファベットで『V ＝ R × I』と表します。電圧を2倍、3倍にすると、流れる電流も2倍、3倍に比例して増えます。",
+    tip: "オームの法則：電圧(V) ＝ 抵抗(Ω) × 電流(A)",
+    related: [{ label: "オームの法則 計算演習", tab: "quiz", sub: "理科", unit: "オームの法則" }]
+  },
+  {
+    category: "オームの法則", type: "思考", examFreq: true, freqRate: "★★★★★", pts: 7,
+    question: "【定期試験頻出・グラフ読み取り】横軸に電圧、縦軸に電流をとったグラフで、電熱線AとBを比べたとき、グラフの傾きが急（上側）な電熱線Aの抵抗はどうなっていますか。",
+    correct: "電熱線Bより抵抗が小さい",
+    wrongs: ["電熱線Bより抵抗が大きい", "電熱線Bと抵抗は同じ", "電圧によって抵抗が変わる", "電流が流れにくい性質をもつ", "電力が小さくなる", "長さに関わらず抵抗は0になる"],
+    explanation: "同じ電圧を加えたときに縦軸の電流がたくさん流れる（グラフが上にある）ほど、電流が通りやすい＝抵抗が小さいことを表します。",
+    deepDive: "【テストで差がつくポイント】つい「傾きが大きい＝抵抗が大きい」と勘違いしやすい問題です！グラフの縦軸が「電流」なので、上にある線ほど「同じ電圧でも電流がたくさん流れる（＝抵抗が小さい）」と読み取ります。必ず縦軸・横軸の名前を確認しましょう。",
+    tip: "横軸＝電圧・縦軸＝電流のグラフでは、傾きが急なほど抵抗が小さい！",
+    related: [{ label: "回路全体の抵抗の問題に挑戦", tab: "guide", search: "回路全体の抵抗" }]
+  },
+  {
+    category: "オームの法則", type: "知識", examFreq: true, freqRate: "★★★★☆", pts: 6,
+    question: "同じ材質の電熱線の抵抗の大きさについて、正しい説明はどれですか。",
+    correct: "細いほど大きく、長いほど大きい",
+    wrongs: ["太いほど大きく、長いほど大きい", "太いほど大きく、長いほど小さい", "細いほど大きく、長いほど小さい", "太さに関係なく、長いほど大きい", "長さに関係なく、細いほど大きい", "加える電圧が大きいほど大きくなる"],
+    explanation: "電気抵抗は電流の流れにくさです。通り道が細い（断面積が小さい）ほど、また長いほど、電流は通りにくく（抵抗が大きく）なります。",
+    deepDive: "【イメージで理解】混み合った通路を人が通るところを想像しましょう。通路が「長い」ほど抜けるのに時間がかかり、通路が「細い」ほど一度に通れる人数が減ります。つまり「長い・細い」ほど抵抗が大きくなります（長さ2倍→抵抗2倍、断面積2倍→抵抗半分）。",
+    tip: "抵抗の大きさ：長いほど大・細いほど大（長さに比例・断面積に反比例）",
+    related: [{ label: "並列つなぎの抵抗を学ぶ", tab: "guide", search: "回路全体の抵抗" }]
+  },
+  {
+    category: "オームの法則", type: "思考", examFreq: true, freqRate: "★★★★★", pts: 7,
+    question: "【定期試験頻出・全体の抵抗】10Ωの抵抗器と10Ωの抵抗器を【並列】につなぎました。回路全体の抵抗（合成抵抗）はどうなりますか。",
+    correct: "5Ω",
+    wrongs: ["10Ω", "20Ω", "0Ω", "100Ω", "2.5Ω", "15Ω"],
+    explanation: "同じ大きさの抵抗器を2つ並列につなぐと、電流の通り道が2倍になるため、回路全体の抵抗は半分（5Ω）になります。直列つなぎなら足し算で20Ωです。",
+    deepDive: "【なぜ小さくなる？】並列につなぐことは、電熱線の太さ（断面積）を2倍に広げて電流の通り道を作ってあげることと同じです。通り道が増えるので、1本だけのときよりも全体として電流が流れやすくなり、回路全体の抵抗は必ず元のどの抵抗よりも小さくなります。",
+    tip: "並列回路全体の抵抗は、元のどの抵抗よりも必ず小さくなる（直列は和 R₁＋R₂）。",
+    related: [{ label: "直列の電圧分配を見る", tab: "guide", search: "30Ω" }]
+  },
+  {
+    category: "オームの法則", type: "思考", examFreq: true, freqRate: "★★★★★", pts: 8,
+    question: "【定期試験頻出・比較】20Ωと30Ωの電熱線を【直列】につないで電圧を加えたとき、より大きな電圧が加わるのはどちらの電熱線ですか。",
+    correct: "30Ωの電熱線",
+    wrongs: ["20Ωの電熱線", "どちらも同じ電圧が加わる", "電源に近い方の電熱線", "電流が流れないので0V", "時間によって入れ替わる", "20Ωの方に1.5倍加わる"],
+    explanation: "直列回路では流れる電流が同じなので、オームの法則（V＝R×I）より、抵抗が大きい30Ωの方に大きな電圧（2:3の比）が加わります。",
+    deepDive: "【試験の応用法則】直列回路では電流Iが共通なので、電圧Vは抵抗Rに比例します（20Ω：30Ω ＝ 2：3 の比で電圧が分配されます）。逆に並列回路では電圧Vが共通なので、抵抗が小さい方にたくさんの電流が流れます（抵抗の逆比）。",
+    tip: "直列回路では「抵抗の比＝電圧の比」、並列回路では「抵抗の逆比＝電流の比」！",
+    related: [{ label: "電力と発熱の単元へ", tab: "quiz", sub: "理科", unit: "電力と発熱" }]
+  },
+  {
+    category: "電力と発熱", type: "知識", examFreq: true, freqRate: "★★★★★", pts: 6,
+    question: "電気器具が1秒間に消費する電気エネルギーの量を何といいますか。",
+    correct: "電力",
+    wrongs: ["電力量", "熱量", "電圧", "電流", "電気抵抗", "静電気", "ジュール"],
+    explanation: "1秒間あたりの電気エネルギーを「電力」といい、単位はワット（W）を使います。時間を掛けた総量は「電力量（単位：J や Wh）」です。",
+    deepDive: "【言葉の区別】「電力（W）」は1秒あたりの消費の速さ（パワー）、「電力量（J）」はその電力で何秒間使い続けたかの合計エネルギーです。1Wの電力を1秒間使ったときのエネルギーが1J（ジュール）です。",
+    tip: "電力(W) ＝ 電圧(V) × 電流(A) ／ 電力量(J) ＝ 電力(W) × 時間(秒)",
+    related: [{ label: "電力・熱量の計算問題へ", tab: "quiz", sub: "理科", unit: "電力と発熱" }]
+  },
+  {
+    category: "電力と発熱", type: "思考", examFreq: true, freqRate: "★★★★★", pts: 7,
+    question: "【定期試験頻出・水温上昇】同じ量の水を入れたビーカーに、10Wの電熱線と20Wの電熱線を入れて同じ時間だけ電流を流しました。水温の上昇が大きいのはどちらですか。",
+    correct: "20Wの電熱線（約2倍上昇する）",
+    wrongs: ["10Wの電熱線（約2倍上昇する）", "どちらも同じ温度だけ上昇する", "抵抗が大きい方が必ず高い", "水の量に関係なく100℃になる", "10Wの方がじっくり温まるので高い", "電圧が高い方が低い"],
+    explanation: "水の上昇温度は発生する熱量（J＝電力W×時間秒）に比例します。時間が同じなら、電力(W)が2倍の20Wの方が2倍の熱量を発生し、水温も約2倍上昇します。",
+    deepDive: "【実験の重要ルール】水1gの温度を1℃上げるのに約4.2Jの熱量が必要です。そのため「水の量が同じ」なら、上昇温度は発生した熱量（電力W×時間秒）に比例します。逆に水の量を2倍にすると、上昇温度は半分になります。",
+    tip: "水温の上昇幅は「電力(W)×時間(秒)」に比例する！",
+    related: [{ label: "熱量(J)の計算演習へ", tab: "quiz", sub: "理科", unit: "calc" }]
+  },
+  {
+    category: "静電気", type: "知識", examFreq: false, freqRate: "★★★☆☆", pts: 6,
+    question: "異なる2種類の物質をこすり合わせたときに発生する電気を何といいますか。",
+    correct: "摩擦電気（静電気）",
+    wrongs: ["動電気", "放電", "誘導電流", "交流", "電磁誘導", "直流"],
+    explanation: "摩擦によって生じて、物体にとどまっている電気を摩擦電気（または静電気）といいます。",
+    deepDive: "【なぜ冬に起きやすい？】夏は空気中の水蒸気が多いため、たまった静電気が空気中の水分を伝って少しずつ逃げていきます。冬は空気が乾燥しているため電気が逃げにくく、体に大量の静電気がたまってドアノブに触れた瞬間に放電します。",
+    tip: "不導体どうしをこすり合わせると電子が移動して静電気がたまる。",
+    related: [{ label: "電子の移動の仕組みを見る", tab: "guide", search: "ストロー" }]
+  },
+  {
+    category: "静電気", type: "知識", examFreq: true, freqRate: "★★★★☆", pts: 6,
+    question: "＋の電気を帯びた物体と、－の電気を帯びた物体を近づけると、どのような電気の力がはたらきますか。",
+    correct: "引き合う力がはたらく",
+    wrongs: ["しりぞけ合う力がはたらく", "力ははたらかない", "回転しはじめる", "放電して消滅する", "同じ電気に変わる", "重力と同じ力がはたらく"],
+    explanation: "異なる種類の電気（＋と－）の間には引き合う力がはたらき、同じ種類の電気（＋と＋、－と－）の間にはしりぞけ合う力がはたらきます。",
+    deepDive: "【磁石との共通点】磁石のN極とS極が引き合い、N極どうしが反発するのと同じ性質です。離れた場所からでも力がはたらくのが特徴です。",
+    tip: "同種（＋と＋、－と－）はしりぞけ合い、異種（＋と－）は引き合う。",
+    related: [{ label: "静電気の演習へ", tab: "quiz", sub: "理科", unit: "静電気" }]
+  },
+  {
+    category: "静電気", type: "思考", examFreq: true, freqRate: "★★★★★", pts: 7,
+    question: "【定期試験頻出・引っ掛け】ストローをティッシュペーパーでこすると、ストローは－の電気を帯びました。このとき移動した粒子の名前と向きとして正しいものはどれですか。",
+    correct: "電子がティッシュペーパーからストローへ移動した",
+    wrongs: ["電子がストローからティッシュペーパーへ移動した", "陽子がティッシュペーパーからストローへ移動した", "陽子がストローからティッシュペーパーへ移動した", "中性子が両方から移動した", "＋の電気がストローへ移動した", "原子核がティッシュペーパーへ移動した"],
+    explanation: "摩擦で移動できるのはマイナスの電気を持つ「電子」だけです。ストローが－になったということは、電子を受け取った（ティッシュペーパー→ストロー）ことを意味します。",
+    deepDive: "【最重要の仕組み】原子の中心にある原子核（＋の陽子）は重くて動けません。外側の軽い「電子（－）」だけが移動します。電子をもらった方はマイナスが増えるので－に帯電し、電子を奪われた方はプラスが余るので＋に帯電します。",
+    tip: "移動するのは必ず「電子（－）」だけ！＋の電気は動かない。",
+    related: [{ label: "陰極線（電子線）の問題へ", tab: "guide", search: "陰極線" }]
+  },
+  {
+    category: "静電気", type: "知識", examFreq: false, freqRate: "★★★☆☆", pts: 6,
+    question: "たまっていた電気が、空間を移動したり流れ出したりする現象を何といいますか。",
+    correct: "放電",
+    wrongs: ["充電", "帯電", "電磁誘導", "電流", "発熱", "ショート"],
+    explanation: "雷や、冬にドアノブを触ったときに「バチッ」となる現象、また気圧を低くした管の中で電流が流れる現象を「放電」といいます。",
+    deepDive: "【自然現象とのつながり】雲の中で氷の粒どうしがこすれ合って大量の静電気がたまり、空気中を地面へ向かって一気に電気が流れる現象が「雷（放電）」です。",
+    tip: "気圧を低くした管の中で起こる放電を「真空放電」という。",
+    related: [{ label: "クルックス管の仕組みを見る", tab: "guide", search: "クルックス管" }]
+  },
+  {
+    category: "静電気", type: "知識", examFreq: true, freqRate: "★★★★☆", pts: 6,
+    question: "クルックス管（真空放電管）の－極（陰極）から＋極に向かって飛び出す電子の連続した流れを何といいますか。",
+    correct: "陰極線（電子線）",
+    wrongs: ["陽極線", "放射線", "紫外線", "赤外線", "X線", "磁力線"],
+    explanation: "－極（陰極）から出る電子の流れなので「陰極線」または「電子線」と呼ばれます。",
+    deepDive: "【なぜ真空にする？】普段の空気中では空気の分子が邪魔をして電子はまっすぐ飛べません。クルックス管で中の空気を抜いて気圧を極端に低くすると、電子が邪魔されずに直進し、蛍光板に当たって光る様子が観察できます。",
+    tip: "陰極線（電子線）の正体は、マイナスの電気を持つ電子の流れ。",
+    related: [{ label: "陰極線が曲がる向きを確認", tab: "guide", search: "上に曲がる" }]
+  },
+  {
+    category: "静電気", type: "思考", examFreq: true, freqRate: "★★★★★", pts: 7,
+    question: "【定期試験頻出・クルックス管】陰極線（電子線）の上下に電極板を置き、上の板を＋極、下の板を－極にして電圧を加えました。陰極線はどうなりますか。",
+    correct: "上に曲がる",
+    wrongs: ["下に曲がる", "まっすぐ進む", "消滅する", "左右に揺れる", "ジグザグに進む", "止まる"],
+    explanation: "陰極線の正体はマイナスの電気を持った「電子」です。そのため、＋極である上の板に向かって引き寄せられ、上に曲がります。",
+    deepDive: "【応用注意！】問題によっては「上の板が－極、下の板が＋極」と逆にして出題されることがあります！丸暗記せず「陰極線＝マイナス（電子）だから、必ず＋極の板の方に引き寄せられる」と判断しましょう。",
+    tip: "電子はマイナスなので、＋極側に引き寄せられて曲がる。",
+    related: [{ label: "電流と磁界の単元へ", tab: "quiz", sub: "理科", unit: "電流と磁界" }]
+  },
+  {
+    category: "電流と磁界", type: "知識", examFreq: true, freqRate: "★★★★☆", pts: 6,
+    question: "磁界の向きは、その場所に置いた方位磁針のどちらの極が指す向きと決められていますか。",
+    correct: "N極が指す向き",
+    wrongs: ["S極が指す向き", "N極からS極の間の向き", "方位磁針では決まらない", "上を向く方向", "下を向く方向", "電流の流れる方向"],
+    explanation: "磁界の向きは、その場所に置いた方位磁針の「N極」が指す向きと定められています。",
+    deepDive: "【磁力線のルール】磁石のまわりでは、磁力線は「N極から出てS極に入る」向きに描きます。磁力線の間隔がせまい（混み合っている）場所ほど、磁力が強いことを表します。",
+    tip: "磁力線はN極から出てS極に入る向きに描く。",
+    related: [{ label: "右ねじ vs フレミング比較表", tab: "guide", search: "フレミング" }]
+  },
+  {
+    category: "電流と磁界", type: "思考", examFreq: true, freqRate: "★★★★★", pts: 7,
+    question: "【定期試験頻出・右ねじ】まっすぐな導線に下から上へ電流を流しました。導線を上から見たとき、まわりにできる磁界の向きはどうなりますか。",
+    correct: "反時計回り",
+    wrongs: ["時計回り", "導線から遠ざかる向き", "導線に向かう向き", "上向き", "下向き", "磁界は発生しない"],
+    explanation: "「右ねじの法則」です。右手の親指を電流の向き（上）に合わせると、残りの4本の指は反時計回りに巻きつく向きになります。",
+    deepDive: "【右手の使い分け】まっすぐな導線では「親指＝電流、4本指＝磁界」、コイルの磁界では「4本指＝電流、親指＝N極（磁界）」と、直線とコイルで親指と4本指の役割が入れ替わる点に注意しましょう。",
+    tip: "右ねじの法則：親指＝電流の向き、4本の指＝磁界の向き",
+    related: [{ label: "フレミングの左手の法則へ", tab: "guide", search: "フレミング" }]
+  },
+  {
+    category: "電流と磁界", type: "知識", examFreq: true, freqRate: "★★★★★", pts: 6,
+    question: "磁界の中で導線に電流を流したとき、導線が力を受ける向きを調べる法則は何ですか。",
+    correct: "フレミングの左手の法則",
+    wrongs: ["右ねじの法則", "オームの法則", "フックの法則", "質量保存の法則", "反射の法則", "ジュールの法則"],
+    explanation: "中指＝電流、人差し指＝磁界、親指＝力の向きを表す「フレミングの左手の法則」です。",
+    deepDive: "【テスト本番で迷わないコツ】必ず「左手」を出して、中指から順に「電・磁・力（でん・じ・りょく）」と唱えながら指を直角に開きます。電流か磁界のどちらか1つだけを逆にすると力の向きは逆になり、両方同時に逆にすると力の向きは変わりません。",
+    tip: "左手：中指（電）→ 人差し指（磁）→ 親指（力）の順に「電・磁・力」",
+    related: [{ label: "モーターの整流子の仕組み", tab: "guide", search: "整流子" }]
+  },
+  {
+    category: "電流と磁界", type: "思考", examFreq: true, freqRate: "★★★★★", pts: 7,
+    question: "【定期試験頻出・電磁誘導】コイルに棒磁石のN極を近づけたときと、同じN極を遠ざけたときでは、流れる誘導電流の向きはどうなりますか。",
+    correct: "逆向きになる",
+    wrongs: ["同じ向きになる", "遠ざけたときは流れない", "近づけたときは流れない", "交流になる", "電流の大きさが0になる", "磁石の速さに関係なく同じ"],
+    explanation: "コイル内部の磁界が変化すると誘導電流が流れます。「N極を近づける」と「N極を遠ざける」では磁界の変化が逆になるため、誘導電流の向きも逆になります。",
+    deepDive: "【コイルの気持ちで理解する】コイルは「今の状態を変えたくない（磁界の変化を妨げる）」という性質をもっています。N極が近づいてくると反発するためにコイル側もN極になり、N極が遠ざかると引き止めるためにS極になります。だから電流の向きが逆転します。",
+    tip: "磁石の極を逆にする、または動かす向きを逆にすると誘導電流の向きも逆になる！",
+    related: [{ label: "直流と交流の違いを確認", tab: "guide", search: "交流" }]
+  },
+  {
+    category: "電流と磁界", type: "思考", examFreq: true, freqRate: "★★★★☆", pts: 7,
+    question: "モーターにおいて、コイルが半回転するごとに電流の向きを逆にし、同じ方向に回転し続けるようにする部品は何ですか。",
+    correct: "整流子",
+    wrongs: ["ブラシ", "電磁石", "電源端子", "スイッチ", "検流計", "抵抗器"],
+    explanation: "「整流子」とブラシの働きにより、コイルが半回転するごとに電流の向きが切り替わり、一方向に回り続けます。",
+    deepDive: "【なぜ整流子が必要？】もし電流の向きが同じままだと、コイルが半回転したところで力の向きが逆になり、振り子のように止まってしまいます。半円状の金属（整流子）がブラシと触れ合う面を切り替えることで、常に同じ回転方向に力を受け続けます。",
+    tip: "半円状の金属「整流子」が半回転ごとに電流の向きを切り替える。",
+    related: [{ label: "フレミングの左手の法則を確認", tab: "guide", search: "フレミング" }]
+  },
+  {
+    category: "電流と磁界", type: "知識", examFreq: true, freqRate: "★★★★☆", pts: 6,
+    question: "家庭のコンセントにきている電流のように、電流の大きさと向きが周期的に変化する電流を何といいますか。",
+    correct: "交流",
+    wrongs: ["直流", "誘導電流", "静電気", "摩擦電気", "放電", "定電流"],
+    explanation: "時間とともに向きと大きさが波のように周期的に変化する電流を「交流」といいます。乾電池の電流は向きが一定の「直流」です。",
+    deepDive: "【豆知識・なぜ交流を使う？】発電所から家庭まで長い距離を送電するとき、交流は変圧器を使って電圧を高くしたり低くしたりしやすく、送電中の電気エネルギーのロスを少なくできるため、家庭の電気には交流が使われています。",
+    tip: "東日本の交流は50Hz、西日本の交流は60Hz。",
+    related: [{ label: "電流と磁界の演習へ", tab: "quiz", sub: "理科", unit: "電流と磁界" }]
+  }
+];
+
+const makeScience = (function(){
+  const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+  const pickOne = arr => arr[Math.floor(Math.random() * arr.length)];
+  const round2 = n => Math.round(n * 100) / 100;
+
+  // 厳密に割り切れる抵抗(Ω)と電流(A)の組み合わせから計算問題を生成し、誤差を完全ゼロにする
+  const CLEAN_RESISTORS = [5, 10, 15, 20, 25, 30, 40, 50];
+  const CLEAN_CURRENTS = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.2, 1.5, 2.0];
+
+  function buildNumericOptions(correctVal, candidateList, unit) {
+    const cleanCorrect = round2(correctVal);
+    const correctStr = cleanCorrect + unit;
+    const wrongSet = new Set();
+
+    for (const raw of candidateList) {
+      const val = round2(raw);
+      if (isFinite(val) && val > 0 && val !== cleanCorrect && (val + unit) !== correctStr) {
+        wrongSet.add(val);
+      }
+    }
+
+    const fallbackMultipliers = [0.5, 2, 1.5, 0.25, 3, 10, 0.1];
+    for (const m of fallbackMultipliers) {
+      if (wrongSet.size >= 5) break;
+      const val = round2(cleanCorrect * m);
+      if (val > 0 && val !== cleanCorrect && (val + unit) !== correctStr) {
+        wrongSet.add(val);
+      }
+    }
+
+    let step = 1;
+    while (wrongSet.size < 4) {
+      const val = round2(cleanCorrect + step);
+      if (val > 0 && val !== cleanCorrect) wrongSet.add(val);
+      step++;
+    }
+
+    const selectedWrongs = Array.from(wrongSet).sort(() => 0.5 - Math.random()).slice(0, 3);
+    const arr = [correctStr, ...selectedWrongs.map(w => w + unit)];
+    for (let idx = arr.length - 1; idx > 0; idx--) {
+      const j = Math.floor(Math.random() * (idx + 1));
+      [arr[idx], arr[j]] = [arr[j], arr[idx]];
+    }
+    return { options: arr, answerIndex: arr.indexOf(correctStr) };
+  }
+
+  function genOhmsLaw(forceHard = false) {
+    const target = getRandomInt(1, 3);
+    const r = pickOne(CLEAN_RESISTORS);
+    const i = pickOne(CLEAN_CURRENTS);
+    // 必ず掛け算で電圧を求めることで V = R * I, I = V / R, R = V / I が誤差0で完全一致する
+    const v = round2(r * i);
+    const i_mA = Math.round(i * 1000);
+    const isHard = forceHard || Math.random() < 0.35;
+
+    let qText = "", ansVal = 0, unit = "", exp = "", tip = "", deepDive = "", wrongCandidates = [];
+
+    if (target === 1) {
+      if (isHard) {
+        qText = `抵抗が ${r}Ω の電熱線に ${i_mA}mA の電流が流れています。加わっている電圧は何Vですか。`;
+        exp = `【計算手順】\n① 電流の単位をA（アンペア）に直す：${i_mA}mA ÷ 1000 ＝ ${i}A\n② オームの法則（電圧 ＝ 抵抗 × 電流）より、${r}Ω × ${i}A ＝ ${v}V`;
+        deepDive = `【単位変換の鉄則】オームの法則の公式を使うときは、必ず電流を「A（アンペア）」にそろえます。1A＝1000mAなので、${i_mA}mAを1000で割って ${i}A に直してから掛け算しましょう。`;
+      } else {
+        qText = `抵抗が ${r}Ω の電熱線に ${i}A の電流が流れています。加わっている電圧は何Vですか。`;
+        exp = `【計算手順】\nオームの法則（電圧 ＝ 抵抗 × 電流）より、\n${r}Ω × ${i}A ＝ ${v}V`;
+        deepDive = `【意味で理解】抵抗 ${r}Ω とは「1Aの電流を流すのに ${r}V の電圧が必要」という意味です。今は ${i}A 流れているので、${r} × ${i} ＝ ${v}V の電圧が必要になります。`;
+      }
+      tip = "公式：電圧(V) ＝ 抵抗(Ω) × 電流(A)（1A ＝ 1000mA）";
+      ansVal = v;
+      unit = "V";
+      wrongCandidates = [round2(r / i), round2(i / r), round2(r + i), round2(v * 10), round2(v / 10), round2(r * i_mA)];
+    } else if (target === 2) {
+      qText = `抵抗が ${r}Ω の電熱線に ${v}V の電圧を加えました。流れる電流は何Aですか。`;
+      exp = `【計算手順】\nオームの法則（電流 ＝ 電圧 ÷ 抵抗）より、\n${v}V ÷ ${r}Ω ＝ ${i}A`;
+      deepDive = `【割り算の向きに注意】よく「${r} ÷ ${v}」と逆に割ってしまうミスが起きます。「電流(A) ＝ 電圧(V) ÷ 抵抗(Ω)」と、必ず電圧を分子（割られる数）に置きましょう。検算：${r}Ω × ${i}A ＝ ${v}V。`;
+      tip = "公式：電流(A) ＝ 電圧(V) ÷ 抵抗(Ω)";
+      ansVal = i;
+      unit = "A";
+      wrongCandidates = [round2(v * r), round2(r / v), round2(v + r), round2(i * 10), round2(i / 10)];
+    } else {
+      if (isHard) {
+        qText = `ある電熱線に ${v}V の電圧を加えると、${i_mA}mA の電流が流れました。この電熱線の抵抗は何Ωですか。`;
+        exp = `【計算手順】\n① 電流の単位をA（アンペア）に直す：${i_mA}mA ÷ 1000 ＝ ${i}A\n② オームの法則（抵抗 ＝ 電圧 ÷ 電流）より、${v}V ÷ ${i}A ＝ ${r}Ω`;
+        deepDive = `【検算テクニック】求めた抵抗 ${r}Ω に電流 ${i}A を掛けて、問題文の電圧 ${v}V に戻るか確認すると計算ミスをゼロにできます。`;
+      } else {
+        qText = `ある電熱線に ${v}V の電圧を加えると、${i}A の電流が流れました。この電熱線の抵抗は何Ωですか。`;
+        exp = `【計算手順】\nオームの法則（抵抗 ＝ 電圧 ÷ 電流）より、\n${v}V ÷ ${i}A ＝ ${r}Ω`;
+        deepDive = `【物質固有の値】電熱線の抵抗（${r}Ω）は、加える電圧や電流を変えても変化しない、その電熱線固有の「電流の流れにくさ」を表します。`;
+      }
+      tip = "公式：抵抗(Ω) ＝ 電圧(V) ÷ 電流(A)";
+      ansVal = r;
+      unit = "Ω";
+      wrongCandidates = [round2(v * i), round2(i / v), round2(v + i), round2(r * 10), round2(r / 10)];
+    }
+
+    const optData = buildNumericOptions(ansVal, wrongCandidates, unit);
+    return {
+      subject: "理科", category: "オームの法則", type: "計算",
+      examFreq: true, freqRate: "★★★★★", pts: 7,
+      question: qText, options: optData.options, answerIndex: optData.answerIndex,
+      explanation: exp, deepDive, tip,
+      related: [{ label: "オームの法則 図解を見る", tab: "guide", search: "オームの法則" }, { label: "電力の計算へ進む", tab: "quiz", sub: "理科", unit: "電力と発熱" }]
+    };
+  }
+
+  function genPowerHeat(forceMin = false) {
+    if (!forceMin && getRandomInt(1, 2) === 1) {
+      const v = pickOne([6, 10, 12, 20, 50, 100]);
+      const i = pickOne([0.2, 0.3, 0.4, 0.5, 0.8, 1.0, 1.5, 2.0, 3.0, 5.0]);
+      const w = round2(v * i);
+      const opt = buildNumericOptions(w, [round2(v / i), round2(i / v), round2(v + i), round2(w * 10), round2(w / 10), round2(w * 2)], "W");
+      return {
+        subject: "理科", category: "電力と発熱", type: "計算",
+        examFreq: true, freqRate: "★★★★★", pts: 7,
+        question: `${v}V の電圧を加えると ${i}A の電流が流れる電気器具があります。この器具の消費電力は何Wですか。`,
+        options: opt.options, answerIndex: opt.answerIndex,
+        explanation: `【計算手順】\n電力(W) ＝ 電圧(V) × 電流(A) より、\n${v}V × ${i}A ＝ ${w}W`,
+        deepDive: `【公式のつながり】1W（ワット）は「1Vの電圧で1Aの電流が流れたときの電力」を基準にしています。電圧 ${v}V と電流 ${i}A を掛け算するだけで消費電力 ${w}W が求まります。`,
+        tip: "公式：電力(W) ＝ 電圧(V) × 電流(A)",
+        related: [{ label: "熱量(J)の公式を確認", tab: "guide", search: "熱量" }]
+      };
+    } else {
+      const w = pickOne([10, 20, 40, 50, 100, 200, 500, 600, 800, 1000]);
+      if (!forceMin && Math.random() < 0.45) {
+        const s = pickOne([10, 20, 30, 40, 50, 60]);
+        const j = round2(w * s);
+        const opt = buildNumericOptions(j, [round2(w / s), round2(w + s), round2(j * 10), round2(j / 10), round2(j * 2)], "J");
+        return {
+          subject: "理科", category: "電力と発熱", type: "計算",
+          examFreq: true, freqRate: "★★★★★", pts: 7,
+          question: `${w}W の電熱線に ${s}秒間 電流を流したときに発生する熱量（ジュール）は何Jですか。`,
+          options: opt.options, answerIndex: opt.answerIndex,
+          explanation: `【計算手順】\n熱量(J) ＝ 電力(W) × 時間(秒) より、\n${w}W × ${s}秒 ＝ ${j}J`,
+          deepDive: `【単位の意味】1W（ワット）とは「1秒間に1J（ジュール）のエネルギーを使うペース」のことです。だから ${w}W で ${s}秒間使うと、合計 ${j}J の熱エネルギーが発生します。`,
+          tip: "公式：熱量(J) ＝ 電力(W) × 時間(秒)",
+          related: [{ label: "水温上昇の仕組みを見る", tab: "guide", search: "水温" }]
+        };
+      } else {
+        const min = pickOne([2, 3, 4, 5, 6, 8, 10]);
+        const s = min * 60;
+        const j = round2(w * s);
+        const opt = buildNumericOptions(j, [round2(w * min), round2(w / min), round2(j * 10), round2(j / 10), round2(j * 2)], "J");
+        return {
+          subject: "理科", category: "電力と発熱", type: "計算",
+          examFreq: true, freqRate: "★★★★★", pts: 8,
+          question: `${w}W の電気ストーブを ${min}分間 使用したときに発生する熱量（ジュール）は何Jですか。`,
+          options: opt.options, answerIndex: opt.answerIndex,
+          explanation: `【計算手順】\n① 時間を「秒」に直す：${min}分 × 60 ＝ ${s}秒\n② 熱量(J) ＝ 電力(W) × 時間(秒) より、${w}W × ${s}秒 ＝ ${j}J`,
+          deepDive: `【定期試験の超定番ひっかけ】問題文に「${min}分間」と書いてあるとき、そのまま「${w} × ${min} ＝ ${w * min}」と計算してしまう受験生が非常に多いです。熱量(J)の時間は必ず「秒」を使うため、真っ先に「×60」を書き込む習慣をつけましょう。`,
+          tip: "熱量(J)は必ず時間を「秒」に直してから掛け算する！（分をそのまま掛けると引っかかる）",
+          related: [{ label: "電力と発熱 徹底演習", tab: "quiz", sub: "理科", unit: "電力と発熱" }]
+        };
+      }
+    }
+  }
+
+  return function(unitFilter = "all", examOnly = false){
+    if(unitFilter === "calc") return getRandomInt(1, 2) === 1 ? genOhmsLaw(examOnly) : genPowerHeat(examOnly);
+    if(unitFilter === "オームの法則" && Math.random() < 0.65) return genOhmsLaw(examOnly);
+    if(unitFilter === "電力と発熱" && Math.random() < 0.75) return genPowerHeat(examOnly);
+    if(unitFilter === "all" && Math.random() < (examOnly ? 0.5 : 0.4)) return getRandomInt(1, 2) === 1 ? genOhmsLaw(examOnly) : genPowerHeat(examOnly);
+
+    let pool = unitFilter === "all" ? SCI_STATIC : SCI_STATIC.filter(q => q.category === unitFilter);
+    if(examOnly){
+      const freqPool = pool.filter(q => q.examFreq);
+      if(freqPool.length > 0) pool = freqPool;
+    }
+    const src = pool.length ? pool : SCI_STATIC;
+    const b = src[getRandomInt(0, src.length - 1)];
+    const shuffledWrongs = [...b.wrongs].sort(() => 0.5 - Math.random()).slice(0, 3);
+    const arr = [b.correct, ...shuffledWrongs];
+    for (let idx = arr.length - 1; idx > 0; idx--) {
+      const j = Math.floor(Math.random() * (idx + 1));
+      [arr[idx], arr[j]] = [arr[j], arr[idx]];
+    }
+    return {
+      subject: "理科", category: b.category, type: b.type,
+      examFreq: !!b.examFreq, freqRate: b.freqRate || "★★★★☆", pts: b.pts || 6,
+      question: b.question, options: arr, answerIndex: arr.indexOf(b.correct),
+      explanation: b.explanation, deepDive: b.deepDive || b.explanation, tip: b.tip,
+      related: b.related || []
+    };
+  };
+})();
+
+/* =========================================================
+   2. 中学社会（歴史） 問題データベース（中2教科書表現準拠・複数語呂合わせ付き）
+========================================================= */
+const HISTORY_DATA = {
+  people: [
+    { name: "徳川家康", desc: "1603年、朝廷から征夷大将軍に任命され、江戸幕府を開いた人物", category: "江戸の成立と対外政策", examFreq: true, tip: "1600年 関ヶ原の戦い → 1603年 江戸幕府を開く", deepDive: "【歴史の因果関係】1600年の関ヶ原の戦いで石田三成らの西軍を破って実権を握り、1603年に江戸幕府を開設。さらに1614〜1615年の大坂の陣で豊臣氏を滅ぼし、約260年続く平和（江戸時代）の土台を築きました。" },
+    { name: "徳川家光", desc: "大名が1年おきに江戸と領地を往復する「参勤交代」の制度を定めた3代将軍", category: "江戸の成立と対外政策", examFreq: true, tip: "3代将軍・家光の時代に武家諸法度が改訂され、参勤交代と鎖国が完成", deepDive: "【なぜ参勤交代を義務づけた？】往復の旅費と江戸屋敷の維持に莫大な費用を使わせることで、大名の財力を削いで幕府に反乱を起こす余裕をなくす狙いがありました。結果として五街道や宿場町が整備され、江戸の人口と商業が急成長しました。" },
+    { name: "天草四郎", desc: "1637年に起こった島原・天草一揆で、一揆軍の大将となった人物", category: "江戸の成立と対外政策", examFreq: true, tip: "1637年 島原・天草一揆（重い年貢とキリスト教弾圧が原因）", deepDive: "【原因→結果の流れ】九州の島原・天草地方では、領主による過酷な年貢の取り立てとキリスト教弾圧に苦しんだ農民が蜂起。幕府軍は鎮圧に12万以上の大軍を要し、キリスト教の結びつきの強さを恐れた幕府は1639年にポルトガル船の来航を禁止（鎖国の完成）しました。" },
+    { name: "徳川綱吉", desc: "生類憐みの令を出し、元禄文化の時代に政治を行った5代将軍", category: "産業と幕府政治", examFreq: false, tip: "5代将軍・綱吉 ＝ 生類憐みの令・元禄文化", deepDive: "【背景の理解】戦国時代の荒々しい気風を改め、儒学（忠孝の教え）を重視する文治政治を進めました。犬をはじめとする生き物を保護する「生類憐みの令」は庶民に大きな負担を与えましたが、世の中が安定し上方で元禄文化が花開きました。" },
+    { name: "新井白石", desc: "6代・7代将軍に仕え、長崎貿易を制限するなど「正徳の治」を行った儒学者", category: "産業と幕府政治", examFreq: true, tip: "金・銀の海外流出を防ぐため長崎貿易を制限（海舶互市新例）", deepDive: "【なぜ貿易を制限した？】当時、長崎貿易で生糸などを輸入する代わりに大量の金・銀・銅が海外へ流出し、幕府の貨幣鋳造に支障が出ていました。そこで白石は貿易船の数と貿易額に上限を設け、国内産業（生糸の国産化など）を育てようとしました。" },
+    { name: "徳川吉宗", desc: "目安箱の設置や新田開発など、「享保の改革」を行った8代将軍", category: "産業と幕府政治", examFreq: true, tip: "8代将軍・吉宗 ＝ 享保の改革（目安箱・上げ米の制・公事方御定書）", deepDive: "【改革の狙いと結果】悪化した幕府財政を立て直すため、大名に米を納めさせる代わりに参勤交代の江戸滞在期間を半年に縮める「上げ米の制」や新田開発で年貢収入を増やしました。一方で年貢率を上げたため百姓一揆も増加しました。" },
+    { name: "田沼意次", desc: "株仲間を奨励し、商人の力を利用して幕府の財政を立て直そうとした老中", category: "産業と幕府政治", examFreq: true, tip: "重商主義政策（株仲間の奨励・俵物の輸出）を行ったが、わいろ政治で批判された", deepDive: "【吉宗との違い】年貢（農業）に頼る政治に限界を感じ、商業や貿易から税を取る政策へ転換しました。株仲間を公認して営業税を取り、長崎貿易でいりこ・干しあわび（俵物）を輸出して逆に金銀を輸入する画期的な政策を行いましたが、わいろ政治や天明のききんで失脚しました。" },
+    { name: "松平定信", desc: "田沼意次の後、祖父・吉宗の政治を理想として「寛政の改革」を行った老中", category: "産業と幕府政治", examFreq: true, tip: "寛政の改革 ＝ 囲い米の制・棄捐令・寛政異学の禁", deepDive: "【背景と政策のセット】天明のききんによる打ちこわしを鎮めるため、幕府の経費を節約し、ききんに備える「囲い米の制」や、借金に苦しむ旗本・御家人の借金を帳消しにする「棄捐令」を出しました。しかし厳しすぎる統制に江戸庶民から不満が出ました。" },
+    { name: "水野忠邦", desc: "株仲間の解散を命じるなど、厳しい「天保の改革」を行った老中", category: "産業と幕府政治", examFreq: true, tip: "天保の改革 ＝ 物価引き下げのため株仲間を解散・人返しの法", deepDive: "【なぜ株仲間を解散した？】天保のききんや大塩平八郎の乱の後、物価高騰の原因を「株仲間による価格の独占」と考え、株仲間を解散させて自由競争にすれば物価が下がると狙いました。しかし流通が混乱してかえって失敗に終わりました。" },
+    { name: "本居宣長", desc: "『古事記伝』を著し、日本古来の精神を研究する国学を大成した人物", category: "産業と幕府政治", examFreq: true, tip: "国学の大成者・本居宣長 ＝ 『古事記伝』", deepDive: "【時代への影響】幕府が重視した儒学（中国由来の学問）や仏教が伝わる前の、日本本来の純粋な心や歴史を『古事記』などの古典から明らかにしようとしました。この国学の考え方は、のちの幕末の尊王思想につながっていきます。" },
+    { name: "杉田玄白", desc: "前野良沢らとともにオランダ語の解剖書を翻訳し、『解体新書』を出版した人物", category: "産業と幕府政治", examFreq: true, tip: "蘭学の発展：杉田玄白・前野良沢 ＝ 『解体新書』（1774年）", deepDive: "【学問の転換点】江戸の小塚原での刑死者の解剖に立ち会い、オランダ語の医学書『ターヘル・アナトミア』の図が驚くほど正確であることを確認。辞書もない状態から苦心して翻訳し、西洋の科学技術（蘭学）が日本に広がるきっかけを作りました。" },
+    { name: "伊能忠敬", desc: "全国を測量して歩き、正確な日本地図（大日本沿海輿地全図）を作った人物", category: "産業と幕府政治", examFreq: false, tip: "実測による日本地図を作成した化政文化期の人物", deepDive: "【背景のつながり】50歳を過ぎてから天文学を学び、17年かけて全国の海岸線を歩いて測量しました。当時、ロシア船などが日本近海に現れ始めていたため、幕府も国防上の必要性から測量を支援しました。" },
+    { name: "クロムウェル", desc: "清教徒革命で議会派を率い、イギリスで一時的な共和政を打ち立てた人物", category: "欧米の近代化", examFreq: false, tip: "1642年〜 清教徒革命（国王チャールズ1世を処刑）", deepDive: "【市民革命の始まり】国王チャールズ1世が議会の承認なしに課税を行ったため内戦（清教徒革命）が発生。議会派が勝利して国王を処刑し共和政となりましたが、クロムウェルの独裁化により死後に王政が復活しました。" },
+    { name: "ワシントン", desc: "アメリカ独立戦争で総司令官を務め、のちに初代大統領になった人物", category: "欧米の近代化", examFreq: true, tip: "アメリカ独立戦争の総司令官 → 初代アメリカ合衆国大統領", deepDive: "【因果関係】イギリス本国が植民地に重い税金（茶法など）をかけたことに反発して独立戦争が勃発。フランスなどの支援も受けて勝利し、主権在民と三権分立を定めた合衆国憲法のもと初代大統領に就任しました。" },
+    { name: "リンカン", desc: "南北戦争の際に「人民の、人民による、人民のための政治」という演説を行ったアメリカ大統領", category: "欧米の近代化", examFreq: true, tip: "奴隷解放宣言（1863年）・ゲティズバーグ演説", deepDive: "【南北対立の構造】工業が発達し自由な労働者を求める「北部」と、綿花栽培の大農園（プランテーション）で黒人奴隷を必要とする「南部」が対立し南北戦争へ。リンカンは奴隷解放宣言を出して勝利し、アメリカの一体性を守りました。" },
+    { name: "ペリー", desc: "1853年に4隻の軍艦を率いて浦賀に来航し、日本に開国を求めたアメリカの使節", category: "欧米と日本の開国", examFreq: true, tip: "1853年 浦賀来航 → 1854年 日米和親条約", deepDive: "【なぜアメリカが来た？】当時アメリカは太平洋で捕鯨船を操業しており、薪・水・食料の補給基地と、中国（清）との貿易の中継地として日本の開国を強く求めていました。黒船（蒸気船）の軍事力を背景に開国を迫りました。" },
+    { name: "ハリス", desc: "日米修好通商条約を結んだ、アメリカの初代駐日総領事", category: "欧米と日本の開国", examFreq: true, tip: "下田に駐在し、1858年に日米修好通商条約を締結", deepDive: "【交渉の背景】ハリスは「イギリスやフランスがアロー戦争の勢いで大軍を率いて日本に来る前に、アメリカと穏便に通商条約を結ぶべきだ」と幕府を説得し、1858年に日米修好通商条約を調印させました。" },
+    { name: "井伊直弼", desc: "日米修好通商条約を無断で結び、安政の大獄で反対派を厳しく処罰した大老", category: "欧米と日本の開国", examFreq: true, tip: "日米修好通商条約を調印 → 安政の大獄 → 1860年 桜田門外の変で暗殺", deepDive: "【幕府衰退の決定打】天皇（孝明天皇）の反対を押し切って無断で条約に調印したため、尊王攘夷派から猛批判を受けました。直弼は「安政の大獄」で反対派を弾圧しましたが、その反発から1860年に桜田門外の変で暗殺され、幕府の権威は大きく失墜しました。" },
+    { name: "吉田松陰", desc: "松下村塾で多くの志士を育てたが、安政の大獄で処刑された人物", category: "欧米と日本の開国", examFreq: true, tip: "長州藩の松下村塾で高杉晋作・伊藤博文らを指導", deepDive: "【明治維新へのつながり】ペリー艦隊への密航を企てるなど西洋の力を肌で感じ、長州藩の松下村塾で身分にとらわれず若者を指導しました。彼の教えを受けた高杉晋作や伊藤博文らが、のちに倒幕と明治維新の中心となりました。" }
+  ],
+  terms: [
+    { name: "武家諸法度", desc: "幕府が大名を統制するために定めた法律", category: "江戸の成立と対外政策", examFreq: true, tip: "大名の城の無断修理や無断結婚などを禁止した", deepDive: "【統制の仕組み】大名が城を強くしたり、他の大名と勝手に結婚して同盟を結んだりすることを禁じ、違反した大名は領地を取り上げる（改易）などして幕府の絶対的な優位を保ちました。" },
+    { name: "参勤交代", desc: "大名に1年おきに江戸と領地を往復させ、多額の費用を負担させる制度", category: "江戸の成立と対外政策", examFreq: true, tip: "妻子は江戸に住まわせ、大名の財力を削いで幕府への反抗を防いだ", deepDive: "【ダブルの抑制効果】①大名の妻子を人質として江戸に住まわせること、②大名行列の莫大な費用で大名の財政を苦しくさせること、の2つによって反乱を防ぎました。" },
+    { name: "朱印船貿易", desc: "幕府から渡航の許可状を与えられた船が行った、東南アジアとの貿易", category: "江戸の成立と対外政策", examFreq: false, tip: "東南アジア各地に日本町がつくられた（山田長政など）", deepDive: "【鎖国前の姿】江戸時代初期は、海賊（倭寇）と区別するために将軍の朱印状を持たせて東南アジア貿易を奨励していました。しかしキリスト教禁止の徹底のため1635年に日本人の海外渡航が全面禁止されました。" },
+    { name: "島原・天草一揆", desc: "1637年、九州で重い年貢とキリスト教への弾圧に対して起こった大規模な反乱", category: "江戸の成立と対外政策", examFreq: true, tip: "この一揆をきっかけに1639年ポルトガル船の来航が禁止され鎖国が完成", deepDive: "【なぜ鎖国完成につながった？】幕府はキリスト教の信仰が団結力を生み、ポルトガルなどのカトリック国が侵略してくることを恐れました。一揆鎮圧後の1639年にポルトガル船を追い払い、貿易相手をキリスト教の布教をしないオランダと清に限定しました。" },
+    { name: "出島", desc: "鎖国政策の中、長崎に作られ、オランダや清とのみ貿易が許された人工島", category: "江戸の成立と対外政策", examFreq: true, tip: "オランダ商館は平戸から長崎の出島へ移された", deepDive: "【鎖国下の情報窓口】オランダ商館長は毎年江戸に参府して将軍に拝謁し、世界の情勢をまとめた報告書（オランダ風説書）を提出する義務がありました。これが鎖国中の日本にとって貴重な海外情報源となりました。" },
+    { name: "朝鮮通信使", desc: "将軍の代替わりなどの際に、朝鮮から日本へ派遣された使節", category: "江戸の成立と対外政策", examFreq: true, tip: "朝鮮とは対馬藩（宗氏）を通じて国交を回復した", deepDive: "【外交の仕組み】豊臣秀吉の朝鮮侵略で途絶えていた国交を家康が回復。朝鮮とは対馬藩を窓口として対等な交際を続け、通信使の来日は日本の学者や文化人との交流の場にもなりました。" },
+    { name: "踏絵", desc: "キリスト教徒を発見するために、幕府が人々に踏ませたキリストや聖母マリアの像", category: "江戸の成立と対外政策", examFreq: false, tip: "絵踏（えぶみ）を行い、宗門改帳に記録した", deepDive: "【管理の徹底】すべての人々をどこかの寺院に所属させる「寺請制度」とあわせ、キリスト教徒ではないことを毎年証明させました。" },
+    { name: "天領（幕領）", desc: "江戸幕府の直接の支配地（直轄地）", category: "江戸の成立と対外政策", examFreq: false, tip: "江戸・大坂・京都などの重要都市や佐渡金山などが含まれる", deepDive: "【幕府の経済基盤】全国の石高の約4分の1を占める直轄地に加え、佐渡金山・石見銀山・生野銀山などの鉱山や、長崎・大坂などの商業都市を直接支配することで幕府の財力を支えました。" },
+    { name: "享保の改革", desc: "8代将軍徳川吉宗が行った、質素倹約を基本とし新田開発などを進めた政治改革", category: "産業と幕府政治", examFreq: true, tip: "江戸の三大改革の1つ目（吉宗 → 定信 → 忠邦の順）", deepDive: "【セットで覚える重要語】「目安箱（庶民の意見を集める）」「上げ米の制」「新田開発」「公事方御定書（裁判の基準）」「サツマイモの栽培奨励（青木昆陽）」がすべて享保の改革のキーワードです。" },
+    { name: "寛政の改革", desc: "老中松平定信が行った、祖父である吉宗の政治を理想とした厳しい政治改革", category: "産業と幕府政治", examFreq: true, tip: "江戸の三大改革の2つ目。厳しすぎて庶民の不満を招いた", deepDive: "【セットで覚える重要語】「囲い米の制（ききん対策）」「棄捐令（旗本・御家人の借金帳消し）」「寛政異学の禁（朱子学以外の学問を禁止）」「出版統制（山東京伝らを処罰）」を押さえましょう。" },
+    { name: "天保の改革", desc: "老中水野忠邦が行った、株仲間の解散などを命じた政治改革", category: "産業と幕府政治", examFreq: true, tip: "江戸の三大改革の3つ目。株仲間を解散したがかえって経済が混乱した", deepDive: "【セットで覚える重要語】「株仲間の解散（物価引き下げ狙い）」「人返しの法（江戸に出稼ぎに来た農民を村へ帰す）」「上知令（江戸・大坂周辺を幕府領にしようとして大名・旗本の猛反発で失敗）」がポイントです。" },
+    { name: "株仲間", desc: "商人の同業者組合で、幕府に税を納める代わりに独占的な営業を認められたもの", category: "産業と幕府政治", examFreq: true, tip: "田沼意次が奨励し、水野忠邦が解散させた", deepDive: "【田沼と水野の正反対の政策】田沼意次は「株仲間を認めて税を取る」ことで幕府財政を潤し、水野忠邦は「株仲間が物価を吊り上げている」と考えて解散させました。この対比は定期試験の超頻出テーマです。" },
+    { name: "元禄文化", desc: "17世紀後半〜18世紀初め、上方（大坂・京都）の町人を中心に栄えた文化", category: "産業と幕府政治", examFreq: true, tip: "井原西鶴（浮世草子）・近松門左衛門（人形浄瑠璃）・松尾芭蕉（俳諧）", deepDive: "【中心地と代表作】「天下の台所」大坂や京都など上方の経済力を背景に誕生。井原西鶴『日本永代蔵』、近松門左衛門『曽根崎心中』、松尾芭蕉『おくのほそ道』、尾形光琳（琳派）、菱川師宣（浮世絵の祖）をセットで覚えましょう。" },
+    { name: "化政文化", desc: "19世紀初め、江戸を中心に栄えた、庶民の生活や世相を反映した文化", category: "産業と幕府政治", examFreq: true, tip: "葛飾北斎・歌川広重（浮世絵）・十返舎一九（『東海道中膝栗毛』）", deepDive: "【元禄文化との違い】政治や経済の中心が江戸へ移り、庶民の識字率が高まったことで貸本屋や寺子屋が普及。多色刷り浮世絵（錦絵）の葛飾北斎『富嶽三十六景』、歌川広重『東海道五十三次』、小林一茶や与謝蕪村の俳諧などが栄えました。" },
+    { name: "国学", desc: "日本の古典を研究し、日本古来の精神を明らかにしようとする学問", category: "産業と幕府政治", examFreq: true, tip: "儒学や仏教が伝わる前の日本本来の心を研究（本居宣長）", deepDive: "【学びの広がり】荷田春満・賀茂真淵らによって始まり、本居宣長が35年かけて『古事記伝』を完成させて大成しました。" },
+    { name: "蘭学", desc: "オランダ語を通して西洋の医学や天文学などを学ぶ学問", category: "産業と幕府政治", examFreq: true, tip: "吉宗がキリスト教以外の洋書の輸入を緩めたことで発展", deepDive: "【因果関係】8代将軍・徳川吉宗が実学を重視してキリスト教に関係のない洋書の輸入制限を緩めたことで、杉田玄白・前野良沢らの『解体新書』出版につながりました。" },
+    { name: "清教徒革命", desc: "17世紀にイギリスで起こり、国王を処刑して共和政を始めた革命", category: "欧米の近代化", examFreq: false, tip: "議会派のクロムウェルが王党派を破り共和政を樹立", deepDive: "【近代議会政治への第一歩】王権神授説を唱える国王に対し、議会の権利を守る市民（清教徒）が立ち上がった革命です。" },
+    { name: "名誉革命", desc: "1688年にイギリスで起こり、血を流さずに国王を追放して「権利の章典」を制定した革命", category: "欧米の近代化", examFreq: true, tip: "議会中心の立憲君主制の基礎が確立", deepDive: "【なぜ「名誉」と呼ばれる？】王政復古後に再び専制政治を行った国王に対し、議会が内戦（流血）を起こすことなく国王を追放し、新しい王に「権利の章典」を認めさせて議会中心の政治を確立したため名誉革命と呼ばれます。" },
+    { name: "権利の章典", desc: "名誉革命の後にイギリスで制定され、議会政治の基礎となった法律", category: "欧米の近代化", examFreq: true, tip: "1689年制定。国王の権力を制限し議会の権利を認めた", deepDive: "【テストでの区別】1689年イギリス＝「権利の章典」、1776年アメリカ＝「独立宣言」、1789年フランス＝「人権宣言」。年号と国名をセットで整理しましょう。" },
+    { name: "独立宣言", desc: "1776年、イギリスの植民地であったアメリカが発表し、基本的人権などをうたった宣言", category: "欧米の近代化", examFreq: true, tip: "トマス＝ジェファソンらが起草（1776年7月4日）", deepDive: "【思想のつながり】イギリスの思想家ロックの社会契約説などの影響を受け、「すべての人は平等に造られ、生命・自由・幸福追求の権利をもつ」と宣言しました。" },
+    { name: "フランス革命", desc: "1789年に起こり、絶対王政を倒して「人権宣言」を発表した革命", category: "欧米の近代化", examFreq: true, tip: "重税に苦しむ第三身分がバスティーユ牢獄を襲撃して開始", deepDive: "【背景の原因】当時のフランスは第一身分（聖職者）・第二身分（貴族）が特権を持ち税を免除される一方、人口の98%を占める第三身分（平民）だけに重い税がかけられていました。この不平等への不満が爆発して革命が起きました。" },
+    { name: "人権宣言", desc: "フランス革命で発表され、人間の自由と平等、国民主権などを主張した宣言", category: "欧米の近代化", examFreq: true, tip: "1789年、国民議会が採択した近代民主主義の基本文書", deepDive: "【世界への影響】「人は生まれながらにして自由かつ平等な権利をもつ」「主権は国民にある」「所有権は神聖不可侵である」と定め、のちのヨーロッパ諸国の憲法や日本の民主主義にも大きな影響を与えました。" },
+    { name: "産業革命", desc: "18世紀後半のイギリスから始まった、機械の発明と蒸気機関の利用による産業や社会の大きな変化", category: "欧米の近代化", examFreq: true, tip: "ワットの蒸気機関改良により工場制機械工業が発達（世界の工場）", deepDive: "【社会の変化と結果】綿織物の生産から始まり、ワットが改良した蒸気機関が工場や蒸気機関車・蒸気船に応用されました。資本家と労働者の貧富の差や都市の環境問題が生まれる一方、欧米列強が原料と市場を求めてアジアへ進出する原動力となりました。" },
+    { name: "アヘン戦争", desc: "1840年、麻薬の密輸取締りをきっかけとして、イギリスと清の間で起こった戦争", category: "欧米と日本の開国", examFreq: true, tip: "敗れた清は1842年に南京条約を結び香港をイギリスに割譲", deepDive: "【日本への衝撃】イギリスは茶・絹・陶磁器の輸入による貿易赤字を埋めるため、インド産のアヘンを清へ密輸しました。清の林則徐がこれを厳しく取り締まるとイギリスが開戦。大国・清が敗れたニュースは日本に大きな衝撃を与え、幕府は異国船打払令を改めて薪水給与令を出しました。" },
+    { name: "日米和親条約", desc: "1854年、ペリーの要求によって結ばれ、下田と箱館（函館）を開港して鎖国を終わらせた条約", category: "欧米と日本の開国", examFreq: true, tip: "下田・箱館（函館）の2港を開港（貿易はまだ始まっていない）", deepDive: "【ひっかけ注意！】日米和親条約は「船への薪・水・食料の補給（開港）」と「アメリカ領事の下田駐在」を決めた条約であり、本格的な自由貿易は4年後の「日米修好通商条約」から始まります。" },
+    { name: "日米修好通商条約", desc: "1858年、大老の井伊直弼が朝廷の許可を得ずにアメリカなどと結んだ不平等条約", category: "欧米と日本の開国", examFreq: true, tip: "領事裁判権を認め、関税自主権がない不平等条約", deepDive: "【開港した5港と経済への影響】箱館・横浜（神奈川）・新潟・兵庫（神戸）・長崎の5港を開港し自由貿易を開始。日本の生糸やお茶が大量に輸出されたため国内で品不足となり物価が急騰し、庶民の生活が苦しくなりました。" },
+    { name: "領事裁判権", desc: "外国人が日本で罪を犯しても、日本の法律で裁くことができない権利（治外法権）", category: "欧米と日本の開国", examFreq: true, tip: "1894年、外務大臣・陸奥宗光の交渉により撤廃に成功", deepDive: "【なぜ不平等だった？】当時の欧米列強は「日本の法律や裁判制度は遅れている」と主張し、自国民を自国の領事が裁く権利を認めさせました。明治政府はこの撤廃を悲願とし、1894年の日清戦争直前に陸奥宗光が撤廃に成功しました。" },
+    { name: "関税自主権", desc: "輸入品にかける税金を自分の国で決める権利", category: "欧米と日本の開国", examFreq: true, tip: "1911年、外務大臣・小村寿太郎の交渉により完全回復", deepDive: "【経済への影響】関税自主権がないため、安価な外国製の綿織物などが低い関税で大量に日本へ流入し、日本の伝統的な綿織物業が大きな打撃を受けました。" },
+    { name: "尊王攘夷運動", desc: "幕末に高まった、天皇を尊び、外国勢力を打ち払おうとする運動", category: "欧米と日本の開国", examFreq: true, tip: "薩摩藩・長州藩は外国と戦って敗れた後、倒幕運動へと方針転換", deepDive: "【攘夷から倒幕への変化】初めは「外国を打ち払え（攘夷）」と叫んでいましたが、薩英戦争（薩摩vs英）や下関戦争（長州vs四国連合艦隊）で欧米の圧倒的な軍事力を思い知り、「外国を追い払うのは無理だ。まず幕府を倒して強い国をつくろう（倒幕）」へと方針を大きく転換しました。" },
+    { name: "安政の大獄", desc: "大老の井伊直弼が、幕府の政策に反対する人々を厳しく処罰した事件", category: "欧米と日本の開国", examFreq: true, tip: "吉田松陰らが処刑され、尊王攘夷派の反発を招いた", deepDive: "【因果関係】無断での日米修好通商条約の調印と、将軍継嗣問題（徳川家茂を推す直弼と一橋慶喜を推す派閥の対立）をめぐり、反対派の大名や公家・志士（吉田松陰・橋本左内ら）を厳しく処罰しました。" },
+    { name: "桜田門外の変", desc: "1860年、安政の大獄に反発した水戸藩などの元藩士たちが、井伊直弼を暗殺した事件", category: "欧米と日本の開国", examFreq: true, tip: "1860年、江戸城の桜田門外で大老・井伊直弼が暗殺され幕府の権威が失墜", deepDive: "【その後の展開】幕府の最高責任者である大老が白昼に暗殺されたことで、幕府の威信は完全に地に落ちました。これ以降、幕府は朝廷の権威を借りて政局を安定させようとする「公武合体」へと舵を切ります。" }
+  ],
+  events: [
+    {
+      name: "江戸幕府の成立", year: "1603年", desc: "徳川家康が征夷大将軍に任命され、幕府を開いた出来事",
+      category: "江戸の成立と対外政策", examFreq: true,
+      mnemonics: [
+        "ヒーローおっさん（1603）徳川家康",
+        "一路おっさん（1603）江戸の町へ",
+        "色おっさん（1603）が江戸幕府"
+      ],
+      tip: "関ヶ原の戦い（1600年）の3年後",
+      deepDive: "【時代の流れ】1600年 関ヶ原の戦い → 1603年 江戸幕府成立 → 1615年 大坂夏の陣（豊臣氏滅亡）・武家諸法度制定の順に押さえましょう。"
+    },
+    {
+      name: "島原・天草一揆", year: "1637年", desc: "九州でキリスト教徒や農民が起こした大規模な反乱",
+      category: "江戸の成立と対外政策", examFreq: true,
+      mnemonics: [
+        "ヒーローみんな（1637）立ち上がる島原・天草一揆",
+        "一路みんな（1637）で一揆かな"
+      ],
+      tip: "2年後の1639年にポルトガル船来航禁止（鎖国の完成）",
+      deepDive: "【時代の流れ】1635年 参勤交代の制度化・日本人の海外渡航禁止 → 1637年 島原・天草一揆 → 1639年 ポルトガル船来航禁止 → 1641年 オランダ商館を出島へ移す。"
+    },
+    {
+      name: "名誉革命", year: "1688年", desc: "イギリスで血を流さずに革命が起こり、権利の章典が出された出来事",
+      category: "欧米の近代化", examFreq: false,
+      mnemonics: [
+        "色やば（1688）いぞ国王追放・名誉革命",
+        "いろいろパパ（1688）ッと名誉革命"
+      ],
+      tip: "翌1689年に権利の章典を制定",
+      deepDive: "【時代の流れ】1642年 清教徒革命 → 1688年 名誉革命 → 1689年 権利の章典。イギリスは他国に先駆けて議会中心の立憲君主制を確立しました。"
+    },
+    {
+      name: "アメリカ独立宣言", year: "1776年", desc: "アメリカがイギリスからの独立を宣言した出来事",
+      category: "欧米の近代化", examFreq: true,
+      mnemonics: [
+        "いーな、なろう（1776）よ独立国！",
+        "非難なむ（1776）しだイギリスよ、アメリカ独立宣言"
+      ],
+      tip: "パリ条約（1783年）でイギリスが独立を承認",
+      deepDive: "【時代の流れ】1775年 独立戦争開始 → 1776年 独立宣言 → 1783年 パリ条約で独立承認 → 1787年 合衆国憲法制定。"
+    },
+    {
+      name: "フランス革命", year: "1789年", desc: "パリの民衆がバスティーユ牢獄を襲撃して革命が始まった出来事",
+      category: "欧米の近代化", examFreq: true,
+      mnemonics: [
+        "ひな（17）やく（89）燃えるフランス革命",
+        "非難爆発（1789）フランス革命"
+      ],
+      tip: "同年1789年に人権宣言を発表",
+      deepDive: "【時代の流れ】1789年 フランス革命・人権宣言 → 1793年 国王ルイ16世処刑 → 1804年 ナポレオンが皇帝に即位しフランス法典を制定。"
+    },
+    {
+      name: "アヘン戦争", year: "1840年", desc: "イギリスと清の間で戦争が始まった出来事",
+      category: "欧米と日本の開国", examFreq: true,
+      mnemonics: [
+        "人は（18）しま（40）ったアヘン戦争",
+        "一発（18）よれ（40）よれアヘン戦争"
+      ],
+      tip: "1842年 南京条約（日本に大きな衝撃を与え異国船打払令を緩和）",
+      deepDive: "【時代の流れ】1840年 アヘン戦争 → 1842年 南京条約（香港割譲・5港開港） → 幕府が異国船打払令を廃止して薪水給与令を出す。"
+    },
+    {
+      name: "ペリー来航", year: "1853年", desc: "アメリカの使節ペリーが4隻の軍艦で浦賀に来航した出来事",
+      category: "欧米と日本の開国", examFreq: true,
+      mnemonics: [
+        "いや（18）ござん（53）すペリーさん",
+        "一発（18）降参（53）黒船来航",
+        "人は（18）ゴミ（53）と見た黒船の煙"
+      ],
+      tip: "「泰平の眠りを覚ます上喜撰（蒸気船）」と狂歌に詠まれた",
+      deepDive: "【時代の流れ】1853年 ペリー浦賀来航（大統領の国書を渡す） → 1854年 ペリー再来航・日米和親条約締結。"
+    },
+    {
+      name: "日米和親条約", year: "1854年", desc: "日本がアメリカと条約を結び、開港した出来事",
+      category: "欧米と日本の開国", examFreq: true,
+      mnemonics: [
+        "いや（18）ごし（54）ょんぼり開国だ（和親条約）",
+        "一発（18）御用（54）だ和親条約"
+      ],
+      tip: "ペリー再来航時に締結（下田・箱館を開港）",
+      deepDive: "【時代の流れ】1854年 日米和親条約 → イギリス・ロシア・オランダとも同様の和親条約を締結 → 1856年 ハリスが下田に着任。"
+    },
+    {
+      name: "日米修好通商条約", year: "1858年", desc: "大老の井伊直弼がアメリカと不平等な通商条約を結んだ出来事",
+      category: "欧米と日本の開国", examFreq: true,
+      mnemonics: [
+        "いや（18）ごは（58）っと不平等（修好通商条約）",
+        "人は（18）こわ（58）がる不平等条約"
+      ],
+      tip: "安政の五か国条約の最初（米・蘭・露・英・仏）",
+      deepDive: "【時代の流れ】1858年 日米修好通商条約 → 1858〜59年 安政の大獄 → 1860年 桜田門外の変。"
+    },
+    {
+      name: "桜田門外の変", year: "1860年", desc: "水戸藩などの元藩士たちが大老の井伊直弼を暗殺した出来事",
+      category: "欧米と日本の開国", examFreq: true,
+      mnemonics: [
+        "人は（18）むれ（60）なす桜田門外",
+        "いや（18）むれ（60）て襲う桜田門外の変"
+      ],
+      tip: "1858年 日米修好通商条約 → 1860年 桜田門外の変",
+      deepDive: "【時代の流れ】安政の大獄への強い反発から、1860年3月に江戸城の桜田門外で井伊直弼が暗殺され、幕府の権威は大きく低下しました。"
+    }
+  ],
+  examSpecial: [
+    {
+      category: "江戸の成立と対外政策", type: "比較", examFreq: true, freqRate: "★★★★★", pts: 7,
+      question: "【定期試験頻出・引っ掛け】江戸時代の「鎖国」について、幕府が貿易や交流を続けていた「4つの窓口」の組み合わせとして正しいものはどれですか。",
+      correct: "長崎・対馬・薩摩・松前",
+      wrongs: ["長崎・下田・箱館・横浜", "長崎・平戸・堺・博多", "長崎・琉球・江戸・大坂", "横浜・神戸・長崎・新潟", "対馬・壱岐・五島・種子島"],
+      explanation: "江戸幕府はすべての国と断交したわけではなく、①長崎（オランダ・清）、②対馬藩（朝鮮）、③薩摩藩（琉球王国）、④松前藩（アイヌ）の4つの窓口を通じて交流していました。",
+      deepDive: "【ひっかけ選択肢の罠】選択肢にある「長崎・下田・箱館・横浜」は幕末の開国後に開港した港です！鎖国中の4つの窓口は「長崎（オランダ・清）・対馬（朝鮮）・薩摩（琉球）・松前（アイヌ）」と相手国・地域までセットで覚えましょう。",
+      tip: "鎖国下の4つの窓口：長崎（蘭・清）・対馬（朝鮮）・薩摩（琉球）・松前（アイヌ）"
+    },
+    {
+      category: "江戸の成立と対外政策", type: "比較", examFreq: true, freqRate: "★★★★★", pts: 7,
+      question: "【定期試験頻出・大名の配置】江戸幕府の大名の配置で、関ヶ原の戦い以前から徳川氏に従っていた大名を何といいますか。",
+      correct: "譜代大名",
+      wrongs: ["親藩大名", "外様大名", "守護大名", "戦国大名", "旗本・御家人"],
+      explanation: "徳川家の一族は「親藩」、関ヶ原の戦い以前からの家臣は「譜代大名」（江戸や交通の要所に配置）、関ヶ原の戦い以降に従った大名は「外様大名」（江戸から遠い場所に配置）です。",
+      deepDive: "【配置の理由】幕府の重要な役職（老中や大老）につけたのは「譜代大名」だけです。御三家（尾張・紀伊・水戸）などの「親藩」は将軍の跡継ぎがいないときに将軍を出す役割を持ち、江戸から遠い九州・東北などに置かれた「外様大名」の薩摩藩・長州藩がのちに倒幕の中心となりました。",
+      tip: "親藩（一族）・譜代（関ヶ原以前からの家臣）・外様（関ヶ原以降に従属）"
+    },
+    {
+      category: "産業と幕府政治", type: "比較", examFreq: true, freqRate: "★★★★★", pts: 7,
+      question: "【定期試験頻出・文化比較】「元禄文化」と「化政文化」の比較として、正しい説明はどれですか。",
+      correct: "元禄文化は上方中心、化政文化は江戸中心に栄えた",
+      wrongs: ["元禄文化は江戸中心、化政文化は上方中心に栄えた", "元禄文化は19世紀、化政文化は17世紀後半に栄えた", "元禄文化は武士中心、化政文化は貴族中心に栄えた", "元禄文化では浮世絵、化政文化では水墨画が誕生した", "どちらも鎖国前に栄えた国際色豊かな文化である"],
+      explanation: "元禄文化（17世紀後半〜18世紀初め）は京都・大坂の「上方」の町人を中心に栄え、化政文化（19世紀初め）は「江戸」の庶民を中心に栄えました。",
+      deepDive: "【文化の覚え方】「元禄＝上方（西）・豪商中心・生き生きとした町人文化」「化政＝江戸（東）・庶民中心・風刺や旅行ブーム」と対比させると混同しません。",
+      tip: "元禄文化＝上方（井原西鶴・近松門左衛門・松尾芭蕉）／ 化政文化＝江戸（葛飾北斎・歌川広重・十返舎一九）"
+    },
+    {
+      category: "産業と幕府政治", type: "比較", examFreq: true, freqRate: "★★★★★", pts: 8,
+      question: "【定期試験頻出・三大改革】江戸の三大改革を、行われた年代の古い順に正しく並べたものはどれですか。",
+      correct: "享保の改革 → 寛政の改革 → 天保の改革",
+      wrongs: ["寛政の改革 → 享保の改革 → 天保の改革", "享保の改革 → 天保の改革 → 寛政の改革", "天保の改革 → 寛政の改革 → 享保の改革", "正徳の治 → 天保の改革 → 寛政の改革", "寛政の改革 → 天保の改革 → 享保の改革"],
+      explanation: "①享保の改革（徳川吉宗：1716年〜）→ ②寛政の改革（松平定信：1787年〜）→ ③天保の改革（水野忠邦：1841年〜）の順番です。「きょう・かん・てん（吉宗・定信・忠邦）」と覚えましょう。",
+      deepDive: "【間に挟まる政治も重要】享保（吉宗）と寛政（定信）の間には「田沼意次の政治（株仲間奨励）」があり、天保（忠邦）のすぐ後には「ペリー来航（1853年）」が起きます。この流れをつかむと江戸後半の歴史が1本につながります。",
+      tip: "三大改革の順：享保（吉宗）→ 寛政（定信）→ 天保（忠邦）"
+    },
+    {
+      category: "欧米の近代化", type: "比較", examFreq: true, freqRate: "★★★★★", pts: 7,
+      question: "【定期試験頻出・市民革命】「権利の章典（1689年）」と「人権宣言（1789年）」が出された国の組み合わせとして正しいものはどれですか。",
+      correct: "権利の章典＝イギリス ／ 人権宣言＝フランス",
+      wrongs: ["権利の章典＝フランス ／ 人権宣言＝イギリス", "権利の章典＝アメリカ ／ 人権宣言＝フランス", "権利の章典＝イギリス ／ 人権宣言＝アメリカ", "権利の章典＝ドイツ ／ 人権宣言＝イギリス", "どちらもアメリカ独立戦争のときに出された"],
+      explanation: "「権利の章典」はイギリスの名誉革命（1688年）の翌年に制定され、「人権宣言」はフランス革命（1789年）の際に発表されました。",
+      deepDive: "【3大文書の整理】①イギリス（1689）権利の章典＝議会の権利を保障、②アメリカ（1776）独立宣言＝イギリスからの独立と基本的人権、③フランス（1789）人権宣言＝自由・平等・国民主権。",
+      tip: "イギリス（名誉革命）＝権利の章典 ／ フランス（フランス革命）＝人権宣言 ／ アメリカ＝独立宣言"
+    },
+    {
+      category: "欧米と日本の開国", type: "比較", examFreq: true, freqRate: "★★★★★", pts: 8,
+      question: "【定期試験頻出・条約比較】1854年の「日米和親条約」と、1858年の「日米修好通商条約」の違いとして正しいものはどれですか。",
+      correct: "和親条約は開港と薪水給与などを決め、修好通商条約で自由貿易が始まった",
+      wrongs: ["和親条約で貿易が始まり、修好通商条約で下田と箱館が開港した", "和親条約は井伊直弼が結び、修好通商条約はペリーと結んだ", "和親条約では横浜と神戸を開港し、修好通商条約では下田を開港した", "修好通商条約では日本に関税自主権が認められていた", "どちらも朝廷の正式な許可を得てから調印された"],
+      explanation: "日米和親条約（1854年）では下田・箱館（函館）の2港を開港して鎖国を終わらせましたが、まだ貿易は始まっていません。1858年の日米修好通商条約によって横浜（神奈川）・長崎・箱館・新潟・兵庫（神戸）の開港と自由貿易が始まりました。",
+      deepDive: "【4つの軸で完全比較】①年号：1854 vs 1858、②相手：ペリー vs ハリス、③開港地：下田・箱館（2港） vs 横浜・長崎・箱館・新潟・兵庫（5港・下田は閉鎖）、④内容：開港・補給のみ vs 自由貿易開始＋不平等条約。",
+      tip: "1854 和親条約（開港のみ：下田・箱館）／ 1858 修好通商条約（貿易開始＋不平等条約）"
+    },
+    {
+      category: "欧米と日本の開国", type: "比較", examFreq: true, freqRate: "★★★★★", pts: 7,
+      question: "【定期試験頻出・不平等条約】日米修好通商条約が不平等条約と呼ばれる2つの大きな理由は何ですか。",
+      correct: "領事裁判権を認め、関税自主権がないこと",
+      wrongs: ["領事裁判権がなく、関税自主権を認めたこと", "参勤交代を廃止し、鎖国を復活させたこと", "外国人の日本国内の自由な旅行を完全に禁止したこと", "日本がアメリカに毎年多額の賠償金を支払うこと", "天皇の許可なく貿易を禁止したこと"],
+      explanation: "①日本国内で外国人が罪を犯しても日本の法律で裁けない「領事裁判権（治外法権）」を認めたこと、②輸入品に自由に関税をかけられない「関税自主権の喪失」の2点が不平等な内容でした。",
+      deepDive: "【「ある・ない」のひっかけ注意】「領事裁判権を（相手に）認めた」「関税自主権が（日本に）ない」の組み合わせです。撤廃・回復の順番も「1894年 領事裁判権の撤廃（陸奥宗光）→ 1911年 関税自主権の完全回復（小村寿太郎）」とセットで覚えましょう。",
+      tip: "不平等条約の2大要素：「領事裁判権の承認」と「関税自主権の欠如」"
+    }
+  ]
+};
+
+const makeHistory = (function(){
+  const getRandomElement = arr => arr[Math.floor(Math.random() * arr.length)];
+  function shuffleArray(arr){
+    let a = [...arr];
+    for(let i = a.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+  function getDummies(src, cur, cnt, prop){
+    let d = [...new Set(src.filter(x => x !== cur && x[prop] !== cur[prop]).map(x => x[prop]))];
+    return shuffleArray(d).slice(0, cnt);
+  }
+  function createQuestionData(category, type, qText, ans, dummies, exp, deepDive, tip, examFreq = true, pts = 6, related = [], mnemonics = []){
+    let opts = shuffleArray([ans, ...dummies]);
+    return {
+      subject: "社会", category, type,
+      examFreq, freqRate: examFreq ? "★★★★★" : "★★★☆☆", pts,
+      question: qText, options: opts, answerIndex: opts.indexOf(ans),
+      explanation: exp, deepDive: deepDive || exp, tip, related, mnemonics
+    };
+  }
+
+  return function(unitFilter = "all", examOnly = false){
+    const filterList = list => {
+      let res = unitFilter === "all" ? list : list.filter(x => x.category === unitFilter);
+      if(examOnly){
+        const freq = res.filter(x => x.examFreq);
+        if(freq.length > 0) res = freq;
+      }
+      return res;
+    };
+
+    const specialPool = filterList(HISTORY_DATA.examSpecial);
+    if(specialPool.length > 0 && (examOnly ? Math.random() < 0.45 : Math.random() < 0.22)){
+      const sp = getRandomElement(specialPool);
+      return createQuestionData(
+        sp.category, sp.type, sp.question, sp.correct, sp.wrongs, sp.explanation, sp.deepDive, sp.tip, true, sp.pts || 7,
+        [{ label: "比較まとめ表で整理する", tab: "guide", search: "" }, { label: `${sp.category}の演習へ`, tab: "quiz", sub: "社会", unit: sp.category }]
+      );
+    }
+
+    const pPool = filterList(HISTORY_DATA.people);
+    const tPool = filterList(HISTORY_DATA.terms);
+    const ePool = filterList(HISTORY_DATA.events);
+
+    const availableModes = [];
+    if(pPool.length) availableModes.push("people", "desc_p");
+    if(tPool.length) availableModes.push("terms", "desc_t");
+    if(ePool.length) availableModes.push("events", "events");
+    const mode = availableModes.length ? getRandomElement(availableModes) : "terms";
+
+    if(mode === "people"){
+      let item = getRandomElement(pPool);
+      return createQuestionData(
+        item.category, "人物", `${item.desc}は誰ですか。`, item.name,
+        getDummies(HISTORY_DATA.people, item, 3, "name"),
+        `正解は「${item.name}」です。${item.desc}。`, item.deepDive, item.tip, !!item.examFreq, 6,
+        [{ label: `「${item.name}」の用語解説へ`, tab: "guide", search: item.name }, { label: `${item.category}を連続演習`, tab: "quiz", sub: "社会", unit: item.category }]
+      );
+    } else if(mode === "terms"){
+      let item = getRandomElement(tPool);
+      const matchedEvent = HISTORY_DATA.events.find(e => e.name === item.name);
+      return createQuestionData(
+        item.category, "用語", `${item.desc}を何といいますか。`, item.name,
+        getDummies(HISTORY_DATA.terms, item, 3, "name"),
+        `正解は「${item.name}」です。${item.desc}。`, item.deepDive, item.tip, !!item.examFreq, 6,
+        [{ label: `「${item.name}」の解説を見る`, tab: "guide", search: item.name }, { label: `${item.category}を連続演習`, tab: "quiz", sub: "社会", unit: item.category }],
+        matchedEvent ? matchedEvent.mnemonics : []
+      );
+    } else if(mode === "desc_p" || mode === "desc_t"){
+      let srcAll = mode === "desc_p" ? HISTORY_DATA.people : HISTORY_DATA.terms;
+      let item = getRandomElement(mode === "desc_p" ? pPool : tPool);
+      return createQuestionData(
+        item.category, "説明", `「${item.name}」の説明として正しいものはどれですか。`, item.desc,
+        getDummies(srcAll, item, 3, "desc"),
+        `「${item.name}」は、${item.desc}。`, item.deepDive, item.tip, !!item.examFreq, 7,
+        [{ label: `「${item.name}」を深掘り確認`, tab: "guide", search: item.name }]
+      );
+    } else {
+      let item = getRandomElement(ePool);
+      const rel = [{ label: "年号・語呂合わせ一覧を見る", tab: "guide", search: "年" }, { label: `${item.category}の演習へ`, tab: "quiz", sub: "社会", unit: item.category }];
+      if(Math.random() > 0.35){
+        return createQuestionData(
+          item.category, "年号", `「${item.name}」が起きた（結ばれた）年はいつですか。`, item.year,
+          getDummies(HISTORY_DATA.events, item, 3, "year"),
+          `${item.year}に、${item.desc}。`, item.deepDive, item.tip, !!item.examFreq, 6, rel, item.mnemonics || []
+        );
+      }
+      return createQuestionData(
+        item.category, "出来事", `${item.year}に起きた出来事として正しいものはどれですか。`, item.name,
+        getDummies(HISTORY_DATA.events, item, 3, "name"),
+        `${item.year}には「${item.name}」が起きました。${item.desc}。`, item.deepDive, item.tip, !!item.examFreq, 6, rel, item.mnemonics || []
+      );
+    }
+  };
+})();
+
+/* =========================================================
+   3. 解説・公式集＆体系比較まとめデータベース
+========================================================= */
+const FORMULAS_LIST = [
+  { title: "オームの法則", eq: "電圧(V) ＝ 抵抗(Ω) × 電流(A)", note: "変形：電流(A) ＝ 電圧(V) ÷ 抵抗(Ω) ／ 抵抗(Ω) ＝ 電圧(V) ÷ 電流(A)（1A ＝ 1000mA）" },
+  { title: "電力の公式", eq: "電力(W) ＝ 電圧(V) × 電流(A)", note: "1秒間に消費する電気エネルギーの大きさ（単位：ワット W）" },
+  { title: "熱量・電力量の公式", eq: "熱量(J) ＝ 電力(W) × 時間(秒)", note: "「分」で出題されたら必ず60倍して「秒」に直す！" },
+  { title: "直列・並列の電流と電圧", eq: "直列：電流がどこも同じ ／ 並列：電圧がどこも同じ", note: "並列つなぎは回路全体の抵抗が小さくなり、全体の電流が大きくなる" },
+  { title: "磁界の向き・力の向き", eq: "右ねじの法則 ＆ フレミングの左手の法則", note: "左手：中指（電流）・人差し指（磁界）・親指（力の向き）" }
+];
+
+const GUIDE_ITEMS = [
+  ...SCI_STATIC.map(q => ({
+    subject: "理科",
+    category: q.category,
+    term: q.correct,
+    summary: `${q.question} → 【答え】${q.correct}`,
+    explanation: q.explanation,
+    deepDive: q.deepDive || "",
+    tip: q.tip,
+    mnemonics: []
+  })),
+  ...HISTORY_DATA.events.map(e => ({
+    subject: "社会",
+    category: e.category,
+    term: `${e.name}（${e.year}）`,
+    summary: e.desc,
+    explanation: `${e.year}に起きた出来事。${e.desc}。`,
+    deepDive: e.deepDive || "",
+    tip: e.tip,
+    mnemonics: e.mnemonics || []
+  })),
+  ...HISTORY_DATA.examSpecial.map(s => ({
+    subject: "社会",
+    category: s.category,
+    term: s.correct,
+    summary: s.question,
+    explanation: s.explanation,
+    deepDive: s.deepDive || "",
+    tip: s.tip,
+    mnemonics: []
+  })),
+  ...HISTORY_DATA.people.map(p => ({
+    subject: "社会",
+    category: p.category,
+    term: p.name,
+    summary: p.desc,
+    explanation: `${p.name}：${p.desc}。`,
+    deepDive: p.deepDive || "",
+    tip: p.tip,
+    mnemonics: []
+  })),
+  ...HISTORY_DATA.terms.map(t => ({
+    subject: "社会",
+    category: t.category,
+    term: t.name,
+    summary: t.desc,
+    explanation: `${t.name}：${t.desc}。`,
+    deepDive: t.deepDive || "",
+    tip: t.tip,
+    mnemonics: []
+  }))
+];
+function saveMyStudyMemo(overrideText = null){
+  if(!session.q) return;
+  SFX.tap();
+  const inp = document.getElementById("mymemo-inp");
+  const val = overrideText !== null ? String(overrideText).trim() : (inp ? inp.value.trim() : "");
+  if(overrideText !== null && inp){
+    inp.value = val;
+  }
+  const q = session.q;
+  const key = getStudyNoteKey(q);
+  if(!STATE.studyNotes) STATE.studyNotes = {};
+  const prev = STATE.studyNotes[key] || { level: "mid" };
+  STATE.studyNotes[key] = {
+    ...prev,
+    memo: val,
+    term: q.options[q.answerIndex],
+    category: q.category,
+    subject: q.subject
+  };
+  if(val) STATE.xp = (STATE.xp || 0) + 5;
+  saveState();
+  const statusEl = document.getElementById("mymemo-status");
+  if(statusEl){
+    statusEl.textContent = val ? "✓ マイメモに保存しました！（+5 EXP）" : "メモをクリアしました";
+  }
+}
+
+function applyMnemonicToMemo(idx){
+  if(!session.q || !session.q.mnemonics || !session.q.mnemonics[idx]) return;
+  saveMyStudyMemo(session.q.mnemonics[idx]);
+}
+
+/* =========================================================
+   4. サウンド効果（Web Audio API）
+========================================================= */
+const SFX = (function(){
+  let ctx = null;
+  function tone(freq, dur, type="sine", vol=0.055, delay=0){
+    if(!STATE.sound) return;
+    try{
+      if(!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+      if(ctx.state === "suspended") ctx.resume();
+      const t = ctx.currentTime + delay;
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = type; o.frequency.setValueAtTime(freq, t);
+      g.gain.setValueAtTime(vol, t);
+      g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+      o.connect(g); g.connect(ctx.destination);
+      o.start(t); o.stop(t + dur);
+    }catch(_){}
+  }
+  return {
+    tap(){ tone(540, 0.045, "triangle", 0.04); },
+    ok(){ tone(523, 0.08, "triangle", 0.065); tone(659, 0.08, "triangle", 0.065, 0.06); tone(784, 0.14, "triangle", 0.075, 0.12); },
+    ng(){ tone(220, 0.12, "sawtooth", 0.05); tone(175, 0.18, "sawtooth", 0.05, 0.1); }
+  };
+})();
+
+/* =========================================================
+   5. 状態管理・永続化・ユーティリティ
+========================================================= */
+const SAVE_KEY = "risha_study_v6";
+const SCI_UNITS = [
+  ["all", "理科すべて"],
+  ["回路と電流", "回路と電流"],
+  ["オームの法則", "オームの法則"],
+  ["電力と発熱", "電力と発熱"],
+  ["静電気", "静電気"],
+  ["電流と磁界", "電流と磁界"],
+  ["calc", "計算問題のみ"]
+];
+const SOC_UNITS = [
+  ["all", "歴史すべて"],
+  ["江戸の成立と対外政策", "江戸の成立と対外政策"],
+  ["産業と幕府政治", "産業と幕府政治"],
+  ["欧米の近代化", "欧米の近代化"],
+  ["欧米と日本の開国", "欧米と日本の開国"]
+];
+const ALL_UNITS_META = [
+  { subject: "理科", category: "回路と電流" },
+  { subject: "理科", category: "オームの法則" },
+  { subject: "理科", category: "電力と発熱" },
+  { subject: "理科", category: "静電気" },
+  { subject: "理科", category: "電流と磁界" },
+  { subject: "社会", category: "江戸の成立と対外政策" },
+  { subject: "社会", category: "産業と幕府政治" },
+  { subject: "社会", category: "欧米の近代化" },
+  { subject: "社会", category: "欧米と日本の開国" }
+];
+
+const STUDY_TRIVIA = [
+  "【学習のコツ】「なぜそうなるのか（因果関係・仕組み）」を自分の言葉で説明できるようになると、ひねった応用問題も解けるようになります。",
+  "【計算のコツ】電力や熱量の問題で「分」が出たら、式を立てる前にまず「×60」をして「秒」に直す癖をつけよう！",
+  "【歴史のコツ】江戸の三大改革は「吉宗（享保）→ 定信（寛政）→ 忠邦（天保）」の順番と政策の狙いをセットで覚えよう。",
+  "【記憶の科学】エンドレス演習では間違えた2問後に自動で復習が出題されます。本番テスト前には「定期試験予想模試」で実力を測ろう！",
+  "【理科のコツ】直列回路は「電流がどこも同じ」、並列回路は「電圧がどこも同じ」がすべての計算の出発点！"
+];
+
+const RANKS = [
+  { min: 0, title: "見習い学習者" },
+  { min: 100, title: "理社チャレンジャー" },
+  { min: 300, title: "知識の探究者" },
+  { min: 600, title: "定期テスト対策マスター" },
+  { min: 1000, title: "理社博士" },
+  { min: 1800, title: "グランドマスター" }
+];
+
+let STATE = {
+  activeTab: "quiz",         // "quiz" | "review" | "guide" | "stats"
+  subject: "all",            // "all" | "理科" | "社会" | "weak"
+  unit: "all",
+  quizMode: "endless",       // "endless" | "test10" | "exam_pred"
+  answerStyle: "choice",     // "choice" | "write" | "handwrite"
+  showScratchpad: false,
+  padColor: "auto",
+  padSize: 4,
+  padTool: "pen",
+  padGrid: true,
+  padTraceGuide: false,
+  showCalcMemo: false,
+  seenWelcome: false,
+  theme: "auto",
+  timerEnabled: false,
+  timerPreset: "std",
+  sound: false,
+  autoNext: false,
+  reviewMasteryTarget: 1,
+  reviewSubMode: "retest",
+  redSheet: false,
+  guideSubject: "all",
+  guideUnit: "all",
+  guideSearch: "",
+  showCompareTables: true,
+  totalAnswered: 0,
+  totalCorrect: 0,
+  streak: 0,
+  maxStreak: 0,
+  xp: 0,
+  dailyGoal: 15,
+  todayDate: "",
+  todayCount: 0,
+  loginStreak: 1,
+  lastStudyDate: "",
+  unitStats: {},
+  wrongLog: [],
+  bestExamScore: null,
+  studyNotes: {}             // { [questionKey]: { level: "high"|"mid"|"low", memo: string, term: string, category: string } }
+};
+
+try{
+  const saved = JSON.parse(localStorage.getItem(SAVE_KEY) || "null");
+  if(saved) STATE = { ...STATE, ...saved };
+}catch(_){}
+
+function syncDailyProgress(){
+  const now = new Date();
+  const todayStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
+  if(STATE.todayDate !== todayStr){
+    const yesterday = new Date(now.getTime() - 86400000);
+    const yStr = `${yesterday.getFullYear()}-${String(yesterday.getMonth()+1).padStart(2,"0")}-${String(yesterday.getDate()).padStart(2,"0")}`;
+    if(STATE.lastStudyDate === yStr){
+      STATE.loginStreak = (STATE.loginStreak || 0) + 1;
+    } else if(STATE.lastStudyDate && STATE.lastStudyDate !== todayStr){
+      STATE.loginStreak = 1;
+    }
+    STATE.todayDate = todayStr;
+    STATE.todayCount = 0;
+  }
+}
+syncDailyProgress();
+
+function getCurrentRank(){
+  let cur = RANKS[0];
+  let next = RANKS[1] || null;
+  for(let i = 0; i < RANKS.length; i++){
+    if((STATE.xp || 0) >= RANKS[i].min){
+      cur = RANKS[i];
+      next = RANKS[i + 1] || null;
+    }
+  }
+  return { cur, next };
+}
+
+function applyTheme(){
+  if(STATE.theme === "auto"){
+    document.documentElement.removeAttribute("data-theme");
+  } else {
+    document.documentElement.setAttribute("data-theme", STATE.theme);
+  }
+}
+applyTheme();
+
+function saveState(){
+  try{ localStorage.setItem(SAVE_KEY, JSON.stringify(STATE)); }catch(_){}
+}
+
+let session = {
+  q: null,
+  answered: false,
+  isPinnedNow: false,
+  testCount: 0,
+  testCorrect: 0,
+  testMisses: [],
+  testTotalMs: 0,
+  testUnitScores: {},
+  usedQuestions: [],
+  examWeights: [],
+  examPointsEarned: 0,
+  qStartAt: 0,
+  timeLeftSec: 0,
+  timeMaxSec: 20,
+  revQ: null,
+  revAnswered: false,
+  revCardOpen: {},
+  confirmAction: null,
+  activeModal: null,
+  hintShown: false,
+  autoTimer: null,
+  tickTimer: null,
+  padHistory: [],
+  calcPadHistory: [],
+  isOnline: navigator.onLine,
+  spiralQueue: [],
+  recallChecked: false
+};
+
+const app = document.getElementById("app");
+
+function isTestMode(){
+  return STATE.quizMode === "test10" || STATE.quizMode === "exam_pred";
+}
+
+function getTestTotalQuestions(){
+  return STATE.quizMode === "exam_pred" ? 15 : 10;
+}
+
+function buildExamPointWeights(){
+  const weights = [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 6, 6, 6, 6, 6];
+  for(let i = weights.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [weights[i], weights[j]] = [weights[j], weights[i]];
+  }
+  return weights;
+}
+
+function escapeHtml(str){
+  return String(str ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function formatQuestionHtml(text){
+  const escaped = escapeHtml(text);
+  return escaped.replace(/(\d+(?:\.\d+)?(?:Ω|V|A|mA|W|J|Hz|年|分間|秒間|秒|個|隻|代|世紀|人|回)?)/g, '<span class="hl-num">$1</span>');
+}
+
+function hasKanji(str){
+  return /[\u4e00-\u9faf]/.test(String(str || ""));
+}
+
+function clearTimers(){
+  if(session.autoTimer){ clearTimeout(session.autoTimer); session.autoTimer = null; }
+  if(session.tickTimer){ clearInterval(session.tickTimer); session.tickTimer = null; }
+}
+
+function stopQuestionTimer(){
+  if(session.tickTimer){ clearInterval(session.tickTimer); session.tickTimer = null; }
+}
+
+function getQuestionTimeLimit(q){
+  if(STATE.timerPreset === "15") return 15;
+  if(STATE.timerPreset === "30") return 30;
+  return (q && q.type === "計算") ? 30 : 20;
+}
+
+function startQuestionTimer(){
+  stopQuestionTimer();
+  session.qStartAt = Date.now();
+  if(!STATE.timerEnabled || session.answered) return;
+  const maxSec = getQuestionTimeLimit(session.q);
+  session.timeMaxSec = maxSec;
+  session.timeLeftSec = maxSec;
+  const startMs = Date.now();
+  session.tickTimer = setInterval(() => {
+    if(session.answered || STATE.activeTab !== "quiz"){
+      stopQuestionTimer();
+      return;
+    }
+    const elapsed = (Date.now() - startMs) / 1000;
+    const rem = Math.max(0, maxSec - elapsed);
+    session.timeLeftSec = rem;
+    const secEl = document.getElementById("timer-sec");
+    const fillEl = document.getElementById("timer-fill");
+    if(secEl){
+      secEl.textContent = `${rem.toFixed(1)} 秒`;
+      secEl.classList.toggle("warn", rem <= 5);
+    }
+    if(fillEl){
+      fillEl.style.width = `${(rem / maxSec) * 100}%`;
+      fillEl.classList.toggle("warn", rem <= 5);
+    }
+    if(rem <= 0){
+      stopQuestionTimer();
+      handleQuizAnswer(-1, true);
+    }
+  }, 100);
+}
+
+function getWeakUnitsSummary(){
+  const list = [];
+  for(const u of ALL_UNITS_META){
+    const st = STATE.unitStats[u.category];
+    if(st && st.total >= 1){
+      const rate = Math.round((st.correct / st.total) * 100);
+      if(rate < 75){
+        list.push({ subject: u.subject, category: u.category, total: st.total, correct: st.correct, rate });
+      }
+    }
+  }
+  return list.sort((a, b) => a.rate - b.rate);
+}
+
+function getWeakTypeSummary(){
+  const counts = {};
+  for(const w of STATE.wrongLog){
+    const t = w.type || "知識";
+    counts[t] = (counts[t] || 0) + (w.missCount || 1);
+  }
+  return Object.entries(counts).sort((a, b) => b[1] - a[1]);
+}
+
+function toggleTheme(){
+  SFX.tap();
+  const order = ["auto", "light", "dark"];
+  STATE.theme = order[(order.indexOf(STATE.theme) + 1) % order.length];
+  applyTheme();
+  saveState();
+  render();
+}
+
+function toggleTimer(){
+  SFX.tap();
+  STATE.timerEnabled = !STATE.timerEnabled;
+  saveState();
+  render();
+  if(STATE.activeTab === "quiz" && !session.answered) startQuestionTimer();
+}
+
+function cycleTimerPreset(){
+  SFX.tap();
+  const order = ["std", "15", "30"];
+  STATE.timerPreset = order[(order.indexOf(STATE.timerPreset) + 1) % order.length];
+  saveState();
+  render();
+  if(STATE.activeTab === "quiz" && !session.answered) startQuestionTimer();
+}
+
+function toggleSound(){
+  STATE.sound = !STATE.sound;
+  saveState();
+  if(STATE.sound) SFX.tap();
+  render();
+}
+
+function toggleAutoNext(){
+  SFX.tap();
+  STATE.autoNext = !STATE.autoNext;
+  saveState();
+  if(!STATE.autoNext && session.autoTimer){
+    clearTimeout(session.autoTimer);
+    session.autoTimer = null;
+  }
+  render();
+}
+
+function downloadOfflineCopy(){
+  SFX.tap();
+  try{
+    const html = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+    const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "risha_exam_master_offline.html";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }catch(_){}
+}
+
+function switchTab(tab){
+  SFX.tap();
+  clearTimers();
+  STATE.activeTab = tab;
+  session.confirmAction = null;
+  session.activeModal = null;
+  saveState();
+  if(tab === "quiz" && !session.q){
+    resetQuizSession();
+  } else {
+    render();
+    if(tab === "quiz" && !session.answered) startQuestionTimer();
+  }
+}
+
+function openModal(type){
+  SFX.tap();
+  session.activeModal = type;
+  render();
+}
+
+function closeModal(){
+  SFX.tap();
+  session.activeModal = null;
+  render();
+}
+
+function dismissWelcome(){
+  SFX.tap();
+  STATE.seenWelcome = true;
+  saveState();
+  render();
+}
+
+function changeDailyGoal(delta){
+  SFX.tap();
+  STATE.dailyGoal = Math.min(100, Math.max(5, (STATE.dailyGoal || 15) + delta));
+  saveState();
+  render();
+}
+
+function triggerCelebration(){
+  const existing = document.getElementById("confetti-layer");
+  if(existing) existing.remove();
+  const layer = document.createElement("div");
+  layer.id = "confetti-layer";
+  layer.className = "confetti-layer";
+  const colors = ["#2563eb", "#16a34a", "#f59e0b", "#e11d48", "#8b5cf6"];
+  for(let i = 0; i < 22; i++){
+    const p = document.createElement("div");
+    p.className = "confetti-piece";
+    p.style.left = `${Math.random() * 100}%`;
+    p.style.background = colors[i % colors.length];
+    p.style.animationDelay = `${Math.random() * 0.18}s`;
+    layer.appendChild(p);
+  }
+  document.body.appendChild(layer);
+  setTimeout(() => layer.remove(), 1400);
+}
+
+function renderModal(){
+  if(!session.activeModal) return "";
+  if(session.activeModal === "help"){
+    return `
+      <div class="modal-backdrop" onclick="if(event.target===this)closeModal()">
+        <div class="modal-card">
+          <div class="modal-head">
+            <div class="modal-title">はじめての使い方ガイド</div>
+            <button class="pill-btn" onclick="closeModal()">閉じる</button>
+          </div>
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div>
+              <div style="font-weight:900;font-size:13.5px">「なぜ？の深掘り解説」で丸暗記を卒業</div>
+              <div style="font-size:12px;color:var(--sub)">回答後には理科の物理的仕組み・実験のコツや、歴史の「原因→結果」のつながりを表示。関連テーマへワンタップで飛んで知識をつなげられます。</div>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div>
+              <div style="font-weight:900;font-size:13.5px">理解度3段階チェック＆マイ学習メモ</div>
+              <div style="font-size:12px;color:var(--sub)">「◎ 理由まで説明できる / △ 答えはわかった / × まだ曖昧」の自己評価と、自分なりの覚え方メモを保存して「解説・公式集」でいつでも見返せます。</div>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div>
+              <div style="font-weight:900;font-size:13.5px">実践10問テスト＆定期試験・予想模試</div>
+              <div style="font-size:12px;color:var(--sub)">テスト中は復習割り込みなし・重複なしの本番仕様。定期試験予想模試では100点満点採点・S〜Cランク判定・単元別分析が出ます。</div>
+            </div>
+          </div>
+          <button class="btn" onclick="closeModal()">さっそく学習を始める</button>
+        </div>
+      </div>
+    `;
+  }
+
+  const themeLabel = STATE.theme === "auto" ? "自動" : STATE.theme === "light" ? "ライト" : "ダーク";
+  const presetLabel = STATE.timerPreset === "std" ? "標準(20/30秒)" : STATE.timerPreset === "15" ? "15秒" : "30秒";
+  return `
+    <div class="modal-backdrop" onclick="if(event.target===this)closeModal()">
+      <div class="modal-card">
+        <div class="modal-head">
+          <div class="modal-title">学習設定・カスタマイズ</div>
+          <button class="pill-btn" onclick="closeModal()">閉じる</button>
+        </div>
+        <div class="setting-row">
+          <div>
+            <div class="setting-lbl">制限時間タイマー</div>
+            <div class="setting-sub">テスト本番を意識したカウントダウン</div>
+          </div>
+          <div style="display:flex;gap:5px">
+            <button class="pill-btn ${STATE.timerEnabled ? "on" : ""}" onclick="toggleTimer()">${STATE.timerEnabled ? "ON" : "OFF"}</button>
+            <button class="pill-btn" onclick="cycleTimerPreset()">${presetLabel}</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <div>
+            <div class="setting-lbl">解説後の自動問題送り</div>
+            <div class="setting-sub">回答後に自動で次の問題へ進みます</div>
+          </div>
+          <button class="pill-btn ${STATE.autoNext ? "on" : ""}" onclick="toggleAutoNext()">${STATE.autoNext ? "ON" : "OFF"}</button>
+        </div>
+        <div class="setting-row">
+          <div>
+            <div class="setting-lbl">1日の目標問題数</div>
+            <div class="setting-sub">現在の目標：${STATE.dailyGoal || 15} 問 / 日</div>
+          </div>
+          <div style="display:flex;gap:5px;align-items:center">
+            <button class="pill-btn" onclick="changeDailyGoal(-5)">-5</button>
+            <button class="pill-btn" onclick="changeDailyGoal(5)">+5</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <div>
+            <div class="setting-lbl">画面テーマ（ライト / ダーク）</div>
+            <div class="setting-sub">目の疲れに合わせて切り替え</div>
+          </div>
+          <button class="pill-btn" onclick="toggleTheme()">${themeLabel}</button>
+        </div>
+        <div class="setting-row">
+          <div>
+            <div class="setting-lbl">効果音（SE）</div>
+            <div class="setting-sub">正解・不正解時のサウンド</div>
+          </div>
+          <button class="pill-btn ${STATE.sound ? "on" : ""}" onclick="toggleSound()">${STATE.sound ? "ON" : "OFF"}</button>
+        </div>
+        <div class="setting-row">
+          <div>
+            <div class="setting-lbl">オフライン用HTMLの保存</div>
+            <div class="setting-sub">ネット接続なしでも開けるファイルを保存</div>
+          </div>
+          <button class="pill-btn" onclick="downloadOfflineCopy()">端末に保存</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderShell(){
+  const { cur, next } = getCurrentRank();
+  const goalPct = Math.min(100, Math.round(((STATE.todayCount || 0) / (STATE.dailyGoal || 15)) * 100));
+  const nextXpText = next ? `次の称号まで ${next.min - (STATE.xp || 0)} EXP` : "最高ランク到達！";
+  const weakUnits = getWeakUnitsSummary();
+
+  return `
+    <header class="header">
+      <div class="brand">
+        <div class="brand-badge">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2V5z" fill="none" stroke="currentColor" stroke-width="2.2"/><line x1="8" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="2"/><line x1="8" y1="12" x2="13" y2="12" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div>
+          <div>理社 実践テスト＆定期試験予想</div>
+          <span id="net-status" class="offline-badge ${session.isOnline ? "online" : "offline"}">${session.isOnline ? "オフライン動作対応" : "オフライン稼働中"}</span>
+        </div>
+      </div>
+      <div class="header-tools">
+        <button class="pill-btn" onclick="openModal('help')">使い方</button>
+        <button class="pill-btn" onclick="openModal('settings')">設定</button>
+      </div>
+    </header>
+
+    <div class="rank-strip">
+      <span class="rank-badge">🏅 ${escapeHtml(cur.title)}（${STATE.xp || 0} EXP）</span>
+      <span style="font-weight:800;color:var(--sub)">連続学習 ${STATE.loginStreak || 1}日目 ・ ${nextXpText}</span>
+      <div class="goal-bar-wrap">
+        <span style="font-weight:800;color:var(--sub);white-space:nowrap">今日 ${STATE.todayCount || 0}/${STATE.dailyGoal || 15}問</span>
+        <div class="goal-bar"><div class="goal-fill" style="width:${goalPct}%"></div></div>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <button class="mnav-btn ${STATE.activeTab === "quiz" ? "active" : ""}" onclick="switchTab('quiz')">
+        <span>演習・テスト</span>
+      </button>
+      <button class="mnav-btn ${STATE.activeTab === "review" ? "active" : ""}" onclick="switchTab('review')">
+        <span>苦手復習</span>
+        ${STATE.wrongLog.length > 0 ? `<span class="mnav-badge">${STATE.wrongLog.length}</span>` : ""}
+      </button>
+      <button class="mnav-btn ${STATE.activeTab === "guide" ? "active" : ""}" onclick="switchTab('guide')">
+        <span>解説・公式集</span>
+      </button>
+      <button class="mnav-btn ${STATE.activeTab === "stats" ? "active" : ""}" onclick="switchTab('stats')">
+        <span>成績分析</span>
+        ${weakUnits.length > 0 ? `<span class="mnav-dot" title="要復習単元あり"></span>` : ""}
+      </button>
+    </nav>
+    ${renderModal()}
+  `;
+}
+
+/* =========================================================
+   7. 問題選択・テスト重複防止＆復習割り込み制御・ファインマン記録
+========================================================= */
+function pickQuizQuestion(){
+  const inTest = isTestMode();
+  const isExamPred = STATE.quizMode === "exam_pred";
+
+  if(!inTest && session.spiralQueue && session.spiralQueue.length > 0){
+    for(let i = 0; i < session.spiralQueue.length; i++){
+      session.spiralQueue[i].wait--;
+    }
+    const readyIdx = session.spiralQueue.findIndex(item => item.wait <= 0);
+    if(readyIdx !== -1){
+      const due = session.spiralQueue.splice(readyIdx, 1)[0];
+      return {
+        ...due.questionObj,
+        isSpiralReview: true,
+        spiralReason: due.reason
+      };
+    }
+  }
+
+  const generateCandidate = () => {
+    if(STATE.subject === "weak"){
+      const weakList = getWeakUnitsSummary();
+      if(weakList.length > 0){
+        const target = weakList[Math.floor(Math.random() * weakList.length)];
+        return target.subject === "理科" ? makeScience(target.category, isExamPred) : makeHistory(target.category, isExamPred);
+      }
+    }
+    if(STATE.subject === "理科") return makeScience(STATE.unit, isExamPred);
+    if(STATE.subject === "社会") return makeHistory(STATE.unit, isExamPred);
+    return Math.random() < 0.5 ? makeScience("all", isExamPred) : makeHistory("all", isExamPred);
+  };
+
+  let q = null;
+  for(let attempt = 0; attempt < 35; attempt++){
+    let cand = generateCandidate();
+
+    if(STATE.answerStyle === "handwrite"){
+      const ans = cand.options[cand.answerIndex];
+      if(cand.type === "説明" || !hasKanji(ans) || ans.replace(/（.*?）|\(.*?\)/g, "").length > 6){
+        if(attempt < 22) continue;
+      }
+    }
+
+    if(inTest && session.usedQuestions.includes(cand.question)){
+      continue;
+    }
+
+    q = cand;
+    break;
+  }
+
+  if(!q) q = generateCandidate();
+
+  if(inTest){
+    session.usedQuestions.push(q.question);
+    if(isExamPred){
+      const currentPts = session.examWeights[session.testCount] || 7;
+      q = {
+        ...q,
+        examFreq: true,
+        freqRate: q.freqRate || "★★★★★",
+        pts: currentPts
+      };
+    }
+  }
+
+  return q;
+}
+
+function scheduleMemoryReinforcement(q, isOk){
+  if(!q) return;
+  if(!session.spiralQueue) session.spiralQueue = [];
+  session.spiralQueue = session.spiralQueue.filter(item => item.questionObj.question !== q.question);
+
+  if(!isOk){
+    const correctText = q.options[q.answerIndex];
+    const shuffled = [...q.options].sort(() => Math.random() - 0.5);
+    session.spiralQueue.push({
+      wait: 2,
+      reason: "記憶定着リトライ（2問前の復習）",
+      questionObj: {
+        ...q,
+        options: shuffled,
+        answerIndex: shuffled.indexOf(correctText)
+      }
+    });
+    const similarQ = buildSimilarAngleQuestion(q);
+    if(similarQ){
+      session.spiralQueue.push({
+        wait: 4,
+        reason: "類題トレーニング（角度を変えて定着）",
+        questionObj: similarQ
+      });
+    }
+  } else if(!isTestMode() && !q.isSpiralReview && Math.random() < 0.45){
+    const similarQ = buildSimilarAngleQuestion(q);
+    if(similarQ){
+      session.spiralQueue.push({
+        wait: 3,
+        reason: "関連知識の定着（さっきの単元の類題）",
+        questionObj: similarQ
+      });
+    }
+  }
+  if(session.spiralQueue.length > 8) session.spiralQueue.length = 8;
+}
+
+function buildSimilarAngleQuestion(q){
+  if(!q) return null;
+  if(q.subject === "理科"){
+    if(q.category === "オームの法則" || q.category === "電力と発熱"){
+      return makeScience(q.category);
+    }
+    const sameCat = SCI_STATIC.filter(item => item.category === q.category && item.question !== q.question);
+    if(sameCat.length > 0){
+      const picked = sameCat[Math.floor(Math.random() * sameCat.length)];
+      const opts = [picked.correct, ...picked.wrongs.sort(() => 0.5 - Math.random()).slice(0, 3)].sort(() => 0.5 - Math.random());
+      return {
+        subject: "理科",
+        category: picked.category,
+        type: picked.type,
+        question: picked.question,
+        options: opts,
+        answerIndex: opts.indexOf(picked.correct),
+        explanation: picked.explanation,
+        deepDive: picked.deepDive || picked.explanation,
+        tip: picked.tip,
+        related: picked.related || []
+      };
+    }
+  } else if(q.subject === "社会"){
+    const ansText = q.options[q.answerIndex];
+    const pMatch = HISTORY_DATA.people.find(p => p.name === ansText);
+    if(pMatch && q.type === "人物"){
+      const dummies = [...new Set(HISTORY_DATA.people.filter(x => x.name !== pMatch.name).map(x => x.desc))].sort(() => 0.5 - Math.random()).slice(0, 3);
+      const opts = [pMatch.desc, ...dummies].sort(() => 0.5 - Math.random());
+      return {
+        subject: "社会",
+        category: pMatch.category,
+        type: "説明",
+        question: `先ほど登場した「${pMatch.name}」の説明として正しいものはどれですか。`,
+        options: opts,
+        answerIndex: opts.indexOf(pMatch.desc),
+        explanation: `「${pMatch.name}」は、${pMatch.desc}。`,
+        deepDive: pMatch.deepDive || pMatch.desc,
+        tip: pMatch.tip,
+        related: []
+      };
+    }
+    const tMatch = HISTORY_DATA.terms.find(t => t.name === ansText);
+    if(tMatch && q.type === "用語"){
+      const dummies = [...new Set(HISTORY_DATA.terms.filter(x => x.name !== tMatch.name).map(x => x.desc))].sort(() => 0.5 - Math.random()).slice(0, 3);
+      const opts = [tMatch.desc, ...dummies].sort(() => 0.5 - Math.random());
+      return {
+        subject: "社会",
+        category: tMatch.category,
+        type: "説明",
+        question: `先ほど登場した「${tMatch.name}」の説明として正しいものはどれですか。`,
+        options: opts,
+        answerIndex: opts.indexOf(tMatch.desc),
+        explanation: `「${tMatch.name}」は、${tMatch.desc}。`,
+        deepDive: tMatch.deepDive || tMatch.desc,
+        tip: tMatch.tip,
+        related: []
+      };
+    }
+    return makeHistory(q.category);
+  }
+  return null;
+}
+
+function getStudyNoteKey(q){
+  if(!q) return "";
+  return q.type === "計算" ? `${q.category}_計算` : q.question;
+}
+
+function setFeynmanLevel(level){
+  if(!session.q) return;
+  SFX.tap();
+  const q = session.q;
+  const key = getStudyNoteKey(q);
+  if(!STATE.studyNotes) STATE.studyNotes = {};
+  const prev = STATE.studyNotes[key] || { memo: "" };
+  STATE.studyNotes[key] = {
+    ...prev,
+    level,
+    term: q.options[q.answerIndex],
+    category: q.category,
+    subject: q.subject
+  };
+  if(level === "low"){
+    addOrUpdateWrongLog(q, false);
+    session.isPinnedNow = true;
+    const pBtn = document.getElementById("pin-btn");
+    if(pBtn){ pBtn.className = "pin-btn pinned"; pBtn.textContent = "★ 要復習に登録済"; }
+  }
+  STATE.xp = (STATE.xp || 0) + 3;
+  saveState();
+
+  document.querySelectorAll(".m-pill").forEach(el => {
+    el.classList.remove("active-high", "active-mid", "active-low");
+    if(el.dataset.lvl === level) el.classList.add(`active-${level}`);
+  });
+}
+
+function saveMyStudyMemo(){
+  if(!session.q) return;
+  SFX.tap();
+  const inp = document.getElementById("mymemo-inp");
+  const val = inp ? inp.value.trim() : "";
+  const q = session.q;
+  const key = getStudyNoteKey(q);
+  if(!STATE.studyNotes) STATE.studyNotes = {};
+  const prev = STATE.studyNotes[key] || { level: "mid" };
+  STATE.studyNotes[key] = {
+    ...prev,
+    memo: val,
+    term: q.options[q.answerIndex],
+    category: q.category,
+    subject: q.subject
+  };
+  if(val) STATE.xp = (STATE.xp || 0) + 5;
+  saveState();
+  const statusEl = document.getElementById("mymemo-status");
+  if(statusEl){
+    statusEl.textContent = val ? "✓ マイメモを保存しました！（+5 EXP）" : "メモをクリアしました";
+  }
+}
+
+function followRelatedLink(idx){
+  if(!session.q || !session.q.related || !session.q.related[idx]) return;
+  const link = session.q.related[idx];
+  SFX.tap();
+  clearTimers();
+  if(link.tab === "guide"){
+    STATE.activeTab = "guide";
+    STATE.guideSubject = "all";
+    STATE.guideUnit = "all";
+    STATE.guideSearch = link.search || "";
+    saveState();
+    render();
+  } else if(link.tab === "quiz"){
+    STATE.activeTab = "quiz";
+    STATE.subject = link.sub || "all";
+    STATE.unit = link.unit || "all";
+    STATE.quizMode = "endless";
+    saveState();
+    resetQuizSession();
+  }
+}
+
+function toggleRecallCheck(){
+  SFX.tap();
+  session.recallChecked = !session.recallChecked;
+  if(session.recallChecked){
+    STATE.xp = (STATE.xp || 0) + 5;
+    saveState();
+  }
+  const btn = document.getElementById("recall-btn");
+  if(btn){
+    btn.className = "pin-btn" + (session.recallChecked ? " pinned" : "");
+    btn.textContent = session.recallChecked ? "✓ 頭の中で反芻完了（+5 EXP）" : "🧠 答えを見ずに3秒思い出す（+5 EXP）";
+  }
+}
+
+function normalizeAnswerText(str){
+  return String(str || "")
+    .trim()
+    .replace(/[Ａ-Ｚａ-ｚ０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0))
+    .replace(/（.*?）|\(.*?\)/g, "")
+    .replace(/[\s・＝=]/g, "")
+    .toLowerCase();
+}
+
+function checkWrittenMatch(inputText, correctText){
+  const a = normalizeAnswerText(inputText);
+  const b = normalizeAnswerText(correctText);
+  if(!a) return false;
+  if(a === b) return true;
+  if(b.replace(/(?:ω|v|a|w|j|年)$/i, "") === a) return true;
+  if(correctText.includes("摩擦電気") && (a === "静電気" || a === "摩擦電気")) return true;
+  if(correctText.includes("領事裁判権") && (a === "領事裁判権" || a === "治外法権")) return true;
+  return false;
+}
+
+function addOrUpdateWrongLog(q, isMiss = true){
+  if(!q || !q.question) return;
+  const idx = STATE.wrongLog.findIndex(item => item.question === q.question);
+  if(idx !== -1){
+    const existing = STATE.wrongLog[idx];
+    existing.missCount = (existing.missCount || 0) + (isMiss ? 1 : 0);
+    existing.streakOk = 0;
+    STATE.wrongLog.splice(idx, 1);
+    STATE.wrongLog.unshift(existing);
+  } else {
+    STATE.wrongLog.unshift({
+      subject: q.subject,
+      category: q.category,
+      type: q.type,
+      question: q.question,
+      options: [...q.options],
+      answerIndex: q.answerIndex,
+      explanation: q.explanation,
+      deepDive: q.deepDive || "",
+      tip: q.tip || "",
+      missCount: isMiss ? 1 : 0,
+      streakOk: 0
+    });
+  }
+  if(STATE.wrongLog.length > 60) STATE.wrongLog.length = 60;
+}
+
+function togglePinQuestion(){
+  if(!session.q) return;
+  SFX.tap();
+  const q = session.q;
+  const idx = STATE.wrongLog.findIndex(item => item.question === q.question);
+  if(idx !== -1){
+    STATE.wrongLog.splice(idx, 1);
+    session.isPinnedNow = false;
+  } else {
+    addOrUpdateWrongLog(q, false);
+    session.isPinnedNow = true;
+  }
+  saveState();
+  const btn = document.getElementById("pin-btn");
+  if(btn){
+    btn.className = "pin-btn" + (session.isPinnedNow ? " pinned" : "");
+    btn.textContent = session.isPinnedNow ? "★ 要復習に登録済" : "☆ 要復習にピン留め";
+  }
+}
+
+/* =========================================================
+   8. 手書きパレット・計算メモ帳＆オフライン文字認識エンジン
+========================================================= */
+let padCanvas = null;
+let padCtx = null;
+let isDrawingPad = false;
+let calcCanvas = null;
+let calcCtx = null;
+let isDrawingCalc = false;
+
+function setPadColor(c){
+  SFX.tap();
+  STATE.padColor = c;
+  STATE.padTool = "pen";
+  saveState();
+  render();
+}
+function setPadSize(s){
+  SFX.tap();
+  STATE.padSize = s;
+  saveState();
+  render();
+}
+function setPadTool(t){
+  SFX.tap();
+  STATE.padTool = t;
+  saveState();
+  render();
+}
+function togglePadGrid(){
+  SFX.tap();
+  STATE.padGrid = !STATE.padGrid;
+  saveState();
+  render();
+}
+function togglePadTraceGuide(){
+  SFX.tap();
+  STATE.padTraceGuide = !STATE.padTraceGuide;
+  saveState();
+  render();
+}
+function toggleHint(){
+  if(isTestMode()) return;
+  SFX.tap();
+  session.hintShown = !session.hintShown;
+  render();
+}
+function toggleCalcMemo(){
+  SFX.tap();
+  STATE.showCalcMemo = !STATE.showCalcMemo;
+  saveState();
+  render();
+}
+function clearCalcMemo(){
+  SFX.tap();
+  session.calcPadHistory = [];
+  redrawCalcMemo();
+}
+function redrawCalcMemo(){
+  if(!calcCanvas || !calcCtx) return;
+  const rect = calcCanvas.getBoundingClientRect();
+  const w = rect.width || 320;
+  const h = rect.height || 130;
+  calcCtx.clearRect(0, 0, w, h);
+  calcCtx.save();
+  calcCtx.strokeStyle = "rgba(148,163,184,0.22)";
+  calcCtx.lineWidth = 1;
+  for(let x = 20; x < w; x += 20){
+    calcCtx.beginPath(); calcCtx.moveTo(x, 0); calcCtx.lineTo(x, h); calcCtx.stroke();
+  }
+  for(let y = 20; y < h; y += 20){
+    calcCtx.beginPath(); calcCtx.moveTo(0, y); calcCtx.lineTo(w, y); calcCtx.stroke();
+  }
+  calcCtx.restore();
+
+  for(const stroke of session.calcPadHistory){
+    if(!stroke.points || stroke.points.length === 0) continue;
+    calcCtx.save();
+    calcCtx.lineCap = "round";
+    calcCtx.lineJoin = "round";
+    calcCtx.lineWidth = 2.5;
+    calcCtx.strokeStyle = document.documentElement.getAttribute("data-theme") === "dark" ? "#93c5fd" : "#1e3a8a";
+    calcCtx.beginPath();
+    calcCtx.moveTo(stroke.points[0].x, stroke.points[0].y);
+    for(let i = 1; i < stroke.points.length; i++){
+      calcCtx.lineTo(stroke.points[i].x, stroke.points[i].y);
+    }
+    calcCtx.stroke();
+    calcCtx.restore();
+  }
+}
+function initCalcMemoCanvas(){
+  calcCanvas = document.getElementById("calc-memo-canvas");
+  if(!calcCanvas) return;
+  const setupSize = () => {
+    if(!calcCanvas) return;
+    const dpr = window.devicePixelRatio || 1;
+    const rect = calcCanvas.getBoundingClientRect();
+    const w = rect.width || calcCanvas.offsetWidth || 320;
+    const h = rect.height || calcCanvas.offsetHeight || 130;
+    calcCanvas.width = Math.round(w * dpr);
+    calcCanvas.height = Math.round(h * dpr);
+    calcCtx = calcCanvas.getContext("2d");
+    calcCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    redrawCalcMemo();
+  };
+  setupSize();
+  requestAnimationFrame(setupSize);
+
+  const getPos = e => {
+    const r = calcCanvas.getBoundingClientRect();
+    const t = e.touches ? e.touches[0] : e;
+    return { x: t.clientX - r.left, y: t.clientY - r.top };
+  };
+  const startDraw = e => {
+    if(e.cancelable) e.preventDefault();
+    isDrawingCalc = true;
+    session.calcPadHistory.push({ points: [getPos(e)] });
+    redrawCalcMemo();
+  };
+  const moveDraw = e => {
+    if(!isDrawingCalc) return;
+    if(e.cancelable) e.preventDefault();
+    const cur = session.calcPadHistory[session.calcPadHistory.length - 1];
+    if(cur){
+      cur.points.push(getPos(e));
+      redrawCalcMemo();
+    }
+  };
+  const endDraw = () => { isDrawingCalc = false; };
+
+  calcCanvas.onpointerdown = e => {
+    if(calcCanvas.setPointerCapture) calcCanvas.setPointerCapture(e.pointerId);
+    startDraw(e);
+  };
+  calcCanvas.onpointermove = moveDraw;
+  calcCanvas.onpointerup = endDraw;
+  calcCanvas.onpointercancel = endDraw;
+  calcCanvas.ontouchstart = startDraw;
+  calcCanvas.ontouchmove = moveDraw;
+  calcCanvas.ontouchend = endDraw;
+}
+
+function undoScratchpad(){
+  SFX.tap();
+  if(session.padHistory.length > 0){
+    session.padHistory.pop();
+    redrawScratchpad();
+    updateHandwritingCandidates();
+  }
+}
+function clearScratchpad(){
+  SFX.tap();
+  session.padHistory = [];
+  redrawScratchpad();
+  updateHandwritingCandidates();
+}
+
+function getExpectedAnswerChars(){
+  if(!session.q) return [];
+  const raw = session.q.options[session.q.answerIndex] || "";
+  const cleaned = raw.replace(/（.*?）|\(.*?\)/g, "").trim();
+  return Array.from(cleaned);
+}
+
+function redrawScratchpad(){
+  if(!padCanvas || !padCtx) return;
+  const rect = padCanvas.getBoundingClientRect();
+  const w = rect.width || 320;
+  const h = rect.height || 190;
+  padCtx.clearRect(0, 0, w, h);
+
+  const chars = getExpectedAnswerChars();
+  const cols = Math.min(6, Math.max(2, chars.length || 3));
+  const cellW = w / cols;
+
+  if(STATE.padGrid){
+    padCtx.save();
+    padCtx.strokeStyle = "rgba(148, 163, 184, 0.45)";
+    padCtx.lineWidth = 1;
+    for(let i = 1; i < cols; i++){
+      padCtx.beginPath();
+      padCtx.moveTo(cellW * i, 6);
+      padCtx.lineTo(cellW * i, h - 6);
+      padCtx.stroke();
+    }
+    padCtx.setLineDash([4, 4]);
+    for(let i = 0; i < cols; i++){
+      const cx = cellW * i + cellW / 2;
+      const cy = h / 2;
+      padCtx.beginPath();
+      padCtx.moveTo(cx, 10);
+      padCtx.lineTo(cx, h - 10);
+      padCtx.moveTo(cellW * i + 8, cy);
+      padCtx.lineTo(cellW * (i + 1) - 8, cy);
+      padCtx.stroke();
+    }
+    padCtx.restore();
+  }
+
+  if(!isTestMode() && STATE.padTraceGuide && chars.length > 0){
+    padCtx.save();
+    padCtx.fillStyle = "rgba(148, 163, 184, 0.24)";
+    padCtx.font = `bold ${Math.min(Math.floor(cellW * 0.68), 88)}px "Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif`;
+    padCtx.textAlign = "center";
+    padCtx.textBaseline = "middle";
+    for(let i = 0; i < Math.min(chars.length, cols); i++){
+      padCtx.fillText(chars[i], cellW * i + cellW / 2, h / 2 + 4);
+    }
+    padCtx.restore();
+  }
+
+  for(const stroke of session.padHistory){
+    if(!stroke.points || stroke.points.length === 0) continue;
+    padCtx.save();
+    padCtx.lineCap = "round";
+    padCtx.lineJoin = "round";
+    padCtx.lineWidth = stroke.size || 4;
+    if(stroke.tool === "eraser"){
+      padCtx.globalCompositeOperation = "destination-out";
+      padCtx.strokeStyle = "rgba(0,0,0,1)";
+    } else {
+      padCtx.strokeStyle = stroke.color === "auto"
+        ? (document.documentElement.getAttribute("data-theme") === "dark" ? "#f1f5f9" : "#1b2028")
+        : stroke.color;
+    }
+    padCtx.beginPath();
+    padCtx.moveTo(stroke.points[0].x, stroke.points[0].y);
+    for(let i = 1; i < stroke.points.length; i++){
+      padCtx.lineTo(stroke.points[i].x, stroke.points[i].y);
+    }
+    if(stroke.points.length === 1){
+      padCtx.lineTo(stroke.points[0].x + 0.1, stroke.points[0].y + 0.1);
+    }
+    padCtx.stroke();
+    padCtx.restore();
+  }
+}
+
+function initScratchpadCanvas(){
+  padCanvas = document.getElementById("scratchpad-canvas");
+  if(!padCanvas) return;
+  const setupSize = () => {
+    if(!padCanvas) return;
+    const dpr = window.devicePixelRatio || 1;
+    const rect = padCanvas.getBoundingClientRect();
+    const w = rect.width || padCanvas.offsetWidth || 320;
+    const h = rect.height || padCanvas.offsetHeight || 190;
+    padCanvas.width = Math.round(w * dpr);
+    padCanvas.height = Math.round(h * dpr);
+    padCtx = padCanvas.getContext("2d");
+    padCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    redrawScratchpad();
+    updateHandwritingCandidates();
+  };
+  setupSize();
+  requestAnimationFrame(setupSize);
+
+  const getPos = e => {
+    const r = padCanvas.getBoundingClientRect();
+    const t = e.touches ? e.touches[0] : e;
+    return { x: t.clientX - r.left, y: t.clientY - r.top };
+  };
+
+  const onStart = e => {
+    if(session.answered) return;
+    if(e.cancelable) e.preventDefault();
+    isDrawingPad = true;
+    const pos = getPos(e);
+    session.padHistory.push({
+      tool: STATE.padTool,
+      color: STATE.padColor,
+      size: STATE.padTool === "eraser" ? 16 : STATE.padSize,
+      points: [pos]
+    });
+    redrawScratchpad();
+  };
+  const onMove = e => {
+    if(!isDrawingPad) return;
+    if(e.cancelable) e.preventDefault();
+    const pos = getPos(e);
+    const curStroke = session.padHistory[session.padHistory.length - 1];
+    if(curStroke){
+      curStroke.points.push(pos);
+      redrawScratchpad();
+    }
+  };
+  const onEnd = () => {
+    if(!isDrawingPad) return;
+    isDrawingPad = false;
+    updateHandwritingCandidates();
+  };
+
+  padCanvas.onpointerdown = e => {
+    if(padCanvas.setPointerCapture) padCanvas.setPointerCapture(e.pointerId);
+    onStart(e);
+  };
+  padCanvas.onpointermove = onMove;
+  padCanvas.onpointerup = onEnd;
+  padCanvas.onpointercancel = onEnd;
+  padCanvas.ontouchstart = onStart;
+  padCanvas.ontouchmove = onMove;
+  padCanvas.ontouchend = onEnd;
+}
+
+function getAllCandidateVocabulary(){
+  const set = new Set();
+  for(const s of SCI_STATIC) set.add(s.correct.replace(/（.*?）|\(.*?\)/g, "").trim());
+  for(const p of HISTORY_DATA.people) set.add(p.name.trim());
+  for(const t of HISTORY_DATA.terms) set.add(t.name.trim());
+  for(const e of HISTORY_DATA.events){ set.add(e.name.trim()); set.add(e.year.trim()); }
+  if(session.q){
+    for(const o of session.q.options) set.add(o.replace(/（.*?）|\(.*?\)/g, "").trim());
+  }
+  return Array.from(set).filter(Boolean);
+}
+
+function rasterizeGlyphData(ch){
+  const size = 32;
+  const c = document.createElement("canvas");
+  c.width = size; c.height = size;
+  const ctx = c.getContext("2d");
+  ctx.fillStyle = "#000";
+  ctx.font = 'bold 26px "Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif';
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(ch, size / 2, size / 2 + 1);
+  const img = ctx.getImageData(0, 0, size, size).data;
+
+  let minX = size, minY = size, maxX = 0, maxY = 0, hasInk = false;
+  for(let y = 0; y < size; y++){
+    for(let x = 0; x < size; x++){
+      if(img[(y * size + x) * 4 + 3] > 40){
+        hasInk = true;
+        if(x < minX) minX = x;
+        if(y < minY) minY = y;
+        if(x > maxX) maxX = x;
+        if(y > maxY) maxY = y;
+      }
+    }
+  }
+  const aspect = hasInk ? (maxX - minX + 1) / Math.max(1, (maxY - minY + 1)) : 1;
+
+  const weights = [0.25, 0.6, 1.0, 0.6, 0.25];
+  const grid = new Float32Array(size * size);
+  for(let y = 0; y < size; y++){
+    for(let x = 0; x < size; x++){
+      let sum = 0, wSum = 0;
+      for(let dy = -2; dy <= 2; dy++){
+        for(let dx = -2; dx <= 2; dx++){
+          const nx = x + dx, ny = y + dy;
+          if(nx >= 0 && nx < size && ny >= 0 && ny < size){
+            const w = weights[dy + 2] * weights[dx + 2];
+            sum += (img[(ny * size + nx) * 4 + 3] / 255) * w;
+            wSum += w;
+          }
+        }
+      }
+      grid[y * size + x] = sum / wSum;
+    }
+  }
+  return { grid, aspect };
+}
+
+const GLYPH_CACHE = {};
+function getGlyphData(ch){
+  if(!GLYPH_CACHE[ch]) GLYPH_CACHE[ch] = rasterizeGlyphData(ch);
+  return GLYPH_CACHE[ch];
+}
+
+function groupStrokesIntoCharacters(strokes, canvasWidth, cols){
+  const cellW = canvasWidth / cols;
+  const strokeStats = strokes.map(st => {
+    let minX = Infinity, maxX = -Infinity, sumX = 0;
+    for(const p of st.points){
+      if(p.x < minX) minX = p.x;
+      if(p.x > maxX) maxX = p.x;
+      sumX += p.x;
+    }
+    const centerX = sumX / st.points.length;
+    const cellIdx = Math.min(cols - 1, Math.max(0, Math.floor(centerX / cellW)));
+    return { st, minX, maxX, centerX, cellIdx };
+  });
+
+  if(STATE.padGrid){
+    const buckets = Array.from({ length: cols }, () => []);
+    for(const item of strokeStats){
+      buckets[item.cellIdx].push(item.st);
+    }
+    return buckets.filter(b => b.length > 0);
+  }
+
+  const sorted = [...strokeStats].sort((a, b) => a.minX - b.minX);
+  const groups = [];
+  let curGroup = [sorted[0]];
+  let curMaxX = sorted[0].maxX;
+  const gapThreshold = Math.max(24, cellW * 0.22);
+
+  for(let i = 1; i < sorted.length; i++){
+    const item = sorted[i];
+    if(item.minX > curMaxX + gapThreshold * 0.35 && item.centerX - curMaxX > gapThreshold * 0.2){
+      groups.push(curGroup.map(x => x.st));
+      curGroup = [item];
+      curMaxX = item.maxX;
+    } else {
+      curGroup.push(item);
+      if(item.maxX > curMaxX) curMaxX = item.maxX;
+    }
+  }
+  if(curGroup.length > 0) groups.push(curGroup.map(x => x.st));
+  return groups;
+}
+
+function recognizeHandwritingCandidates(){
+  const strokes = session.padHistory.filter(s => s.tool !== "eraser" && s.points && s.points.length > 0);
+  if(strokes.length === 0) return [];
+  const w = (padCanvas && padCanvas.getBoundingClientRect().width) || 320;
+  const expectedChars = getExpectedAnswerChars();
+  const cols = Math.min(6, Math.max(2, expectedChars.length || 3));
+  const charGroups = groupStrokesIntoCharacters(strokes, w, cols);
+  if(charGroups.length === 0) return [];
+
+  const size = 32;
+  const weights = [0.25, 0.6, 1.0, 0.6, 0.25];
+
+  const cellSamples = charGroups.map(sts => {
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    for(const st of sts){
+      for(const p of st.points){
+        if(p.x < minX) minX = p.x;
+        if(p.y < minY) minY = p.y;
+        if(p.x > maxX) maxX = p.x;
+        if(p.y > maxY) maxY = p.y;
+      }
+    }
+    const rawW = Math.max(1, maxX - minX);
+    const rawH = Math.max(1, maxY - minY);
+    const aspect = rawW / rawH;
+    const bw = Math.max(22, rawW);
+    const bh = Math.max(22, rawH);
+    const scale = 24 / Math.max(bw, bh);
+    const ox = (size - rawW * scale) / 2;
+    const oy = (size - rawH * scale) / 2;
+
+    const c = document.createElement("canvas");
+    c.width = size; c.height = size;
+    const ctx = c.getContext("2d");
+    ctx.strokeStyle = "#000";
+    ctx.lineWidth = 2.8;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    for(const st of sts){
+      ctx.beginPath();
+      ctx.moveTo((st.points[0].x - minX) * scale + ox, (st.points[0].y - minY) * scale + oy);
+      for(let i = 1; i < st.points.length; i++){
+        ctx.lineTo((st.points[i].x - minX) * scale + ox, (st.points[i].y - minY) * scale + oy);
+      }
+      if(st.points.length === 1){
+        ctx.lineTo((st.points[0].x - minX) * scale + ox + 0.2, (st.points[0].y - minY) * scale + oy + 0.2);
+      }
+      ctx.stroke();
+    }
+    const img = ctx.getImageData(0, 0, size, size).data;
+    const grid = new Float32Array(size * size);
+    for(let y = 0; y < size; y++){
+      for(let x = 0; x < size; x++){
+        let sum = 0, wSum = 0;
+        for(let dy = -2; dy <= 2; dy++){
+          for(let dx = -2; dx <= 2; dx++){
+            const nx = x + dx, ny = y + dy;
+            if(nx >= 0 && nx < size && ny >= 0 && ny < size){
+              const wt = weights[dy + 2] * weights[dx + 2];
+              sum += (img[(ny * size + nx) * 4 + 3] / 255) * wt;
+              wSum += wt;
+            }
+          }
+        }
+        grid[y * size + x] = sum / wSum;
+      }
+    }
+    return { grid, aspect };
+  });
+
+  function calcMaxShiftSimilarity(g1, g2){
+    let best = 0;
+    const shifts = [[0,0], [-2,0], [2,0], [0,-2], [0,2]];
+    for(const [sx, sy] of shifts){
+      let dot = 0, n1 = 0, n2 = 0;
+      for(let y = 2; y < size - 2; y++){
+        const row1 = y * size;
+        const row2 = (y + sy) * size;
+        for(let x = 2; x < size - 2; x++){
+          const v1 = g1[row1 + x];
+          const v2 = g2[row2 + x + sx];
+          dot += v1 * v2;
+          n1 += v1 * v1;
+          n2 += v2 * v2;
+        }
+      }
+      const cos = (n1 > 0 && n2 > 0) ? dot / (Math.sqrt(n1) * Math.sqrt(n2)) : 0;
+      if(cos > best) best = cos;
+    }
+    return best;
+  }
+
+  const vocab = getAllCandidateVocabulary();
+  const scored = vocab.map(word => {
+    const chars = Array.from(word);
+    const lenDiff = Math.abs(chars.length - cellSamples.length);
+    let sim = 0;
+    const compareLen = Math.min(chars.length, cellSamples.length);
+    for(let i = 0; i < compareLen; i++){
+      const sample = cellSamples[i];
+      const glyph = getGlyphData(chars[i]);
+      const shapeSim = calcMaxShiftSimilarity(sample.grid, glyph.grid);
+      const aspectDiff = Math.abs(Math.log(Math.max(0.25, sample.aspect) / Math.max(0.25, glyph.aspect)));
+      const aspectBonus = Math.max(0, 1 - aspectDiff * 0.45);
+      sim += shapeSim * 0.85 + aspectBonus * 0.15;
+    }
+    const avgSim = compareLen > 0 ? sim / compareLen : 0;
+    const lenBonus = lenDiff === 0 ? 0.14 : -lenDiff * 0.22;
+    return { word, score: avgSim + lenBonus };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, 5).map(s => s.word);
+}
+
+function updateHandwritingCandidates(){
+  const box = document.getElementById("hw-candidates");
+  if(!box) return;
+  const cands = recognizeHandwritingCandidates();
+  if(cands.length === 0){
+    const expectedLen = getExpectedAnswerChars().length;
+    box.innerHTML = `<span style="font-size:11.5px;color:var(--sub)">上のマス目（全${expectedLen}文字）に左から1文字ずつ大きく書くと候補が出ます</span>`;
+    return;
+  }
+  box.innerHTML = `<span style="font-size:11.5px;font-weight:800;color:var(--sub)">認識候補（タップで回答）：</span>` +
+    cands.map((w, idx) => `<button class="chip-btn ${idx === 0 ? "active" : ""}" style="padding:5px 12px;font-size:12.5px" onclick="submitHandwritingCandidate('${escapeHtml(w)}')">${escapeHtml(w)}</button>`).join("");
+}
+
+function submitHandwritingCandidate(word){
+  if(session.answered) return;
+  handleQuizAnswer(-1, false, word, true);
+}
+
+function submitHandwritingPad(){
+  if(session.answered) return;
+  const cands = recognizeHandwritingCandidates();
+  if(cands.length === 0){
+    const box = document.getElementById("hw-candidates");
+    if(box) box.innerHTML = `<span style="font-size:11.5px;font-weight:800;color:var(--ng)">先にパレットへ文字を書いてください！</span>`;
+    return;
+  }
+  handleQuizAnswer(-1, false, cands[0], true);
+}
+
+/* =========================================================
+   9. タブ1：演習・実践テスト・定期試験予想模試ビュー＆深掘り解説
+========================================================= */
+function setQuizSubject(sub){
+  SFX.tap();
+  clearTimers();
+  STATE.subject = sub;
+  STATE.unit = "all";
+  saveState();
+  resetQuizSession();
+}
+
+function setQuizUnit(u){
+  SFX.tap();
+  clearTimers();
+  STATE.unit = u;
+  saveState();
+  resetQuizSession();
+}
+
+function setQuizMode(m){
+  SFX.tap();
+  clearTimers();
+  STATE.quizMode = m;
+  saveState();
+  resetQuizSession();
+}
+
+function setAnswerStyle(st){
+  SFX.tap();
+  STATE.answerStyle = st;
+  STATE.showScratchpad = (st === "handwrite");
+  saveState();
+  if(!session.answered){
+    resetQuizSession();
+  } else {
+    render();
+  }
+}
+
+function startWeaknessDrill(){
+  SFX.tap();
+  clearTimers();
+  STATE.activeTab = "quiz";
+  STATE.subject = "weak";
+  STATE.unit = "all";
+  STATE.quizMode = "endless";
+  saveState();
+  resetQuizSession();
+}
+
+function jumpToUnitQuiz(sub, cat){
+  SFX.tap();
+  clearTimers();
+  STATE.activeTab = "quiz";
+  STATE.subject = sub;
+  STATE.unit = cat;
+  STATE.quizMode = "endless";
+  saveState();
+  resetQuizSession();
+}
+
+function resetQuizSession(){
+  clearTimers();
+  session.testCount = 0;
+  session.testCorrect = 0;
+  session.testMisses = [];
+  session.testTotalMs = 0;
+  session.testUnitScores = {};
+  session.usedQuestions = [];
+  session.examWeights = buildExamPointWeights();
+  session.examPointsEarned = 0;
+
+  const nextQ = pickQuizQuestion();
+  session.q = nextQ;
+  session.answered = false;
+  session.hintShown = false;
+  session.recallChecked = false;
+  session.isPinnedNow = nextQ ? STATE.wrongLog.some(x => x.question === nextQ.question) : false;
+  session.padHistory = [];
+  session.calcPadHistory = [];
+  render();
+  startQuestionTimer();
+}
+
+function nextQuizQuestion(){
+  SFX.tap();
+  clearTimers();
+  const totalQ = getTestTotalQuestions();
+  if(isTestMode() && session.testCount >= totalQ){
+    renderTestResult();
+    return;
+  }
+  const nextQ = pickQuizQuestion();
+  session.q = nextQ;
+  session.answered = false;
+  session.hintShown = false;
+  session.recallChecked = false;
+  session.isPinnedNow = nextQ ? STATE.wrongLog.some(x => x.question === nextQ.question) : false;
+  session.padHistory = [];
+  session.calcPadHistory = [];
+  render();
+  startQuestionTimer();
+}
+
+function submitWrittenAnswer(){
+  if(session.answered) return;
+  const inp = document.getElementById("written-ans-input");
+  const val = inp ? inp.value.trim() : "";
+  if(!val) return;
+  handleQuizAnswer(-1, false, val, false);
+}
+
+function handleQuizAnswer(idx, isTimeout = false, writtenText = null, fromHandwriting = false){
+  if(session.answered || !session.q) return;
+  session.answered = true;
+  session.recallChecked = false;
+  stopQuestionTimer();
+  syncDailyProgress();
+  const elapsedMs = session.qStartAt ? Math.max(0, Date.now() - session.qStartAt) : 0;
+  const q = session.q;
+  const correctText = q.options[q.answerIndex];
+  const isWrite = writtenText !== null;
+  const isOk = !isTimeout && (isWrite ? checkWrittenMatch(writtenText, correctText) : idx === q.answerIndex);
+
+  scheduleMemoryReinforcement(q, isOk);
+
+  STATE.totalAnswered++;
+  STATE.todayCount = (STATE.todayCount || 0) + 1;
+  STATE.lastStudyDate = STATE.todayDate;
+
+  if(!STATE.unitStats[q.category]) STATE.unitStats[q.category] = { total: 0, correct: 0 };
+  STATE.unitStats[q.category].total++;
+
+  let gainedXp = 0;
+  if(isOk){
+    SFX.ok();
+    STATE.totalCorrect++;
+    STATE.streak++;
+    if(STATE.streak > STATE.maxStreak) STATE.maxStreak = STATE.streak;
+    STATE.unitStats[q.category].correct++;
+    gainedXp = fromHandwriting ? 25 : isWrite ? 20 : (STATE.quizMode === "exam_pred" ? 15 : 10);
+    if(STATE.streak > 0 && STATE.streak % 5 === 0) triggerCelebration();
+  } else {
+    SFX.ng();
+    STATE.streak = 0;
+    gainedXp = 3;
+    addOrUpdateWrongLog(q, true);
+    session.isPinnedNow = true;
+    if(isTestMode()){
+      session.testMisses.push({
+        question: q.question,
+        category: q.category,
+        subject: q.subject,
+        pts: q.pts || 7,
+        correct: correctText,
+        chosen: isTimeout ? "時間切れ" : isWrite ? writtenText : q.options[idx],
+        explanation: q.explanation,
+        deepDive: q.deepDive || "",
+        tip: q.tip || ""
+      });
+    }
+  }
+  STATE.xp = (STATE.xp || 0) + gainedXp;
+
+  if(isTestMode()){
+    session.testCount++;
+    session.testTotalMs += elapsedMs;
+    if(!session.testUnitScores[q.category]){
+      session.testUnitScores[q.category] = { subject: q.subject, total: 0, correct: 0 };
+    }
+    session.testUnitScores[q.category].total++;
+    if(isOk){
+      session.testCorrect++;
+      session.testUnitScores[q.category].correct++;
+      if(STATE.quizMode === "exam_pred"){
+        session.examPointsEarned += (q.pts || 7);
+      }
+    }
+  }
+  saveState();
+
+  const btns = document.querySelectorAll("#quiz-opts .opt");
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if(i === q.answerIndex) b.classList.add("ok");
+    else if(i === idx && !isOk) b.classList.add("ng");
+  });
+  const wInp = document.getElementById("written-ans-input");
+  if(wInp) wInp.disabled = true;
+  const wBtn = document.getElementById("written-submit-btn");
+  if(wBtn) wBtn.disabled = true;
+
+  const fbArea = document.getElementById("quiz-fb");
+  const totalQ = getTestTotalQuestions();
+  const isTestEnd = isTestMode() && session.testCount >= totalQ;
+  const nextLabel = isTestEnd
+    ? (STATE.quizMode === "exam_pred" ? "定期試験予想模試の成績表を見る" : "実践テスト結果を見る")
+    : "次の問題へ";
+  const resultHeading = isTimeout ? "時間切れ…！" : isOk ? `正解！（+${gainedXp} EXP）` : `不正解…（+${gainedXp} EXP）`;
+
+  const modeNotice = isTestMode()
+    ? "※実践テスト本番モード中のため、復習問題の割り込みは停止しています（終了後に復習できます）。"
+    : (!isOk
+        ? "※記憶定着のため、2問後に同じ問題・4問後に類題が自動で再出題されます。"
+        : (session.spiralQueue && session.spiralQueue.length > 0 ? `※現在 ${session.spiralQueue.length} 問の定着リトライ／類題が待機中です。` : ""));
+
+  const noteKey = getStudyNoteKey(q);
+  const existingNote = (STATE.studyNotes && STATE.studyNotes[noteKey]) || { level: "", memo: "" };
+  const relatedLinks = (q.related && q.related.length > 0) ? q.related : [
+    { label: `${q.category}の用語・公式を確認`, tab: "guide", search: "" }
+  ];
+
+  fbArea.innerHTML = `
+    <div class="fb ${isOk ? "ok" : "ng"}">
+      <div class="fb-head">
+        <div class="res-title">${resultHeading}</div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap">
+          <button id="recall-btn" class="pin-btn" onclick="toggleRecallCheck()">🧠 答えを見ずに3秒思い出す（+5 EXP）</button>
+          <button id="pin-btn" class="pin-btn ${session.isPinnedNow ? "pinned" : ""}" onclick="togglePinQuestion()">
+            ${session.isPinnedNow ? "★ 要復習に登録済" : "☆ 要復習にピン留め"}
+          </button>
+        </div>
+      </div>
+      ${fromHandwriting ? `<div style="font-size:12.5px;font-weight:800;margin-bottom:3px">手書き認識：「${escapeHtml(writtenText)}」</div>` : ""}
+      ${isWrite ? `<div style="font-weight:900;font-size:15px;margin-bottom:6px;color:var(--ok)">模範解答：${escapeHtml(correctText)}</div>` : ""}
+      <div style="white-space:pre-line">${escapeHtml(q.explanation)}</div>
+
+      ${q.deepDive ? `
+        <div class="deep-box">
+          <div class="deep-head">
+            <span>🔍 なぜ？を深く理解する（仕組み・歴史のつながり）</span>
+          </div>
+          <div style="white-space:pre-line">${escapeHtml(q.deepDive)}</div>
+        </div>
+      ` : ""}
+
+      ${q.mnemonics && q.mnemonics.length > 0 ? `
+        <div class="mnemonic-box">
+          <div class="mnemonic-head">
+            <span>🎵 覚えやすい年号・語呂合わせ（複数パターン）</span>
+            <span style="font-size:10.5px;font-weight:700">気に入ったものをマイメモに保存できます</span>
+          </div>
+          <div class="mnemonic-list">
+            ${q.mnemonics.map((m, mIdx) => `
+              <div class="mnemonic-item">
+                <span>「${escapeHtml(m)}」</span>
+                <button class="mnemonic-save-btn" onclick="applyMnemonicToMemo(${mIdx})">＋マイメモへ</button>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      ` : ""}
+
+      ${q.tip ? `
+        <div class="tip-box">
+          <div class="tip-label">重要公式・暗記ポイント</div>
+          <div>${escapeHtml(q.tip)}</div>
+        </div>
+      ` : ""}
+
+      <div class="feynman-box">
+        <div class="feynman-title">
+          <span>✍️ 理解度セルフチェック ＆ マイ学習メモ</span>
+          <span id="mymemo-status" style="font-size:11px;color:var(--acc)">${existingNote.memo ? "保存済" : ""}</span>
+        </div>
+        <div class="mastery-pills">
+          <button class="m-pill ${existingNote.level === "high" ? "active-high" : ""}" data-lvl="high" onclick="setFeynmanLevel('high')">◎ 理由まで説明できる</button>
+          <button class="m-pill ${existingNote.level === "mid" ? "active-mid" : ""}" data-lvl="mid" onclick="setFeynmanLevel('mid')">△ 答えはわかった</button>
+          <button class="m-pill ${existingNote.level === "low" ? "active-low" : ""}" data-lvl="low" onclick="setFeynmanLevel('low')">× まだ曖昧（要復習）</button>
+        </div>
+        <div class="mymemo-row">
+          <input id="mymemo-inp" class="mymemo-input" type="text" placeholder="自分なりの覚え方・語呂合わせ・注意点をメモ…" value="${escapeHtml(existingNote.memo || "")}" onkeydown="if(event.key==='Enter'){event.stopPropagation();saveMyStudyMemo();}">
+          <button class="pill-btn on" style="padding:7px 11px;white-space:nowrap" onclick="saveMyStudyMemo()">保存</button>
+        </div>
+      </div>
+
+      <div class="related-box">
+        <div class="related-lbl">🔗 知識をつなげて深掘りする</div>
+        <div class="related-chips">
+          ${relatedLinks.map((r, rIdx) => `
+            <button class="rel-chip" onclick="followRelatedLink(${rIdx})">${escapeHtml(r.label)} →</button>
+          `).join("")}
+        </div>
+      </div>
+
+      ${modeNotice ? `<div style="font-size:11.5px;font-weight:800;color:var(--sub);margin-top:8px">${escapeHtml(modeNotice)}</div>` : ""}
+      <button class="btn ${STATE.quizMode === "exam_pred" ? "exam-btn" : ""}" onclick="nextQuizQuestion()">${nextLabel}</button>
+    </div>
+  `;
+
+  if(STATE.autoNext && !isTestEnd){
+    session.autoTimer = setTimeout(() => {
+      if(STATE.autoNext && session.answered) nextQuizQuestion();
+    }, isOk ? 2200 : 4000);
+  }
+}
+
+function renderQuizTab(){
+  if(!session.q) session.q = pickQuizQuestion();
+  const q = session.q;
+  const labels = ["ア", "イ", "ウ", "エ"];
+  const inTest = isTestMode();
+  const isExamPred = STATE.quizMode === "exam_pred";
+  const totalQ = getTestTotalQuestions();
+
+  const unitList = STATE.subject === "理科" ? SCI_UNITS : STATE.subject === "社会" ? SOC_UNITS : [];
+  const subChipsHtml = unitList.length ? `
+    <div class="sub-filters">
+      ${unitList.map(([val, lbl]) => `
+        <button class="chip-btn ${STATE.unit === val ? "active" : ""}" onclick="setQuizUnit('${val}')">${lbl}</button>
+      `).join("")}
+    </div>
+  ` : "";
+
+  const testBannerHtml = isExamPred ? `
+    <div class="test-notice-bar">
+      <span>🔥 定期試験・予想模試（全15問・100点満点）</span>
+      <span>本番仕様（ヒントなし・復習割り込みなし）</span>
+    </div>
+  ` : STATE.quizMode === "test10" ? `
+    <div class="test-notice-bar practice">
+      <span>📝 実践10問小テスト（重複なし・実力測定）</span>
+      <span>本番仕様（ヒントなし・復習割り込みなし）</span>
+    </div>
+  ` : "";
+
+  const progHtml = inTest ? `
+    <div class="prog-wrap">
+      <div class="prog-top">
+        <span>第 ${Math.min(session.testCount + 1, totalQ)} 問 / 全 ${totalQ} 問</span>
+        <span class="num">${isExamPred ? `現在の獲得点：${session.examPointsEarned} / 100 点` : `現在の正解：${session.testCorrect} 問`}</span>
+      </div>
+      <div class="prog-bar"><div class="prog-fill ${isExamPred ? "exam" : ""}" style="width:${(session.testCount / totalQ) * 100}%"></div></div>
+    </div>
+  ` : "";
+
+  const presetLabel = STATE.timerPreset === "std" ? "標準(20/30秒)" : STATE.timerPreset === "15" ? "15秒" : "30秒";
+  const timerHtml = STATE.timerEnabled ? `
+    <div class="timer-wrap">
+      <div class="timer-top">
+        <span>残り時間：<span id="timer-sec" class="timer-sec num ${session.timeLeftSec <= 5 ? "warn" : ""}">${(session.timeLeftSec || getQuestionTimeLimit(q)).toFixed(1)} 秒</span></span>
+        <button class="pill-btn" style="padding:3px 8px;font-size:10.5px" onclick="cycleTimerPreset()">制限時間：${presetLabel}</button>
+      </div>
+      <div class="timer-bar"><div id="timer-fill" class="timer-fill ${session.timeLeftSec <= 5 ? "warn" : ""}" style="width:${((session.timeLeftSec || getQuestionTimeLimit(q)) / (session.timeMaxSec || getQuestionTimeLimit(q))) * 100}%"></div></div>
+    </div>
+  ` : "";
+
+  const correctText = q.options[q.answerIndex] || "";
+  const firstChar = Array.from(correctText.replace(/（.*?）|\(.*?\)/g, ""))[0] || "";
+  const hintBoxHtml = (!inTest && session.hintShown) ? `
+    <div class="hint-box">
+      <div class="hint-title">💡 解答のヒント</div>
+      <div>${q.tip ? escapeHtml(q.tip) : "問題文のキーワードに注目しよう！"}</div>
+      <div style="font-weight:800;margin-top:3px">最初の1文字：「${escapeHtml(firstChar)}」（全${Array.from(correctText.replace(/（.*?）|\(.*?\)/g, "")).length}文字）</div>
+    </div>
+  ` : "";
+
+  const isHandwriteMode = STATE.answerStyle === "handwrite";
+  const calcMemoHtml = (!isHandwriteMode && STATE.showCalcMemo) ? `
+    <div class="memo-pad-wrap" style="margin-bottom:12px">
+      <div class="memo-pad-head">
+        <span>✏️ 計算・思考メモ帳（指やマウスで途中式を書けます）</span>
+        <button class="pill-btn" style="padding:2px 8px;font-size:10.5px" onclick="clearCalcMemo()">メモ消去</button>
+      </div>
+      <canvas id="calc-memo-canvas" class="memo-canvas" style="height:130px"></canvas>
+    </div>
+  ` : "";
+
+  let answerAreaHtml = "";
+  if(STATE.answerStyle === "choice"){
+    answerAreaHtml = `
+      <div id="quiz-opts">
+        ${q.options.map((opt, i) => `
+          <button class="opt" onclick="handleQuizAnswer(${i})">
+            <span class="opt-num">${labels[i]}</span>
+            <span>${escapeHtml(opt)}</span>
+          </button>
+        `).join("")}
+      </div>
+    `;
+  } else if(STATE.answerStyle === "write"){
+    answerAreaHtml = `
+      <div class="write-box">
+        <div class="write-input-row">
+          <input id="written-ans-input" class="write-input" type="text" placeholder="答えを入力（例：徳川家康、12V、1853年）" onkeydown="if(event.key==='Enter'){event.preventDefault();submitWrittenAnswer();}">
+          <button id="written-submit-btn" class="btn" style="width:auto;margin-top:0;padding:0 18px" onclick="submitWrittenAnswer()">回答</button>
+        </div>
+      </div>
+    `;
+  }
+
+  const colors = [["auto", "#1b2028"], ["#dc2626", "#dc2626"], ["#2563eb", "#2563eb"], ["#16a34a", "#16a34a"]];
+  const expectedLen = getExpectedAnswerChars().length;
+  const scratchpadHtml = isHandwriteMode ? `
+    <div class="memo-pad-wrap">
+      <div class="memo-pad-head">
+        <span>漢字・計算パレット（全${expectedLen}文字：1マスに1文字ずつ大きく記入）</span>
+        <div style="display:flex;gap:4px">
+          ${!inTest ? `<button class="pill-btn ${STATE.padTraceGuide ? "on" : ""}" style="padding:3px 8px;font-size:10.5px" onclick="togglePadTraceGuide()">なぞりお手本:${STATE.padTraceGuide ? "ON" : "OFF"}</button>` : ""}
+          <button class="pill-btn ${STATE.padGrid ? "on" : ""}" style="padding:3px 8px;font-size:10.5px" onclick="togglePadGrid()">マス目:${STATE.padGrid ? "ON" : "OFF"}</button>
+        </div>
+      </div>
+      <div class="palette-bar">
+        <div class="palette-group">
+          ${colors.map(([val, hex]) => `
+            <button class="color-dot ${STATE.padColor === val && STATE.padTool === "pen" ? "active" : ""}" style="background:${hex}" onclick="setPadColor('${val}')" title="ペン色"></button>
+          `).join("")}
+          <button class="pill-btn ${STATE.padTool === "eraser" ? "on" : ""}" style="padding:3px 7px;font-size:10.5px" onclick="setPadTool('eraser')">消しゴム</button>
+        </div>
+        <div class="palette-group">
+          ${[[2, "細"], [4, "中"], [7, "太"]].map(([sz, lbl]) => `
+            <button class="pill-btn ${STATE.padSize === sz && STATE.padTool === "pen" ? "on" : ""}" style="padding:3px 7px;font-size:10.5px" onclick="setPadSize(${sz})">${lbl}</button>
+          `).join("")}
+          <button class="pill-btn" style="padding:3px 7px;font-size:10.5px" onclick="undoScratchpad()">1画戻す</button>
+          <button class="pill-btn" style="padding:3px 7px;font-size:10.5px" onclick="clearScratchpad()">全消去</button>
+        </div>
+      </div>
+      <canvas id="scratchpad-canvas" class="memo-canvas"></canvas>
+      <div id="hw-candidates" style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:8px"></div>
+      <button class="btn" style="margin-top:8px" onclick="submitHandwritingPad()">書いた字で答え合わせ</button>
+    </div>
+  ` : "";
+
+  const welcomeHtml = !STATE.seenWelcome ? `
+    <div class="welcome-banner">
+      <div style="font-size:12.5px">
+        <div style="font-weight:900;color:var(--acc)">はじめての方へ：丸暗記を卒業する深掘り学習！</div>
+        <div style="color:var(--sub)">回答後の「なぜ？の深掘り解説」「マイ学習メモ」「知識のつながりジャンプ」で理解を深め、予想模試で実力を試そう！</div>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="pill-btn on" onclick="openModal('help')">詳しい使い方</button>
+        <button class="pill-btn" onclick="dismissWelcome()">閉じる</button>
+      </div>
+    </div>
+  ` : "";
+
+  const triviaText = STUDY_TRIVIA[STATE.totalAnswered % STUDY_TRIVIA.length];
+
+  return `
+    ${welcomeHtml}
+    <div class="sub-tabs">
+      <button class="stab-btn ${STATE.subject === "all" ? "active" : ""}" onclick="setQuizSubject('all')">理社ミックス</button>
+      <button class="stab-btn sci ${STATE.subject === "理科" ? "active" : ""}" onclick="setQuizSubject('理科')">理科</button>
+      <button class="stab-btn soc ${STATE.subject === "社会" ? "active" : ""}" onclick="setQuizSubject('社会')">社会（歴史）</button>
+      <button class="stab-btn weak ${STATE.subject === "weak" ? "active" : ""}" onclick="setQuizSubject('weak')">弱点克服</button>
+    </div>
+
+    <div class="card ${isExamPred ? "exam-mode-card" : ""}">
+      <div class="mode-row">
+        <div class="mode-switch">
+          <button class="${STATE.quizMode === "endless" ? "active" : ""}" onclick="setQuizMode('endless')">エンドレス演習</button>
+          <button class="${STATE.quizMode === "test10" ? "active" : ""}" onclick="setQuizMode('test10')">実践10問テスト</button>
+          <button class="exam-tab ${STATE.quizMode === "exam_pred" ? "active" : ""}" onclick="setQuizMode('exam_pred')">🔥定期試験・予想模試</button>
+        </div>
+        <div class="mode-switch">
+          <button class="${STATE.answerStyle === "choice" ? "active" : ""}" onclick="setAnswerStyle('choice')">四択</button>
+          <button class="${STATE.answerStyle === "write" ? "active" : ""}" onclick="setAnswerStyle('write')">記述入力</button>
+          <button class="${STATE.answerStyle === "handwrite" ? "active" : ""}" onclick="setAnswerStyle('handwrite')">手書きパレット</button>
+        </div>
+      </div>
+      ${subChipsHtml}
+      ${testBannerHtml}
+      ${progHtml}
+      ${timerHtml}
+      <div class="tags">
+        <span class="tag ${q.subject === "理科" ? "sub-sci" : "sub-soc"}">${q.subject}</span>
+        <span class="tag">${q.category}</span>
+        <span class="tag">${q.type}</span>
+        ${isExamPred ? `<span class="tag exam-freq">🔥 出題予想 ${q.freqRate || "★★★★★"}</span><span class="tag pts-badge num">配点 ${q.pts || 7}点</span>` : (q.examFreq ? `<span class="tag exam-freq">定期試験頻出</span>` : "")}
+        ${!inTest && q.isSpiralReview ? `<span class="tag mastery">🔁 ${escapeHtml(q.spiralReason || "記憶定着リトライ")}</span>` : ""}
+        <span class="tag num" style="margin-left:auto">連続正解：${STATE.streak}問</span>
+      </div>
+      <div class="q-text">${formatQuestionHtml(q.question)}</div>
+      <div class="assist-bar">
+        ${!inTest
+          ? `<button class="pill-btn ${session.hintShown ? "on" : ""}" style="padding:4px 10px;font-size:11.5px" onclick="toggleHint()">💡 ${session.hintShown ? "ヒントを隠す" : "ヒントを見る"}</button>`
+          : `<span style="font-size:11px;font-weight:800;color:var(--sub)">🔒 本番形式のためヒント非表示</span>`
+        }
+        ${!isHandwriteMode ? `<button class="pill-btn ${STATE.showCalcMemo ? "on" : ""}" style="padding:4px 10px;font-size:11.5px" onclick="toggleCalcMemo()">✏️ ${STATE.showCalcMemo ? "計算メモを閉じる" : "計算メモ帳を開く"}</button>` : ""}
+      </div>
+      ${hintBoxHtml}
+      ${calcMemoHtml}
+      ${answerAreaHtml}
+      ${scratchpadHtml}
+      <div id="quiz-fb"></div>
+      <div class="kbd-hint">${isHandwriteMode ? "パレットに漢字を書いて「書いた字で答え合わせ」または候補タップ ／ Enterで次の問題へ" : STATE.answerStyle === "write" ? "Enterキーで回答確定・次の問題へ" : "PCキーボード操作：1〜4キーで回答 ／ Enterキーで次の問題へ"}</div>
+    </div>
+
+    <div class="trivia-banner">
+      <span class="tag" style="flex-shrink:0">学習メモ</span>
+      <span>${escapeHtml(triviaText)}</span>
+    </div>
+  `;
+}
+
+function renderTestResult(){
+  const isExamPred = STATE.quizMode === "exam_pred";
+  const totalQ = getTestTotalQuestions();
+  const score100 = isExamPred ? session.examPointsEarned : Math.round((session.testCorrect / totalQ) * 100);
+
+  if(isExamPred && (STATE.bestExamScore === null || score100 > STATE.bestExamScore)){
+    STATE.bestExamScore = score100;
+    saveState();
+  }
+
+  if(score100 >= 80) triggerCelebration();
+
+  const totalSec = (session.testTotalMs / 1000).toFixed(1);
+  const avgSec = (session.testTotalMs / (totalQ * 1000)).toFixed(1);
+
+  let rankLetter = "C";
+  let rankLabel = "基礎固めが必要（要復習）";
+  let adviceText = "まずは解説・公式集で基本公式と重要語句を確認し、間違えた問題を「苦手復習」タブで解き直しましょう！";
+  if(score100 >= 90){
+    rankLetter = "S";
+    rankLabel = "定期試験 90点オーバー圏内！（学年上位レベル）";
+    adviceText = "素晴らしい実力です！引っ掛け問題や計算問題も確実に得点できています。記述・漢字ミスに気をつければ高得点は間違いなしです。";
+  } else if(score100 >= 75){
+    rankLetter = "A";
+    rankLabel = "合格圏内・あと一歩で高得点！";
+    adviceText = "基礎から応用までよく理解できています。今回落とした比較問題・単位変換などのミスを潰せば、本番で90点以上が狙えます。";
+  } else if(score100 >= 55){
+    rankLetter = "B";
+    rankLabel = "標準レベル・頻出単元の強化で伸びる！";
+    adviceText = "基本問題は解けていますが、定期試験で差がつく応用・比較問題で失点しています。下の単元別結果で正答率が低い単元を重点復習しましょう。";
+  }
+
+  const unitEntries = Object.entries(session.testUnitScores || {});
+  const unitBreakdownHtml = unitEntries.length > 0 ? `
+    <div style="text-align:left;margin:14px 0;background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:12px">
+      <div style="font-weight:900;font-size:13px;margin-bottom:8px">今回のテスト 単元別得点率</div>
+      ${unitEntries.map(([cat, st]) => {
+        const uPct = Math.round((st.correct / st.total) * 100);
+        const col = uPct >= 80 ? "var(--sci)" : uPct >= 50 ? "var(--tipbd)" : "var(--ng)";
+        return `
+          <div style="margin-bottom:7px">
+            <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:800;margin-bottom:3px">
+              <span><span class="tag ${st.subject === "理科" ? "sub-sci" : "sub-soc"}" style="padding:1px 6px;font-size:10px">${st.subject}</span> ${escapeHtml(cat)}</span>
+              <span class="num" style="color:${col}">${st.correct}/${st.total}問（${uPct}%）</span>
+            </div>
+            <div class="unit-bar" style="height:6px"><div class="unit-fill" style="width:${uPct}%;background:${col}"></div></div>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  ` : "";
+
+  const missesHtml = session.testMisses.length === 0
+    ? `<div class="fb ok"><div class="res-title">全問正解！パーフェクト達成！</div><div>実践テストで1問も落とさず完全制覇しました！</div></div>`
+    : `<div style="font-weight:900;font-size:13.5px;margin:14px 0 8px;color:var(--ng);text-align:left">間違えた問題の深掘り復習（${session.testMisses.length}問・すべて苦手復習へ登録済）</div>` +
+      session.testMisses.map(m => `
+        <div class="review-item">
+          <div style="margin-bottom:4px">
+            <span class="tag ${m.subject === "理科" ? "sub-sci" : "sub-soc"}">${m.subject}</span>
+            <span class="tag">${escapeHtml(m.category)}</span>
+            ${isExamPred ? `<span class="tag pts-badge">-${m.pts}点</span>` : ""}
+          </div>
+          <div class="review-q">${escapeHtml(m.question)}</div>
+          <div class="review-a">正解：${escapeHtml(m.correct)}（あなたの回答：${escapeHtml(m.chosen)}）</div>
+          <div class="review-exp">${escapeHtml(m.explanation)}</div>
+          ${m.deepDive ? `<div style="font-size:12px;color:var(--deep);font-weight:700;margin-top:4px">${escapeHtml(m.deepDive)}</div>` : ""}
+          ${m.tip ? `<div style="font-size:11.5px;font-weight:800;color:var(--tip);margin-top:4px">★ ${escapeHtml(m.tip)}</div>` : ""}
+        </div>
+      `).join("");
+
+  app.innerHTML = renderShell() + `
+    <div class="card ${isExamPred ? "exam-mode-card" : ""}" style="text-align:center">
+      <div style="font-size:12.5px;font-weight:900;color:${isExamPred ? "var(--exam)" : "var(--sub)"}">
+        ${isExamPred ? "🔥 定期試験・予想模試 成績レポート" : "📝 実践10問小テスト 結果発表"}
+      </div>
+      <div class="result-score" style="${isExamPred ? "color:var(--exam)" : ""}">
+        ${isExamPred ? `${score100} <span style="font-size:20px;color:var(--ink)">/ 100 点</span>` : `${session.testCorrect} <span style="font-size:20px;color:var(--ink)">/ 10 問正解</span>`}
+      </div>
+      <div class="exam-rank-box exam-rank-${rankLetter}">
+        <span>判定ランク：${rankLetter}</span>
+        <span style="font-size:12.5px">${rankLabel}</span>
+      </div>
+      <div class="exam-summary-grid">
+        <div class="exam-stat-box">
+          <div class="exam-stat-lbl">正答数</div>
+          <div class="exam-stat-val num">${session.testCorrect} / ${totalQ} 問</div>
+        </div>
+        <div class="exam-stat-box">
+          <div class="exam-stat-lbl">所要タイム</div>
+          <div class="exam-stat-val num">${totalSec} 秒</div>
+        </div>
+        <div class="exam-stat-box">
+          <div class="exam-stat-lbl">${isExamPred ? "自己ベスト" : "平均回答時間"}</div>
+          <div class="exam-stat-val num">${isExamPred ? `${STATE.bestExamScore} 点` : `${avgSec} 秒`}</div>
+        </div>
+      </div>
+      <div class="tip-box" style="text-align:left;margin-bottom:10px">
+        <div class="tip-label">試験直前アドバイス</div>
+        <div>${escapeHtml(adviceText)}</div>
+      </div>
+      ${unitBreakdownHtml}
+      ${missesHtml}
+      <button class="btn ${isExamPred ? "exam-btn" : ""}" onclick="resetQuizSession()">
+        ${isExamPred ? "もう一度 定期試験・予想模試に挑戦" : "もう一度 実践10問テストに挑戦"}
+      </button>
+    </div>
+  `;
+}
+
+/* =========================================================
+   10. タブ2：苦手復習ビュー
+========================================================= */
+function pickReviewQuestion(){
+  if(!STATE.wrongLog || STATE.wrongLog.length === 0) return null;
+  let candidates = STATE.wrongLog;
+  if(session.revQ && STATE.wrongLog.length > 1){
+    const filtered = STATE.wrongLog.filter(x => x.question !== session.revQ.question);
+    if(filtered.length > 0) candidates = filtered;
+  }
+  const picked = candidates[Math.floor(Math.random() * candidates.length)];
+  const correctText = picked.options[picked.answerIndex];
+  const shuffledOpts = [...picked.options].sort(() => Math.random() - 0.5);
+  return {
+    ...picked,
+    options: shuffledOpts,
+    answerIndex: shuffledOpts.indexOf(correctText)
+  };
+}
+
+function setReviewSubMode(mode){
+  SFX.tap();
+  STATE.reviewSubMode = mode;
+  saveState();
+  render();
+}
+
+function setMasteryTarget(target){
+  SFX.tap();
+  STATE.reviewMasteryTarget = target;
+  saveState();
+  render();
+}
+
+function toggleRevCard(idx){
+  SFX.tap();
+  session.revCardOpen[idx] = !session.revCardOpen[idx];
+  render();
+}
+
+function removeWrongItem(idx){
+  SFX.tap();
+  STATE.wrongLog.splice(idx, 1);
+  session.revCardOpen = {};
+  saveState();
+  render();
+}
+
+function nextReviewQuestion(){
+  SFX.tap();
+  session.revQ = pickReviewQuestion();
+  session.revAnswered = false;
+  render();
+}
+
+function handleReviewAnswer(idx){
+  if(session.revAnswered || !session.revQ) return;
+  session.revAnswered = true;
+  const q = session.revQ;
+  const isOk = idx === q.answerIndex;
+  const logIdx = STATE.wrongLog.findIndex(x => x.question === q.question);
+  let mastered = false;
+  let currentStreak = 0;
+
+  if(isOk){
+    SFX.ok();
+    STATE.xp = (STATE.xp || 0) + 15;
+    if(logIdx !== -1){
+      STATE.wrongLog[logIdx].streakOk = (STATE.wrongLog[logIdx].streakOk || 0) + 1;
+      currentStreak = STATE.wrongLog[logIdx].streakOk;
+      if(currentStreak >= STATE.reviewMasteryTarget){
+        STATE.wrongLog.splice(logIdx, 1);
+        mastered = true;
+        triggerCelebration();
+      }
+    }
+  } else {
+    SFX.ng();
+    if(logIdx !== -1){
+      STATE.wrongLog[logIdx].streakOk = 0;
+      STATE.wrongLog[logIdx].missCount = (STATE.wrongLog[logIdx].missCount || 0) + 1;
+    }
+  }
+  saveState();
+
+  const btns = document.querySelectorAll("#rev-opts .opt");
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if(i === q.answerIndex) b.classList.add("ok");
+    else if(i === idx && !isOk) b.classList.add("ng");
+  });
+
+  const fbArea = document.getElementById("rev-fb");
+  if(fbArea){
+    const titleText = isOk
+      ? (mastered ? "正解！苦手克服おめでとう！（+15 EXP）" : `正解！あと ${STATE.reviewMasteryTarget - currentStreak} 回で克服（+15 EXP）`)
+      : "不正解…連続正解数がリセットされました";
+    const nextBtnHtml = STATE.wrongLog.length > 0
+      ? `<button class="btn" onclick="nextReviewQuestion()">次の苦手問題へ</button>`
+      : `<button class="btn" onclick="render()">完了（すべて克服！）</button>`;
+
+    fbArea.innerHTML = `
+      <div class="fb ${isOk ? "ok" : "ng"}">
+        <div class="fb-head">
+          <div class="res-title">${titleText}</div>
+        </div>
+        <div style="white-space:pre-line">${escapeHtml(q.explanation)}</div>
+        ${q.deepDive ? `
+          <div class="deep-box">
+            <div class="deep-head"><span>🔍 なぜ？を深く理解する</span></div>
+            <div style="white-space:pre-line">${escapeHtml(q.deepDive)}</div>
+          </div>
+        ` : ""}
+        ${q.tip ? `
+          <div class="tip-box">
+            <div class="tip-label">重要公式・暗記ポイント</div>
+            <div>${escapeHtml(q.tip)}</div>
+          </div>
+        ` : ""}
+        ${nextBtnHtml}
+      </div>
+    `;
+  }
+}
+
+function renderReviewTab(){
+  if(STATE.wrongLog.length === 0){
+    return `
+      <div class="card">
+        <div class="fb ok" style="margin-top:0">
+          <div class="res-title">苦手問題はありません！</div>
+          <div>間違えた問題やピン留めした問題は自動的にここへ記録されます。「演習・テスト」タブから問題に挑戦しましょう。</div>
+        </div>
+      </div>
+    `;
+  }
+
+  let bodyHtml = "";
+  if(STATE.reviewSubMode === "retest"){
+    if(!session.revQ || !STATE.wrongLog.some(x => x.question === session.revQ.question)){
+      session.revQ = pickReviewQuestion();
+      session.revAnswered = false;
+    }
+    const q = session.revQ;
+    const labels = ["ア", "イ", "ウ", "エ"];
+    const logItem = STATE.wrongLog.find(x => x.question === q.question) || { streakOk: 0, missCount: 1 };
+
+    bodyHtml = `
+      <div class="tags">
+        <span class="tag ${q.subject === "理科" ? "sub-sci" : "sub-soc"}">${q.subject}</span>
+        <span class="tag">${q.category}</span>
+        <span class="tag mastery">克服進捗：${logItem.streakOk || 0} / ${STATE.reviewMasteryTarget} 回正解</span>
+      </div>
+      <div class="q-text">${formatQuestionHtml(q.question)}</div>
+      <div id="rev-opts">
+        ${q.options.map((opt, i) => `
+          <button class="opt" onclick="handleReviewAnswer(${i})">
+            <span class="opt-num">${labels[i]}</span>
+            <span>${escapeHtml(opt)}</span>
+          </button>
+        `).join("")}
+      </div>
+      <div id="rev-fb"></div>
+    `;
+  } else {
+    bodyHtml = STATE.wrongLog.map((item, idx) => {
+      const isOpen = !!session.revCardOpen[idx];
+      const ans = item.options[item.answerIndex];
+      const noteObj = STATE.studyNotes && STATE.studyNotes[item.question];
+      return `
+        <div class="review-item">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:5px;flex-wrap:wrap">
+            <div>
+              <span class="tag ${item.subject === "理科" ? "sub-sci" : "sub-soc"}">${item.subject}</span>
+              <span class="tag">${item.category}</span>
+            </div>
+            <button class="pill-btn" style="padding:2px 8px;font-size:10.5px" onclick="removeWrongItem(${idx})">克服済にする</button>
+          </div>
+          <div class="review-q">${formatQuestionHtml(item.question)}</div>
+          <div style="margin-top:6px">
+            <span class="red-mask ${isOpen ? "revealed" : ""}" onclick="toggleRevCard(${idx})">${escapeHtml(ans)}</span>
+            <span style="font-size:11px;color:var(--sub);margin-left:6px">（タップで答え表示）</span>
+          </div>
+          ${isOpen ? `
+            <div class="review-exp" style="margin-top:6px">${escapeHtml(item.explanation)}</div>
+            ${item.deepDive ? `<div style="font-size:12px;color:var(--deep);font-weight:700;margin-top:4px">${escapeHtml(item.deepDive)}</div>` : ""}
+            ${noteObj && noteObj.memo ? `<div style="font-size:12px;color:var(--acc);font-weight:800;margin-top:4px">✍️ マイメモ：${escapeHtml(noteObj.memo)}</div>` : ""}
+          ` : ""}
+        </div>
+      `;
+    }).join("");
+  }
+
+  return `
+    <div class="card">
+      <div class="mode-row">
+        <div class="mode-switch">
+          <button class="${STATE.reviewSubMode === "retest" ? "active" : ""}" onclick="setReviewSubMode('retest')">苦手から再テスト</button>
+          <button class="${STATE.reviewSubMode === "cards" ? "active" : ""}" onclick="setReviewSubMode('cards')">苦手カード一覧(${STATE.wrongLog.length})</button>
+        </div>
+        <div class="mode-switch">
+          <button class="${STATE.reviewMasteryTarget === 1 ? "active" : ""}" onclick="setMasteryTarget(1)">1回正解で解除</button>
+          <button class="${STATE.reviewMasteryTarget === 2 ? "active" : ""}" onclick="setMasteryTarget(2)">2回連続で解除</button>
+        </div>
+      </div>
+      ${bodyHtml}
+    </div>
+  `;
+}
+
+/* =========================================================
+   11. タブ3：解説・公式集ビュー（体系比較表＆図解・マイメモ・赤シート）
+========================================================= */
+function setGuideSubject(s){
+  SFX.tap();
+  STATE.guideSubject = s;
+  STATE.guideUnit = "all";
+  saveState();
+  render();
+}
+function setGuideUnit(u){
+  SFX.tap();
+  STATE.guideUnit = u;
+  saveState();
+  render();
+}
+function setGuideSearch(val){
+  STATE.guideSearch = val;
+  render();
+  const inp = document.getElementById("guide-search-inp");
+  if(inp){
+    inp.focus();
+    inp.setSelectionRange(val.length, val.length);
+  }
+}
+function toggleRedSheet(){
+  SFX.tap();
+  STATE.redSheet = !STATE.redSheet;
+  saveState();
+  render();
+}
+function toggleCompareTables(){
+  SFX.tap();
+  STATE.showCompareTables = !STATE.showCompareTables;
+  saveState();
+  render();
+}
+function setAllRedMasks(reveal){
+  SFX.tap();
+  document.querySelectorAll(".guide-red-mask").forEach(el => {
+    el.classList.toggle("revealed", reveal);
+  });
+}
+
+function renderComparisonDiagrams(){
+  if(!STATE.showCompareTables) return "";
+  const sciTables = STATE.guideSubject !== "社会" ? `
+    <div class="comp-card">
+      <div class="comp-title" style="color:var(--sci)">📐 オームの法則＆電力・熱量 つながり図解</div>
+      <svg viewBox="0 0 420 110" width="100%" style="max-height:115px;display:block;margin:4px auto">
+        <rect x="8" y="14" width="120" height="82" rx="12" fill="var(--accbg)" stroke="var(--acc)" stroke-width="1.5"/>
+        <text x="68" y="38" text-anchor="middle" font-size="11" font-weight="900" fill="var(--acc)">オームの法則</text>
+        <text x="68" y="60" text-anchor="middle" font-size="14" font-weight="900" fill="var(--ink)">V ＝ R × I</text>
+        <text x="68" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="var(--sub)">1A ＝ 1000mA</text>
+
+        <path d="M132 55 L154 55" stroke="var(--sub)" stroke-width="2" marker-end="url(#arrow)"/>
+        <rect x="156" y="14" width="120" height="82" rx="12" fill="var(--scibg)" stroke="var(--sci)" stroke-width="1.5"/>
+        <text x="216" y="38" text-anchor="middle" font-size="11" font-weight="900" fill="var(--sci)">電力（1秒あたり）</text>
+        <text x="216" y="60" text-anchor="middle" font-size="14" font-weight="900" fill="var(--ink)">W ＝ V × I</text>
+        <text x="216" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="var(--sub)">単位：ワット(W)</text>
+
+        <path d="M280 55 L302 55" stroke="var(--sub)" stroke-width="2"/>
+        <rect x="304" y="14" width="108" height="82" rx="12" fill="var(--tipbg)" stroke="var(--tipbd)" stroke-width="1.5"/>
+        <text x="358" y="38" text-anchor="middle" font-size="11" font-weight="900" fill="var(--tip)">熱量・電力量</text>
+        <text x="358" y="60" text-anchor="middle" font-size="14" font-weight="900" fill="var(--ink)">J ＝ W × 秒</text>
+        <text x="358" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ng)">分は×60で秒に！</text>
+      </svg>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-title" style="color:var(--sci)">⚡ 直列回路 vs 並列回路 徹底比較表</div>
+      <table class="comp-table">
+        <tr><th>比較項目</th><th>直列回路（1本道）</th><th>並列回路（枝分かれ）</th></tr>
+        <tr><td>電流の大きさ</td><td>どこも同じ（I ＝ I₁ ＝ I₂）</td><td>枝分かれの和（I ＝ I₁ ＋ I₂）</td></tr>
+        <tr><td>電圧の大きさ</td><td>各部分の和（V ＝ V₁ ＋ V₂）</td><td>どこも電源と同じ（V ＝ V₁ ＝ V₂）</td></tr>
+        <tr><td>全体の抵抗</td><td>足し算で大きくなる（R₁＋R₂）</td><td>元のどの抵抗よりも小さくなる</td></tr>
+        <tr><td>電球の明るさ</td><td>暗い（電圧が分けられるため）</td><td>明るい（各電球にフル電圧がかかる）</td></tr>
+      </table>
+    </div>
+  ` : "";
+
+  const socTables = STATE.guideSubject !== "理科" ? `
+    <div class="comp-card">
+      <div class="comp-title" style="color:var(--soc)">📜 江戸の三大改革 比較まとめ表</div>
+      <table class="comp-table">
+        <tr><th>改革名（年代）</th><th>中心人物</th><th>主な政策・キーワード</th><th>狙いと結果</th></tr>
+        <tr><td>享保の改革<br>(1716〜)</td><td>8代将軍<br>徳川吉宗</td><td>目安箱・上げ米の制・新田開発・公事方御定書</td><td>年貢増収で幕府財政を一時回復</td></tr>
+        <tr><td>寛政の改革<br>(1787〜)</td><td>老中<br>松平定信</td><td>囲い米の制・棄捐令・寛政異学の禁・出版統制</td><td>ききん対策と風紀引き締め。厳しすぎて不評</td></tr>
+        <tr><td>天保の改革<br>(1841〜)</td><td>老中<br>水野忠邦</td><td>株仲間の解散・人返しの法・上知令</td><td>物価引き下げを狙うが経済混乱で失敗</td></tr>
+      </table>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-title" style="color:var(--soc)">🚢 日米和親条約 vs 日米修好通商条約 比較表</div>
+      <table class="comp-table">
+        <tr><th>比較項目</th><th>日米和親条約（1854年）</th><th>日米修好通商条約（1858年）</th></tr>
+        <tr><td>相手と調印</td><td>ペリー（鎖国の終わり）</td><td>ハリス（大老・井伊直弼が無断調印）</td></tr>
+        <tr><td>開港した港</td><td>下田・箱館（2港）</td><td>横浜・長崎・箱館・新潟・兵庫（5港）</td></tr>
+        <tr><td>主な内容</td><td>薪・水・食料の補給、領事駐在</td><td>自由貿易の開始＋領事裁判権・関税自主権なし</td></tr>
+      </table>
+    </div>
+  ` : "";
+
+  return sciTables + socTables;
+}
+
+function renderGuideTab(){
+  const kw = (STATE.guideSearch || "").trim().toLowerCase();
+  const unitOptions = STATE.guideSubject === "理科" ? SCI_UNITS.filter(u => u[0] !== "calc")
+    : STATE.guideSubject === "社会" ? SOC_UNITS : [];
+  const unitChipsHtml = unitOptions.length ? `
+    <div class="sub-filters">
+      ${unitOptions.map(([val, lbl]) => `
+        <button class="chip-btn ${STATE.guideUnit === val ? "active" : ""}" onclick="setGuideUnit('${val}')">${lbl}</button>
+      `).join("")}
+    </div>
+  ` : "";
+
+  const filtered = GUIDE_ITEMS.filter(item => {
+    if(STATE.guideSubject !== "all" && item.subject !== STATE.guideSubject) return false;
+    if(STATE.guideUnit !== "all" && item.category !== STATE.guideUnit) return false;
+    if(kw && !(item.term.toLowerCase().includes(kw) || item.summary.toLowerCase().includes(kw) || item.explanation.toLowerCase().includes(kw) || (item.deepDive && item.deepDive.toLowerCase().includes(kw)))) return false;
+    return true;
+  });
+
+  const savedMemoEntries = Object.entries(STATE.studyNotes || {}).filter(([, v]) => v && (v.memo || v.level));
+  const myMemoSectionHtml = savedMemoEntries.length > 0 ? `
+    <div class="comp-card" style="border-color:var(--acc)">
+      <div class="comp-title" style="color:var(--acc)">✍️ あなたのマイ学習メモ＆理解度リスト（${savedMemoEntries.length}件）</div>
+      ${savedMemoEntries.slice(0, 12).map(([, v]) => {
+        const badge = v.level === "high" ? "◎ 説明できる" : v.level === "mid" ? "△ 理解" : v.level === "low" ? "× 要復習" : "";
+        return `
+          <div style="padding:6px 0;border-bottom:1px dashed var(--line);font-size:12.5px">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:6px">
+              <strong>${escapeHtml(v.term || "")}（${escapeHtml(v.category || "")}）</strong>
+              ${badge ? `<span class="tag">${badge}</span>` : ""}
+            </div>
+            ${v.memo ? `<div style="color:var(--acc);font-weight:800;margin-top:2px">メモ：${escapeHtml(v.memo)}</div>` : ""}
+          </div>
+        `;
+      }).join("")}
+    </div>
+  ` : "";
+
+  const formulasHtml = STATE.guideSubject !== "社会" ? `
+    <div style="font-weight:900;font-size:14px;margin-bottom:8px;color:var(--sci)">中学理科 重要公式・法則まとめ</div>
+    <div class="formula-grid">
+      ${FORMULAS_LIST.map(f => `
+        <div class="formula-card">
+          <div class="formula-title">${escapeHtml(f.title)}</div>
+          <div class="formula-eq">${escapeHtml(f.eq)}</div>
+          <div class="formula-note">${escapeHtml(f.note)}</div>
+        </div>
+      `).join("")}
+    </div>
+  ` : "";
+
+  return `
+    <div class="card">
+      <div class="mode-row">
+        <div class="mode-switch">
+          <button class="${STATE.guideSubject === "all" ? "active" : ""}" onclick="setGuideSubject('all')">すべて</button>
+          <button class="${STATE.guideSubject === "理科" ? "active" : ""}" onclick="setGuideSubject('理科')">理科</button>
+          <button class="${STATE.guideSubject === "社会" ? "active" : ""}" onclick="setGuideSubject('社会')">社会（歴史）</button>
+        </div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap">
+          <button class="pill-btn ${STATE.showCompareTables ? "on" : ""}" onclick="toggleCompareTables()">比較表・図解:${STATE.showCompareTables ? "表示" : "隠す"}</button>
+          <button class="pill-btn ${STATE.redSheet ? "on" : ""}" onclick="toggleRedSheet()">赤シート:${STATE.redSheet ? "ON" : "OFF"}</button>
+          ${STATE.redSheet ? `
+            <button class="pill-btn" style="padding:5px 8px;font-size:11px" onclick="setAllRedMasks(true)">全表示</button>
+            <button class="pill-btn" style="padding:5px 8px;font-size:11px" onclick="setAllRedMasks(false)">全隠し</button>
+          ` : ""}
+        </div>
+      </div>
+      ${unitChipsHtml}
+      <input id="guide-search-inp" class="search-input" type="text" placeholder="用語・人物・年号・公式を検索（例：オーム、徳川吉宗、1853）" value="${escapeHtml(STATE.guideSearch || "")}" oninput="setGuideSearch(this.value)">
+      ${renderComparisonDiagrams()}
+      ${myMemoSectionHtml}
+      ${formulasHtml}
+      <div style="font-weight:900;font-size:13.5px;margin-bottom:8px;color:var(--sub)">用語・年号・深掘り解説データベース（${filtered.length}件）</div>
+      ${filtered.slice(0, 85).map(item => `
+        <div class="review-item">
+          <div style="margin-bottom:4px">
+            <span class="tag ${item.subject === "理科" ? "sub-sci" : "sub-soc"}">${item.subject}</span>
+            <span class="tag">${item.category}</span>
+          </div>
+          <div class="review-q">
+            <span class="${STATE.redSheet ? "red-mask guide-red-mask" : ""}" onclick="if(this.classList.contains('red-mask'))this.classList.toggle('revealed')">${escapeHtml(item.term)}</span>
+          </div>
+          <div class="review-exp">${escapeHtml(item.explanation)}</div>
+          ${item.mnemonics && item.mnemonics.length > 0 ? `
+            <div style="margin-top:6px;padding:6px 9px;border-radius:8px;background:var(--socbg);border:1px solid var(--soc);font-size:12px">
+              <div style="font-weight:900;color:var(--soc);margin-bottom:2px">🎵 おすすめ語呂合わせ：</div>
+              ${item.mnemonics.map(m => `<div style="font-weight:800">・「${escapeHtml(m)}」</div>`).join("")}
+            </div>
+          ` : ""}
+          ${item.deepDive ? `<div style="font-size:12px;color:var(--deep);font-weight:700;margin-top:4px">${escapeHtml(item.deepDive)}</div>` : ""}
+          ${item.tip ? `<div style="font-size:11.5px;font-weight:800;color:var(--tip);margin-top:4px">★ ${escapeHtml(item.tip)}</div>` : ""}
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+/* =========================================================
+   12. タブ4：成績分析＆弱点診断ビュー
+========================================================= */
+function askReset(action){
+  SFX.tap();
+  session.confirmAction = action;
+  render();
+}
+function cancelReset(){
+  SFX.tap();
+  session.confirmAction = null;
+  render();
+}
+function execReset(){
+  SFX.tap();
+  if(session.confirmAction === "wrong"){
+    STATE.wrongLog = [];
+  } else if(session.confirmAction === "all"){
+    STATE.totalAnswered = 0;
+    STATE.totalCorrect = 0;
+    STATE.streak = 0;
+    STATE.maxStreak = 0;
+    STATE.xp = 0;
+    STATE.todayCount = 0;
+    STATE.unitStats = {};
+    STATE.wrongLog = [];
+    STATE.bestExamScore = null;
+    STATE.studyNotes = {};
+  }
+  session.confirmAction = null;
+  saveState();
+  render();
+}
+
+function renderStatsTab(){
+  const pct = STATE.totalAnswered ? Math.round((STATE.totalCorrect / STATE.totalAnswered) * 100) : 0;
+  const weakUnits = getWeakUnitsSummary();
+  const weakTypes = getWeakTypeSummary();
+
+  const weakDiagnosisHtml = weakUnits.length > 0 ? `
+    <div style="background:var(--ngbg);border:1.5px solid var(--ng);border-radius:14px;padding:12px;margin-bottom:14px">
+      <div style="font-weight:900;font-size:13.5px;color:var(--ng);margin-bottom:5px">重点弱点診断（正答率75%未満の単元）</div>
+      <div style="font-size:12.5px;margin-bottom:8px">
+        最も強化すべき単元：<strong>${escapeHtml(weakUnits[0].category)}（正答率 ${weakUnits[0].rate}%）</strong>
+        ${weakTypes.length > 0 ? `<br>つまずきやすい出題形式：<strong>「${escapeHtml(weakTypes[0][0])}」問題（ミス ${weakTypes[0][1]}回）</strong>` : ""}
+      </div>
+      <button class="btn danger" style="margin-top:0;padding:10px" onclick="startWeaknessDrill()">弱点単元だけ集中トレーニングを開始</button>
+    </div>
+  ` : `
+    <div style="background:var(--scibg);border:1.5px solid var(--sci);border-radius:14px;padding:12px;margin-bottom:14px;font-size:12.5px">
+      <strong style="color:var(--sci)">弱点診断：全単元バランスよく習得できています！</strong><br>
+      さらに実力を伸ばすには「定期試験・予想模試」で100点満点にチャレンジしてみましょう。
+    </div>
+  `;
+
+  const unitRowsHtml = ALL_UNITS_META.map(u => {
+    const st = STATE.unitStats[u.category] || { total: 0, correct: 0 };
+    const uPct = st.total ? Math.round((st.correct / st.total) * 100) : 0;
+    const barColor = !st.total ? "var(--sub)" : uPct >= 80 ? "var(--sci)" : uPct >= 60 ? "var(--tipbd)" : "var(--ng)";
+    return `
+      <div class="unit-row">
+        <div class="unit-top">
+          <div>
+            <span class="tag ${u.subject === "理科" ? "sub-sci" : "sub-soc"}">${u.subject}</span>
+            <span style="margin-left:4px">${u.category}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span class="num" style="color:${barColor}">${st.total ? `${st.correct}/${st.total}問 (${uPct}%)` : "未挑戦"}</span>
+            <button class="pill-btn" style="padding:3px 9px;font-size:11px" onclick="jumpToUnitQuiz('${u.subject}','${u.category}')">演習</button>
+          </div>
+        </div>
+        <div class="unit-bar"><div class="unit-fill" style="width:${uPct}%;background:${barColor}"></div></div>
+      </div>
+    `;
+  }).join("");
+
+  const confirmHtml = session.confirmAction ? `
+    <div class="confirm-box">
+      <div style="margin-bottom:8px">${session.confirmAction === "wrong" ? "苦手問題リストをすべて空にしますか？" : "これまでの学習成績・最高記録・苦手リストをすべて初期化しますか？"}</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn danger" style="margin-top:0;padding:9px" onclick="execReset()">はい、実行する</button>
+        <button class="btn ghost" style="margin-top:0;padding:9px" onclick="cancelReset()">キャンセル</button>
+      </div>
+    </div>
+  ` : "";
+
+  return `
+    <div class="card">
+      <div class="stat-grid">
+        <div class="stat-tile">
+          <div class="stat-tile-lbl">総回答数</div>
+          <div class="stat-tile-val num">${STATE.totalAnswered}<span style="font-size:12px">問</span></div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-lbl">通算正答率</div>
+          <div class="stat-tile-val num" style="color:var(--acc)">${pct}<span style="font-size:13px">%</span></div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-lbl">予想模試ベスト</div>
+          <div class="stat-tile-val num" style="color:var(--exam)">${STATE.bestExamScore !== null ? `${STATE.bestExamScore}<span style="font-size:12px">点</span>` : "未受験"}</div>
+        </div>
+      </div>
+
+      ${weakDiagnosisHtml}
+
+      <div style="font-weight:900;font-size:14px;margin-bottom:4px">単元別の習熟度・正答率</div>
+      ${unitRowsHtml}
+
+      <div style="margin-top:14px">
+        <button class="btn ghost" onclick="askReset('wrong')">苦手リストをクリア</button>
+        <button class="btn ghost" style="color:var(--ng);border-color:var(--ng)" onclick="askReset('all')">全学習データをリセット</button>
+        ${confirmHtml}
+      </div>
+    </div>
+  `;
+}
+
+/* =========================================================
+   13. 全体レンダリング＆キーボードショートカット
+========================================================= */
+function render(){
+  let content = "";
+  if(STATE.activeTab === "quiz") content = renderQuizTab();
+  else if(STATE.activeTab === "review") content = renderReviewTab();
+  else if(STATE.activeTab === "guide") content = renderGuideTab();
+  else content = renderStatsTab();
+
+  app.innerHTML = renderShell() + content;
+  if(STATE.activeTab === "quiz" && STATE.answerStyle === "handwrite"){
+    initScratchpadCanvas();
+  }
+  if(STATE.activeTab === "quiz" && STATE.answerStyle !== "handwrite" && STATE.showCalcMemo){
+    initCalcMemoCanvas();
+  }
+}
+
+document.addEventListener("keydown", e => {
+  if(session.activeModal){
+    if(e.key === "Escape") closeModal();
+    return;
+  }
+  if(document.activeElement && (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA")) return;
+  if(STATE.activeTab === "quiz"){
+    if(!session.answered && STATE.answerStyle === "choice" && ["1", "2", "3", "4"].includes(e.key)){
+      handleQuizAnswer(Number(e.key) - 1);
+    } else if(session.answered && e.key === "Enter"){
+      nextQuizQuestion();
+    }
+  } else if(STATE.activeTab === "review" && STATE.reviewSubMode === "retest"){
+    if(!session.revAnswered && ["1", "2", "3", "4"].includes(e.key)){
+      handleReviewAnswer(Number(e.key) - 1);
+    } else if(session.revAnswered && e.key === "Enter" && STATE.wrongLog.length > 0){
+      nextReviewQuestion();
+    }
+  }
+});
+
+window.addEventListener("resize", () => {
+  if(STATE.activeTab === "quiz" && STATE.answerStyle === "handwrite"){
+    initScratchpadCanvas();
+  }
+  if(STATE.activeTab === "quiz" && STATE.answerStyle !== "handwrite" && STATE.showCalcMemo){
+    initCalcMemoCanvas();
+  }
+});
+
+window.addEventListener("online", () => {
+  session.isOnline = true;
+  const el = document.getElementById("net-status");
+  if(el){ el.className = "offline-badge online"; el.textContent = "オフライン動作対応"; }
+});
+window.addEventListener("offline", () => {
+  session.isOnline = false;
+  const el = document.getElementById("net-status");
+  if(el){ el.className = "offline-badge offline"; el.textContent = "オフライン稼働中"; }
+});
+
+render();
+startQuestionTimer();
+</script>
+</body>
+</html>
